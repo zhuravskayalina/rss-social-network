@@ -41,6 +41,7 @@
     "react/react-in-jsx-scope": "off",
     "camelcase": "error",
     "spaced-comment": "error",
+    "jsx-a11y/control-has-associated-label" : "off",
     "quotes": [
       "error",
       "single"
