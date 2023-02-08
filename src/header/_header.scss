@@ -1,0 +1,28 @@
+@import '../stylesheets/_colors.scss';
+
+.header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: $color-header-background;
+  color: $color-pure-white;
+  height: 100%;
+  padding: 28px 70px 28px 10px;
+
+  &__logo-icon {
+    height: 46.5px;
+    margin-left: 50px;
+  }
+
+  &__text-language {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 28px;
+    color: $color-pure-white;
+  }
+
+  &__empty-space {
+    margin-left: auto;
+  }
+}

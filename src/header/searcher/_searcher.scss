@@ -1,0 +1,45 @@
+@import '../../stylesheets/_colors.scss';
+
+.header {
+  --Z-index-search-input-hidden: 0;
+  --Z-index-search-icon: 1;
+
+  &__input-wrapper {
+    position: relative;
+    margin-left: 50px;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 250px;
+    background: $color-header-background;
+    border: $color-input-border;
+    box-shadow: $color-input-shadow;
+    border-radius: 30px;
+    color: $color-pure-white;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    padding: 13px 45px 13px 20px;
+    z-index: var(--Z-index-search-input-hidden);
+  }
+
+  &__input-search-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 3%;
+    left: auto;
+    top: 14%;
+    bottom: auto;
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    color: $color-input-search-icon;
+    z-index: var(--Z-index-search-icon);
+  }
+}

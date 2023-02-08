@@ -5,5 +5,12 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
+
+@import './assets/fonts/icon-font/icons-font.css';
+@import 'stylesheets/_colors.scss';
+@import 'header/_header.scss';
+@import 'header/loginButton/_loginButton.scss';
+@import 'header/searcher/_searcher.scss';
+@import 'header/switcher/_switcher.scss';
