@@ -1,10 +1,10 @@
-@import "./assets/fonts/icon-font/icons-font.css";
+@use "./assets/fonts/icon-font/icons-font.css";
+@use './stylesheets/base/reset';
 
 .app {
-  text-align: center;
   background-color: black;
-  color: white;
   height: 100%;
+  font-family: "Helvetica Neue", sans-serif;
 }
 
 .blue {

@@ -1,0 +1,108 @@
+@use "./src/stylesheets/mixins/mixins";
+
+.cover {
+  width: 100%;
+  border-radius: 8px;
+  height: 340px;
+  background-image: url('../../../assets/images/wallpaper.png');
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+  &__gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 35px 50px;
+    border-radius: 8px;
+
+    @media (max-width: 600px) {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__info-block {
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__img {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 3px solid white;
+  }
+}
+
+.cover-info {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 600px) {
+    align-items: center;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 140%;
+  }
+
+  &__location {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 200%;
+    margin-bottom: 15px;
+  }
+}
+
+.soc-media {
+  display: flex;
+  gap: 6px;
+
+  &__link {
+    @include mixins.center-content;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__item {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+
+    &_inst {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    &_twitter {
+      background: #1E9CED;
+    }
+
+    &_linkedin {
+      background: #0B66C0;
+    }
+  }
+
+  &__icon {
+    width: 17px;
+
+    &__inst {
+      width: 25px;
+    }
+
+  }
+}
+
+
+
+
+
