@@ -1,4 +1,5 @@
-@import '../../stylesheets/_colors.scss';
+@import '../../../stylesheets/colors.module';
+@import '../../../stylesheets/mixins.module';
 
 .header {
   --Z-index-search-input-hidden: 0;
@@ -7,13 +8,19 @@
   &__input-wrapper {
     position: relative;
     margin-left: 50px;
+    width: 21%;
+
+    @include media-mobile {
+      min-width: 200px;
+      margin: 5%;
+    }
   }
 
   &__input {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    width: 250px;
+    width: 79%;
     background: $color-header-background;
     border: $color-input-border;
     box-shadow: $color-input-shadow;

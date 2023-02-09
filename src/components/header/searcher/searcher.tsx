@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import styles from '../../index.scss';
+import styles from './searcher.module.scss';
 
 const classStyles = classNames.bind(styles);
 
