@@ -1,14 +1,14 @@
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+// import { useState } from 'react';
 import styles from './App.scss';
-import { ReactComponent as MenuIcon } from './assets/icons/menu.svg';
+// import { ReactComponent as MenuIcon } from './assets/icons/menu.svg';
 import Header from './components/header/header';
 
 const cx = classNames.bind(styles);
 
 const App = () => {
-  const [value, setValue] = useState<boolean>(false);
-  const buttonStateClass = value ? 'rose' : 'blue';
+  // const [value, setValue] = useState<boolean>(false);
+  // const buttonStateClass = value ? 'rose' : 'blue';
 
   return (
     <div className={cx('app')}>
