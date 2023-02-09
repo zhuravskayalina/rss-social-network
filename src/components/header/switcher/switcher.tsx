@@ -5,8 +5,12 @@ const classStyles = classNames.bind(styles);
 
 const Switcher = () => {
   return (
-    <label className={classStyles('header__switch-language')}>
-      <input type='checkbox' className={classStyles('header__switch-language-input')} />
+    <label htmlFor='language-switcher' className={classStyles('header__switch-language')}>
+      <input
+        type='checkbox'
+        id='language-switcher'
+        className={classStyles('header__switch-language-input')}
+      />
       <span className={classStyles('header__switch-language-circle')} />
     </label>
   );
