@@ -1,0 +1,45 @@
+@import '../../stylesheets/colors.module';
+@import '../../stylesheets/mixins.module';
+
+.header {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: $color-header-background;
+  color: $color-pure-white;
+  height: 100%;
+  padding: 5% 11% 5% 3%;
+
+  &__logo-icon {
+    height: 46.5px;
+    width: 146px;
+    margin-left: 20%;
+    background: url('../../assets/icons/headerFullLogo.svg');
+
+      @include media-tablet {
+        width: 46.5px;
+        background: url('../../assets/icons/logoWhite.svg');
+        background-size: 46.5px 46.5px;
+      }
+
+      @include media-mobile {
+        height: 35px;
+        width: 35px;
+        background-size: 35px 35px;
+        padding-right: 5%;
+      }
+  }
+
+  &__text-language {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 28px;
+    color: $color-pure-white;
+  }
+
+  &__empty-space {
+    margin-left: auto;
+  }
+}
