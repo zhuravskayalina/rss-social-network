@@ -7,3 +7,15 @@
 @mixin link-style-reset {
   text-decoration: none;
 }
+
+@mixin media-desktop {
+  @media (min-width: 770.1px) {@content;}
+}
+
+@mixin media-tablet {
+  @media (max-width: 770px) {@content;}
+}
+
+@mixin media-mobile {
+  @media (max-width: 500px) {@content;}
+}
