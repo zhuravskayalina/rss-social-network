@@ -1,0 +1,16 @@
+@use '../../../stylesheets/variables/colors';
+
+.nav {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  border-radius: 8px;
+  background-color: colors.$main-blocks-bcg;
+
+  @media (max-width: 600px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+

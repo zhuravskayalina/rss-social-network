@@ -1,0 +1,11 @@
+@use '../../stylesheets/variables/colors';
+
+.main {
+  background-color: colors.$main-background;
+  display: flex;
+  justify-content: center;
+}
+
+.main-container {
+  width: 80%;
+}

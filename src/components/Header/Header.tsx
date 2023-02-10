@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
-// import { useState } from 'react';
-import LoginButton from './loginButton/loginButton';
+
+import LoginButton from './LoginButton/LoginButton';
 import menuIcon from '../../assets/icons/menu.svg';
-import Searcher from './searcher/searcher';
-import Switcher from './switcher/switcher';
+import Searcher from './Searcher/Searcher';
+import Switcher from './Switcher/Switcher';
 import styles from './header.module.scss';
 
 const classStyles = classNames.bind(styles);

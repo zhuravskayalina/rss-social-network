@@ -1,5 +1,5 @@
-@import '../../../stylesheets/colors.module';
-@import '../../../stylesheets/mixins.module';
+@import '../../../stylesheets/variables/colors';
+@import '../../../stylesheets/mixins/mixins';
 
 .header {
   --Z-index-search-input-hidden: 0;
