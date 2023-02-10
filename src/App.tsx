@@ -3,6 +3,7 @@ import styles from './App.scss';
 
 import MainContainer from './components/mainContainer/MainContainer';
 import ProfileSection from './components/profileSection/ProfileSection';
+import Header from './components/header/header';
 
 import profileImg from './assets/images/max.jpeg';
 
@@ -18,6 +19,7 @@ const App = () => {
 
   return (
     <div className={cx('app')}>
+      <Header />
       <MainContainer>
         <ProfileSection user={user} />
       </MainContainer>
