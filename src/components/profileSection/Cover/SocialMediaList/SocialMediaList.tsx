@@ -9,25 +9,25 @@ import MediaLink from './MediaLink/MediaLink';
 
 const cx = classNames.bind(styles);
 
-const SocialMediaList = () => {
-  const resources: ExternalLink[] = [
-    {
-      title: 'twitter',
-      url: ExternalResources.Twitter,
-      icon: twitterIcon,
-    },
-    {
-      title: 'instagram',
-      url: ExternalResources.Instagram,
-      icon: instagramIcon,
-    },
-    {
-      title: 'linkedIn',
-      url: ExternalResources.LinkedIn,
-      icon: linkedinIcon,
-    },
-  ];
+const resources: ExternalLink[] = [
+  {
+    title: 'twitter',
+    url: ExternalResources.Twitter,
+    icon: twitterIcon,
+  },
+  {
+    title: 'instagram',
+    url: ExternalResources.Instagram,
+    icon: instagramIcon,
+  },
+  {
+    title: 'linkedIn',
+    url: ExternalResources.LinkedIn,
+    icon: linkedinIcon,
+  },
+];
 
+const SocialMediaList = () => {
   return (
     <ul className={cx('soc-media')}>
       {resources.map(({ title, url, icon }) => (
