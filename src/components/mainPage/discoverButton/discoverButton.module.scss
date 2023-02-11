@@ -1,11 +1,12 @@
-@import '../../../stylesheets/colors.module';
-@import '../../../stylesheets/mixins.module';
+@import '../../../stylesheets/variables/colors.scss';
+@import '../../../stylesheets/mixins/mixins.scss';
 
 * {
   box-sizing: border-box;
 }
 
 .discoverButton {
+  margin-top: 30px;
   width: 195px;
   height: 50px;
   padding: 4px;
