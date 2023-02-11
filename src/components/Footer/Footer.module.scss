@@ -1,0 +1,65 @@
+@import '../../stylesheets/colors.module';
+@import '../../stylesheets/mixins.module';
+
+.footer {
+  margin: auto auto 0;
+  padding: 120px 110px 0 200px;
+  background: $color-pure-white;
+  max-width: 1200px;
+
+  &__menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 2.5%;
+    justify-items: start;
+    align-items: start;
+    margin-bottom: 60px;
+  }
+
+  &__logo-icon {
+    width: 60%;
+    display: inline-block;
+  }
+
+  &__blocks-names {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 36px;
+    color: $color-pure-black;
+    margin: 0;
+  }
+
+  &__text, &__links {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: $color-footer-content;
+    text-decoration: none;
+  }
+
+  &__links:hover {
+    color: $color-primary-blue;
+    cursor: pointer;
+    text-decoration: underline solid $color-primary-blue;
+  }
+  &__text {
+    text-align: left;
+  }
+
+  &__block-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__copyright {
+    border-top: 1px solid $color-border;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: $color-footer-content;
+  }
+}

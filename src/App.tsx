@@ -2,11 +2,10 @@ import { IntlProvider } from 'react-intl';
 import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './App.scss';
-import { LOCALES } from './IntlLocale/locales';
-import { messages } from './IntlLocale/messages';
+import Header from './components/header/header';
+import Footer from './components/Footer/Footer';
 import MainContainer from './components/MainContainer/MainContainer';
 import ProfileSection from './components/ProfileSection/ProfileSection';
-import Header from './components/Header/Header';
 import profileImg from './assets/images/max.jpeg';
 import { getInitialLocale } from './localStorageUtils';
 
@@ -42,7 +41,7 @@ const App = () => {
         <MainContainer>
           <ProfileSection user={user} />
         </MainContainer>
-        ( console.log(IntlProvider), )
+        <Footer />
       </div>
     </IntlProvider>
   );
