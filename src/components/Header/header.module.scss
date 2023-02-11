@@ -9,7 +9,7 @@
   background-color: $color-header-background;
   color: $color-pure-white;
   height: 100%;
-  padding: 5% 11% 5% 3%;
+  padding: 0.5% 11% 0.5% 3%;
 
   &__logo-icon {
     height: 46.5px;
@@ -37,9 +37,5 @@
     font-size: 23px;
     line-height: 28px;
     color: $color-pure-white;
-  }
-
-  &__empty-space {
-    margin-left: auto;
   }
 }

@@ -3,7 +3,7 @@ import styles from './switcher.module.scss';
 
 const classStyles = classNames.bind(styles);
 
-const Switcher = () => {
+const SwitcherInput = () => {
   return (
     <label htmlFor='language-switcher' className={classStyles('header__switch-language')}>
       <input
@@ -16,4 +16,4 @@ const Switcher = () => {
   );
 };
 
-export default Switcher;
+export default SwitcherInput;
