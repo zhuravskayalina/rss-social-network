@@ -7,7 +7,7 @@ const classStyles = classNames.bind(styles);
 const MenuLinksSection = ({ links, blockClass, itemClass }: MenuSectionProps) => {
   return (
     <ul className={classStyles(`${blockClass}`)}>
-      {links.map((sectionUnit: MenuSectionInterface, idx: number) => (
+      {links.map((sectionUnit: MenuSectionInterface) => (
         <li key={`footer-${sectionUnit.title}`}>
           <a href={`${sectionUnit.link}`} className={classStyles(`${itemClass}`)}>
             {`${sectionUnit.title}`}
