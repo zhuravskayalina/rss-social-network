@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './App.scss';
-// import { LanguageProvider } from './components/providers/LanguageProvider';
+import { LanguageProvider } from './components/providers/LanguageProvider';
 
 import MainContainer from './components/MainContainer/MainContainer';
 import ProfileSection from './components/ProfileSection/ProfileSection';
@@ -20,12 +20,12 @@ const App = () => {
 
   return (
     <div className={cx('app')}>
-      {/* <LanguageProvider> */}
+      <LanguageProvider>
         <Header />
         <MainContainer>
           <ProfileSection user={user} />
         </MainContainer>
-      {/* </LanguageProvider> */}
+      </LanguageProvider>
     </div>
   );
 };

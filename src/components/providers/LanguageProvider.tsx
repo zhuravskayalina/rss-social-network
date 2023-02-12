@@ -1,23 +1,22 @@
-// import {
-//   createContext,
-//   Dispatch,
-//   SetStateAction,
-//   useMemo,
-//   useState,
-// } from 'react';
-//
-// type TypeSetState<T> = Dispatch<SetStateAction<T>>;
-//
-// interface Context {
-//   language: 'english' | 'russian';
-//   setType: TypeSetState<string>;
-// }
-//
-// export const LanguageContext = createContext({ language: 'english' });
-// export const LanguageProvider = ({}) => {
-//   const [language, setType] = useState<string>('english');
-//   const contextValue = useMemo(() => ({ language, setType }), [language]);
-//   return <LanguageContext.Provider value={contextValue}>
-//     {}
-//   </LanguageContext.Provider>;
-// };
+import React, { createContext, Dispatch, FC, SetStateAction, useMemo, useState } from 'react';
+
+type TypeSetState<T> = Dispatch<SetStateAction<T>>;
+
+interface Context {
+  language: 'english' | 'russian';
+  setState: TypeSetState<'english' | 'russian'>;
+}
+
+export const LanguageContext = createContext<Context>({
+  language: 'english',
+  setState: () => {},
+});
+export const LanguageProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [language, setLanguage] = useState<'english' | 'russian'>('english');
+  return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
+    <LanguageContext.Provider value={{ language, setState: setLanguage }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
