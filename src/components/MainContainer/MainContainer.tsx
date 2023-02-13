@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import classNames from 'classnames/bind';
 import styles from './main-container.module.scss';
 import { MainContainerProps } from './types';

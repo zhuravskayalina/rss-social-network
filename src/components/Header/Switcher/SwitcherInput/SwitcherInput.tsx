@@ -1,26 +1,26 @@
-import { useContext } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './switcher.module.scss';
-import { LanguageContext } from '../../../providers/LanguageProvider';
+import { LOCALES } from '../../../../IntlLocale/locales';
+import { ChangeLocalProps } from '../../../../AppTypes';
+import { getInitialLocal } from '../../../../localStorageUtils';
 
-const classStyles = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
-const SwitcherInput = () => {
-  const { language, setState } = useContext(LanguageContext);
-
-  const handleChange = (): void => {
-    setState(language === 'english' ? 'russian' : 'english');
-  };
+const SwitcherInput = ({ handleChange }: ChangeLocalProps) => {
+  const isRussian = getInitialLocal() === LOCALES.RUSSIAN;
+  const [checked] = useState(isRussian);
 
   return (
-    <label htmlFor='language-switcher' className={classStyles('header__switch-language')}>
+    <label htmlFor='language-switcher' className={cx('header__switch-language')}>
       <input
         type='checkbox'
         id='language-switcher'
-        className={classStyles('header__switch-language-input')}
+        className={cx('header__switch-language-input')}
         onChange={handleChange}
+        defaultChecked={checked}
       />
-      <span className={classStyles('header__switch-language-circle')} />
+      <span className={cx('header__switch-language-circle')} />
     </label>
   );
 };
