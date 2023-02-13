@@ -1,7 +1,6 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import styles from './mainPage.module.scss';
-// import mainImg from '../../assets/images/main_img.png';
 import DiscoverButton from './discoverButton/DicoverButton';
 
 const cx = classNames.bind(styles);
@@ -21,7 +20,7 @@ const MainPage = () => {
           <DiscoverButton />
         </Link>
       </div>
-      <div className={cx('main__img')}>{/* <img src={mainImg} alt='People' /> */}</div>
+      <div className={cx('main__img')}> </div>
     </div>
   );
 };
