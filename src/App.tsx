@@ -1,8 +1,10 @@
 import { IntlProvider } from 'react-intl';
 import { useState } from 'react';
 import classNames from 'classnames/bind';
+import { LOCALES } from './IntlLocale/locales';
+import { messages } from './IntlLocale/messages';
 import styles from './App.scss';
-import Header from './components/header/header';
+import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import MainContainer from './components/MainContainer/MainContainer';
 import ProfileSection from './components/ProfileSection/ProfileSection';
