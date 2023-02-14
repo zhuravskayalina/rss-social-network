@@ -1,15 +1,12 @@
-import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './switcher.module.scss';
 import { LOCALES } from '../../../../IntlLocale/locales';
 import { ChangeLocalProps } from '../../../../AppTypes';
-import { getInitialLocale } from '../../../../localStorageUtils';
 
 const cx = classNames.bind(styles);
 
-const SwitcherInput = ({ handleChange }: ChangeLocalProps) => {
-  const isRussian = getInitialLocale() === LOCALES.RUSSIAN;
-  const [checked] = useState(isRussian);
+const SwitcherInput = ({ currentLocale, handleChange }: ChangeLocalProps) => {
+  const isRussian = currentLocale === LOCALES.RUSSIAN;
 
   return (
     <label htmlFor='language-switcher' className={cx('header__switch-language')}>
@@ -18,7 +15,7 @@ const SwitcherInput = ({ handleChange }: ChangeLocalProps) => {
         id='language-switcher'
         className={cx('header__switch-language-input')}
         onChange={handleChange}
-        defaultChecked={checked}
+        defaultChecked={isRussian}
       />
       <span className={cx('header__switch-language-circle')} />
     </label>
