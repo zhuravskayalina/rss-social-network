@@ -15,9 +15,7 @@
 }
 
 @mixin media-desktop {
-  @media (min-width: 770.1px) {
-    @content;
-  }
+  @media (min-width: 770.1px) {@content;}
 }
 
 @mixin media-tablet {
@@ -27,7 +25,9 @@
 }
 
 @mixin media-mobile {
-  @media (max-width: 500px) {
-    @content;
-  }
+  @media (max-width: 500px) {@content;}
+}
+
+@mixin media-tablet-for-footer {
+  @media (max-width: 960px) {@content;}
 }
