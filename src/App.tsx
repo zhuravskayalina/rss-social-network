@@ -10,6 +10,7 @@ import MainContainer from './components/MainContainer/MainContainer';
 import ProfileSection from './components/ProfileSection/ProfileSection';
 import profileImg from './assets/images/max.jpeg';
 import { getInitialLocale } from './localStorageUtils';
+import MainPage from './components/mainPage/MainPage';
 
 const cx = classNames.bind(styles);
 
@@ -40,9 +41,10 @@ const App = () => {
     >
       <div className={cx('app')}>
         <Header currentLocale={currentLocale} handleChange={handleChange} />
-        <MainContainer>
-          <ProfileSection user={user} />
-        </MainContainer>
+        <MainPage />
+        {/* <MainContainer> */}
+        {/*   /!* <ProfileSection user={user} /> *!/ */}
+        {/* </MainContainer> */}
         <Footer />
       </div>
     </IntlProvider>

@@ -1,8 +1,9 @@
 @use "./assets/fonts/icon-font/icons-font.css";
 @use './stylesheets/base/reset';
+@use './stylesheets/variables/colors';
 
 .app {
-  background-color: black;
+  background-color: colors.$main-background;
   height: 100%;
   font-family: "Helvetica Neue", sans-serif;
 }
