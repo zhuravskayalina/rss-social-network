@@ -2,14 +2,14 @@ import classNames from 'classnames/bind';
 import styles from '../../Footer.module.scss';
 import { MenuSectionInterface, MenuSectionProps } from './footerLinksTypes';
 
-const classStyles = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
 const MenuLinksSection = ({ links, blockClass, itemClass }: MenuSectionProps) => {
   return (
-    <ul className={classStyles(`${blockClass}`)}>
+    <ul className={cx(`${blockClass}`)}>
       {links.map((sectionUnit: MenuSectionInterface) => (
         <li key={`footer-${sectionUnit.title}`}>
-          <a href={`${sectionUnit.link}`} className={classStyles(`${itemClass}`)}>
+          <a href={`${sectionUnit.link}`} className={cx(`${itemClass}`)}>
             {`${sectionUnit.title}`}
           </a>
         </li>

@@ -4,7 +4,7 @@ import MenuLinksSection from '../links/MenuLinksSection';
 import { MenuBlockInterface } from './menuBlockType';
 import decorIcon from '../../../../assets/icons/decorLine.svg';
 
-const classStyles = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
 const MenuBlock = ({
   header,
@@ -16,8 +16,8 @@ const MenuBlock = ({
 }: MenuBlockInterface) => {
   return (
     <div>
-      <p className={classStyles(`${headerStyle}`)}>{`${header}`}</p>
-      <img src={decorIcon} alt='decor' className={classStyles(`${decorIconStyle}`)} />
+      <p className={cx(`${headerStyle}`)}>{`${header}`}</p>
+      <img src={decorIcon} alt='decor' className={cx(`${decorIconStyle}`)} />
       <MenuLinksSection links={links} blockClass={blockClass} itemClass={itemClass} />
     </div>
   );

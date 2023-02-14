@@ -4,15 +4,15 @@ import logoIcon from '../../assets/icons/logoBlack.svg';
 import { importantLinks, communityLinks, developersLinks } from './menu/links/footerLinks';
 import MenuBlock from './menu/menuBlock/menuBlock';
 
-const classStyles = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
 const Footer = () => {
   return (
-    <div className={classStyles('footer')}>
-      <div className={classStyles('footer__menu-grid')}>
+    <div className={cx('footer')}>
+      <div className={cx('footer__menu-grid')}>
         <div>
-          <img src={logoIcon} alt='Owl' className={classStyles('footer__logo-icon')} />
-          <p className={classStyles('footer__text')}>
+          <img src={logoIcon} alt='Owl' className={cx('footer__logo-icon')} />
+          <p className={cx('footer__text')}>
             Social media for life. Over a billion people already on Owl. Be one of them.
           </p>
         </div>
@@ -43,7 +43,7 @@ const Footer = () => {
           itemClass='footer__links'
         />
       </div>
-      <div className={classStyles('footer__copyright')}>
+      <div className={cx('footer__copyright')}>
         <p> Copyright © 2023 </p>
       </div>
     </div>
