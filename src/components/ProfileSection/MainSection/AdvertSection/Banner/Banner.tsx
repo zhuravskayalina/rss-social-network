@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import styles from './ad-banner.scss';
-import arrowImg from '../../../../../assets/icons/arrow.svg';
+import arrowImg from '../../../../../assets/icons/btn-arrow.svg';
 
 const cx = classNames.bind(styles);
 
