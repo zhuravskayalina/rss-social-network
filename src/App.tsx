@@ -8,12 +8,12 @@ import MainContainer from './components/MainContainer/MainContainer';
 import ProfileSection from './components/ProfileSection/ProfileSection';
 import Header from './components/Header/Header';
 import profileImg from './assets/images/max.jpeg';
-import { getInitialLocal } from './localStorageUtils';
+import { getInitialLocale } from './localStorageUtils';
 
 const cx = classNames.bind(styles);
 
 const App = () => {
-  const [currentLocale, setCurrentLocale] = useState(getInitialLocal());
+  const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
 
   const handleChange = () => {
     setCurrentLocale(

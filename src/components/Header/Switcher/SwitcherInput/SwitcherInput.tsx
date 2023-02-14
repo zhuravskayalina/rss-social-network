@@ -3,12 +3,12 @@ import classNames from 'classnames/bind';
 import styles from './switcher.module.scss';
 import { LOCALES } from '../../../../IntlLocale/locales';
 import { ChangeLocalProps } from '../../../../AppTypes';
-import { getInitialLocal } from '../../../../localStorageUtils';
+import { getInitialLocale } from '../../../../localStorageUtils';
 
 const cx = classNames.bind(styles);
 
 const SwitcherInput = ({ handleChange }: ChangeLocalProps) => {
-  const isRussian = getInitialLocal() === LOCALES.RUSSIAN;
+  const isRussian = getInitialLocale() === LOCALES.RUSSIAN;
   const [checked] = useState(isRussian);
 
   return (
