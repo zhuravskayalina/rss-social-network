@@ -1,0 +1,10 @@
+.friend {
+  display: flex;
+  width: 50%;
+  height: 150px;
+
+  &__photo {
+    width: 150px;
+    height: 150px;
+  }
+}
