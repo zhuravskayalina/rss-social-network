@@ -5,9 +5,9 @@
   &__switch-language {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 33px;
-    margin: 6px;
+    width: 44px;
+    height: 23px;
+    margin: 0 6px;
   }
 
   &__switch-language-input {
@@ -32,21 +32,17 @@
   &__switch-language-circle:before {
     position: absolute;
     content: "";
-    height: 31px;
-    width: 31px;
-    left: 2px;
+    height: 21px;
+    width: 21px;
+    left: 1px;
     top: 1px;
-    bottom: 1px;
     background-color: $color-pure-white;
-    -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%;
   }
 
   &__switch-language-input:checked +  &__switch-language-circle:before {
-    -webkit-transform: translateX(25px);
-    -ms-transform: translateX(25px);
-    transform: translateX(25px);
+    transform: translateX(21px);
   }
 }
 

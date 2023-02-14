@@ -1,16 +1,14 @@
-@import '../../../stylesheets/variables/colors';
-@import '../../../stylesheets/mixins/mixins';
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/mixins/mixins';
 
 .header {
-  --Z-index-search-input-hidden: 0;
-  --Z-index-search-icon: 1;
 
   &__input-wrapper {
     position: relative;
-    margin-left: 50px;
-    width: 21%;
+    width: fit-content;
+    margin-right: 60px;
 
-    @include media-mobile {
+    @include mixins.media-mobile {
       min-width: 200px;
       margin: 5%;
     }
@@ -18,35 +16,25 @@
 
   &__input {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    width: 100%;
-    background: $color-header-background;
-    border: $color-input-border;
-    box-shadow: $color-input-shadow;
+    background: colors.$color-header-background;
+    border: colors.$color-input-border;
+    box-shadow: colors.$color-input-shadow;
     border-radius: 30px;
-    color: $color-pure-white;
+    color: colors.$color-pure-white;
     font-weight: 400;
     font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 1px;
-    padding: 13px 45px 13px 20px;
-    z-index: var(--Z-index-search-input-hidden);
+    padding: 10px 20px;
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 
   &__input-search-icon {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    right: 3%;
-    left: auto;
-    top: 14%;
-    bottom: auto;
-    width: 30px;
-    height: 30px;
+    top: 7px;
+    right: 12px;
     font-size: 22px;
-    color: $color-input-search-icon;
-    z-index: var(--Z-index-search-icon);
+    color: colors.$color-input-search-icon;
   }
 }

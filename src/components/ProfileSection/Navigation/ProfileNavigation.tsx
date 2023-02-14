@@ -7,19 +7,19 @@ const cx = classNames.bind(styles);
 const navItems = [
   {
     title: 'timeline',
-    url: '/timeline',
+    url: '',
   },
   {
     title: 'about',
-    url: '/about',
+    url: 'about',
   },
   {
     title: 'friends',
-    url: '/friends',
+    url: 'friends',
   },
   {
     title: 'gallery',
-    url: '/gallery',
+    url: 'gallery',
   },
 ];
 

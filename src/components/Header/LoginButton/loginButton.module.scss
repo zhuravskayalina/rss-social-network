@@ -1,15 +1,24 @@
-@import '../../../stylesheets/mixins/mixins';
+@use '../../../stylesheets/mixins/mixins';
+@use '../../../stylesheets/variables/colors';
+@use './src/stylesheets/variables/numbers';
 
-.header__login-button{
-  padding: 0.6% 1.7%;
-  margin-left: 70px;
+.header__login-button {
+  @include mixins.link-style-reset;
+  @include mixins.center-content;
+  padding: 5px 15px;
   font-weight: 500;
   font-size: 16px;
-  line-height: 28px;
-  border-radius: 4px;
+  border-radius: numbers.$border-radius;
+  background-color: colors.$white;
+  color: colors.$black;
+  height: 50px;
+  text-transform: uppercase;
 
-    @include media-mobile {
-      margin-left: auto;
-      margin-right: 0;
-    }
+  &:hover {
+    box-shadow: 0 0 10px colors.$white;
+  }
+
+  &:active {
+    box-shadow: 0 0 13px colors.$white;
+  }
 }
