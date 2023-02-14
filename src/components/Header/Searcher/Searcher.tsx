@@ -1,13 +1,19 @@
+import { useIntl } from 'react-intl';
 import classNames from 'classnames/bind';
 import styles from './searcher.module.scss';
 
-const classStyles = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
 const Searcher = () => {
+  const intl = useIntl();
   return (
-    <div className={classStyles('header__input-wrapper')}>
-      <input type='text' placeholder='Search here...' className={classStyles('header__input')} />
-      <span className={classStyles('icon-search', 'header__input-search-icon')} />
+    <div className={cx('header__input-wrapper')}>
+      <input
+        type='text'
+        placeholder={intl.formatMessage({ id: 'searcher' })}
+        className={cx('header__input')}
+      />
+      <span className={cx('icon-search', 'header__input-search-icon')} />
     </div>
   );
 };

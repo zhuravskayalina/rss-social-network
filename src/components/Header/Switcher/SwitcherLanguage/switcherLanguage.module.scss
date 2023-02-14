@@ -1,0 +1,15 @@
+@import '../../../../stylesheets/variables/colors';
+
+.switcher__text-language {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 28px;
+  color: $color-pure-white;
+}
+
+.language-switcher {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
