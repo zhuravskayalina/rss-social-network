@@ -1,10 +1,11 @@
 @use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/variables/numbers';
 
 .nav {
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  border-radius: 8px;
+  border-radius: numbers.$border-radius;
   background-color: colors.$main-blocks-bcg;
 
   @media (max-width: 600px) {

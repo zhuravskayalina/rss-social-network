@@ -4,3 +4,11 @@ export interface User {
   location: string;
   profilePhoto: string;
 }
+
+export interface PostItem {
+  author: string;
+  date: string;
+  content: string;
+  likesCount: number;
+  isLikedByUser: boolean;
+}

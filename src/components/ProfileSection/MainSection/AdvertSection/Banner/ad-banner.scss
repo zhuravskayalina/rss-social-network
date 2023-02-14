@@ -1,0 +1,70 @@
+@use './src/stylesheets/mixins/mixins';
+@use './src/stylesheets/variables/numbers';
+
+.banner {
+  border-radius: numbers.$border-radius;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  gap: 10px;
+  align-items: center;
+  margin: auto;
+  aspect-ratio: 1/1.5;
+  padding: 50px 40px 40px;
+
+  &__heading {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 140%;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__subheading {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  &__link {
+    background: #FFFFFF;
+    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    @include mixins.link-style-reset;
+    color: black;
+    width: fit-content;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 40px;
+    transition: 0.5s;
+
+    &:hover {
+      box-shadow: -4px 13px 6px 1px rgba(0, 0, 0, 0.1);
+
+      .banner__arrow {
+        transform: translateX(10px);
+      }
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  &__arrow {
+    margin-left: 10px;
+    transition: 0.5s;
+
+  }
+}
+
+
+
