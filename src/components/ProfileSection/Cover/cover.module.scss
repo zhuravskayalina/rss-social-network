@@ -1,8 +1,9 @@
 @use "./src/stylesheets/mixins/mixins";
+@use "../../../stylesheets/variables/numbers";
 
 .cover {
   width: 100%;
-  border-radius: 8px;
+  border-radius: numbers.$border-radius;
   height: 340px;
   background-image: url('../../../assets/images/wallpaper.png');
   background-position: center;
@@ -16,7 +17,7 @@
     display: flex;
     align-items: flex-end;
     padding: 35px 50px;
-    border-radius: 8px;
+    border-radius: numbers.$border-radius;
 
     @media (max-width: 600px) {
       justify-content: center;

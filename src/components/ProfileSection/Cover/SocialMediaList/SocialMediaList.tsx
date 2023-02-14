@@ -4,6 +4,7 @@ import { ExternalResources } from '../enums';
 import instagramIcon from '../../../../assets/icons/instagram.svg';
 import twitterIcon from '../../../../assets/icons/twitter.svg';
 import linkedinIcon from '../../../../assets/icons/linkedin.svg';
+
 import { ExternalLink } from './types';
 import MediaLink from './MediaLink/MediaLink';
 
