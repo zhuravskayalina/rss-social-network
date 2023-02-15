@@ -33,6 +33,7 @@
     box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     @include mixins.link-style-reset;
+    @include mixins.center-content;
     color: black;
     width: fit-content;
     padding: 10px 35px;

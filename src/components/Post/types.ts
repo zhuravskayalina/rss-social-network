@@ -6,4 +6,5 @@ export interface PostProps {
   isUserLike: boolean;
   likePost: () => void;
   deletePost: () => void;
+  userName: string;
 }

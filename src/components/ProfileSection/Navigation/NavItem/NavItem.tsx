@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { NavLink } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import styles from './nav-item.module.scss';
 import { NavItemProps } from './types';
 
@@ -16,7 +17,7 @@ const NavItem = ({ title, url }: NavItemProps) => {
         end
         className={({ isActive }) => cx(basicClassName, { [activeClassName]: isActive })}
       >
-        {title}
+        <FormattedMessage id={title} />
       </NavLink>
     </li>
   );

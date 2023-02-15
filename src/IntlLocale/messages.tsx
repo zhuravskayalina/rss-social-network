@@ -9,15 +9,19 @@ export const messages = {
     friends: 'Friends',
     photos: 'Photos',
     newPost: 'New Post',
+    gallery: 'Gallery',
+    go: 'Go',
   },
 
   [LOCALES.RUSSIAN]: {
-    searcher: 'Поиск...',
-    login: 'Логин',
-    timeline: 'Лента новостей',
-    about: 'О нас',
+    searcher: 'Искать...',
+    login: 'Вход',
+    timeline: 'Лента',
+    about: 'О себе',
     friends: 'Друзья',
     photos: 'Фото',
     newPost: 'Новый пост',
+    gallery: 'Фото',
+    go: 'Перейти',
   },
 };

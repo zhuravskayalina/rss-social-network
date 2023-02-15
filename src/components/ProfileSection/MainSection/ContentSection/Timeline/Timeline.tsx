@@ -5,73 +5,77 @@ import Post from '../../../../Post/Post';
 import NewPostBtn from './NewPostBtn/NewPostBtn';
 import Modal from '../../../../Modal/Modal';
 import NewPostModal from './NewPostModal/NewPostModal';
-import { PostItem } from '../../../../../types/interfaces';
+import { NetworkClient } from '../../../../../NetworkClient/NetworkClient';
+import { TimelineProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const postsData: PostItem[] = [
-  {
-    author: 'Max Mayfield',
-    date: '21.02.2023',
-    content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores aspernatur aut
-        deserunt dignissimos, dolorem eius ipsum modi necessitatibus odio officiis perspiciatis
-        porro, possimus quaerat quis reiciendis veritatis voluptas voluptates!`,
-    likesCount: 1,
-    isLikedByUser: true,
-  },
-  {
-    author: 'Max Mayfield',
-    date: '20.01.2023',
-    content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores aspernatur aut
-        deserunt dignissimos, dolorem eius ipsum modi necessitatibus odio officiis perspiciatis
-        porro, possimus quaerat quis reiciendis veritatis voluptas voluptates!`,
-    likesCount: 0,
-    isLikedByUser: false,
-  },
-  {
-    author: 'Max Mayfield',
-    date: '04.01.2023',
-    content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores aspernatur aut
-        deserunt dignissimos, dolorem eius ipsum modi necessitatibus odio officiis perspiciatis
-        porro, possimus quaerat quis reiciendis veritatis voluptas voluptates!`,
-    likesCount: 5,
-    isLikedByUser: false,
-  },
-];
+// TODO: patch post when user liked
+// TODO: патчить пользователя и добавлять ему новый пост
 
-const Timeline = () => {
+const Timeline = ({ posts, setPosts, user }: TimelineProps) => {
   const [isModalActive, setModalActive] = useState(false);
-  const [posts, setPosts] = useState(postsData);
 
   const handleOpenModal = () => {
     setModalActive((prev) => !prev);
   };
 
-  const likePost = (index: number) => {
+  const likePost = (id: string, index: number) => {
     const post = posts[index];
-    post.likesCount = post.isLikedByUser ? post.likesCount - 1 : post.likesCount + 1;
+    post.likes = post.isLikedByUser ? post.likes - 1 : post.likes + 1;
     post.isLikedByUser = !post.isLikedByUser;
     const temp = [...posts];
     setPosts(temp);
   };
 
-  const deletePost = (index: number) => {
-    const postsCopy = [...posts];
-    postsCopy.splice(index, 1);
-    setPosts(postsCopy);
+  const deletePost = (id: string, index: number) => {
+    NetworkClient.deletePost(id).then(() => {
+      const postsCopy = [...posts];
+      postsCopy.splice(index, 1);
+      setPosts(postsCopy);
+    });
   };
 
   const addPost = (content: string) => {
     const newPost = {
-      author: 'Max Mayfield',
-      date: '22.11.2023',
+      user: {
+        id: user.id,
+        name: user.name,
+        surname: user.surname,
+      },
+      userId: user.id,
+      date: new Date().toDateString(),
       content,
-      likesCount: 0,
+      likes: 0,
       isLikedByUser: false,
     };
-    posts.push(newPost);
-    setPosts(posts);
-    setModalActive(false);
+
+    NetworkClient.createPost(newPost).then((post) => {
+      posts.push(post);
+      setPosts(posts);
+      setModalActive(false);
+    });
+  };
+
+  const renderPosts = () => {
+    if (!posts.length) return <h2>No posts yet.</h2>;
+    return posts
+      .map((postItem, index) => {
+        return (
+          <Post
+            post={postItem}
+            likesCount={postItem.likes}
+            isUserLike={postItem.isLikedByUser}
+            key={`hi${index}`}
+            likePost={() => likePost(postItem.id, index)}
+            deletePost={() => deletePost(postItem.id, index)}
+            userName={`${postItem.user ? postItem.user.name : 'Dog'} ${
+              postItem.user ? postItem.user.surname : 'Patron'
+            }`}
+          />
+        );
+      })
+      .reverse();
   };
 
   return (
@@ -80,22 +84,7 @@ const Timeline = () => {
       <Modal isActive={isModalActive} setActive={setModalActive}>
         <NewPostModal addPost={addPost} />
       </Modal>
-      <div className={cx('timeline')}>
-        {posts
-          .map((postItem, index) => {
-            return (
-              <Post
-                post={postItem}
-                likesCount={postItem.likesCount}
-                isUserLike={postItem.isLikedByUser}
-                key={postItem.date}
-                likePost={() => likePost(index)}
-                deletePost={() => deletePost(index)}
-              />
-            );
-          })
-          .reverse()}
-      </div>
+      <div className={cx('timeline')}>{renderPosts()}</div>
     </>
   );
 };

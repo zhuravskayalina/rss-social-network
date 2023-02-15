@@ -1,5 +1,6 @@
 @use "./src/stylesheets/mixins/mixins";
 @use "../../../stylesheets/variables/numbers";
+@use './src/stylesheets/variables/colors';
 
 .cover {
   width: 100%;
@@ -38,6 +39,7 @@
   &__img {
     width: 125px;
     height: 125px;
+    background-color: colors.$white;
     border-radius: 50%;
     border: 3px solid white;
   }

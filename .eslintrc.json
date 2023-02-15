@@ -49,6 +49,10 @@
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "react/button-has-type": "off",
+    "class-methods-use-this": "off",
+    "react/no-array-index-key": "off",
+    "consistent-return": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
     "quotes": [
       "error",
       "single"

@@ -6,13 +6,13 @@ import { ReactComponent as DeleteIcon } from '../../assets/icons/delete.svg';
 
 const cx = classNames.bind(styles);
 
-const Post = ({ likesCount, post, isUserLike, likePost, deletePost }: PostProps) => {
+const Post = ({ likesCount, post, isUserLike, likePost, deletePost, userName }: PostProps) => {
   return (
     <div className={cx('post')}>
       <div className={cx('post__head')}>
         <div className={cx('post__photo')} />
         <div className={cx('post__info')}>
-          <p className={cx('post__name')}>{post.author}</p>
+          <p className={cx('post__name')}>{userName}</p>
           <p className={cx('post__date')}>{post.date}</p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { FormattedMessage } from 'react-intl/lib';
 import styles from './new-post-btn.module.scss';
 import { NewPostButtonProps } from './types';
 
@@ -8,7 +9,7 @@ const NewPostButton = ({ onClick }: NewPostButtonProps) => {
   return (
     <button onClick={onClick} className={cx('button')}>
       <span className={cx('button__icon')}>+</span>
-      New Post
+      <FormattedMessage id='newPost' />
     </button>
   );
 };

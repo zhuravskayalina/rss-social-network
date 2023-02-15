@@ -1,5 +1,5 @@
 import { IntlProvider } from 'react-intl';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { Route, Routes } from 'react-router-dom';
 import { LOCALES } from './IntlLocale/locales';
@@ -9,28 +9,58 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import MainContainer from './components/MainContainer/MainContainer';
 import ProfileSection from './components/ProfileSection/ProfileSection';
-import profileImg from './assets/images/max.jpeg';
 import { getInitialLocale } from './localStorageUtils';
 import MainPage from './components/mainPage/MainPage';
 import Timeline from './components/ProfileSection/MainSection/ContentSection/Timeline/Timeline';
+import { PostItem, User } from './types/interfaces';
+import { NetworkClient } from './NetworkClient/NetworkClient';
 
 const cx = classNames.bind(styles);
 
-const user = {
-  name: 'Max',
-  surname: 'Mayfield',
-  location: 'Hawkins, Indiana',
-  profilePhoto: profileImg,
+const userEx: User = {
+  id: '',
+  name: 'Name',
+  surname: 'Surname',
+  location: 'City, Country',
+  profilePhoto: null,
+  posts: [
+    {
+      id: '',
+      userId: '',
+      user: {
+        id: '',
+        name: '',
+        surname: '',
+      },
+      date: '',
+      content: '',
+      likes: 0,
+      isLikedByUser: false,
+    },
+  ],
 };
 
-const profilePage = (
-  <MainContainer>
-    <ProfileSection user={user} />
-  </MainContainer>
-);
+const getProfilePage = (user: User) => {
+  return (
+    <MainContainer>
+      <ProfileSection user={user} />
+    </MainContainer>
+  );
+};
 
 const App = () => {
+  const userId = '1';
+
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
+  const [user, setUser] = useState<User>(userEx);
+  const [posts, setPosts] = useState<PostItem[]>([]);
+
+  useEffect(() => {
+    NetworkClient.getUser(userId).then((userData) => {
+      setUser(userData);
+      setPosts(userData.posts);
+    });
+  }, []);
 
   const handleChange = () => {
     setCurrentLocale(
@@ -51,8 +81,8 @@ const App = () => {
         <Header currentLocale={currentLocale} handleChange={handleChange} />
         <Routes>
           <Route path='' element={<MainPage />} />
-          <Route path='profile' element={profilePage}>
-            <Route path='' element={<Timeline />} />
+          <Route path='profile' element={getProfilePage(user)}>
+            <Route path='' element={<Timeline posts={posts} setPosts={setPosts} user={user} />} />
             <Route path='about' element={<div>About</div>} />
             <Route path='friends' element={<div>Friends</div>} />
             <Route path='gallery' element={<div>Gallery</div>} />

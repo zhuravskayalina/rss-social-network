@@ -9,7 +9,7 @@ const snowboardBanner = {
   className: 'banners-section__banner',
   heading: 'Snowboarding Shop',
   subHeading: 'Snowboards, boots, googles',
-  buttonContent: 'Go',
+  buttonContent: 'go',
   imgUrl: snowBanner,
   url: 'https://zhuravskayalina-online-store.netlify.app',
 };
