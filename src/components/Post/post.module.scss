@@ -52,17 +52,17 @@
 
     &:hover {
       cursor: pointer;
+
+      .post__delete-icon {
+        path {
+          fill: colors.$main-gray;
+        }
+      }
     }
   }
 
   &__delete-icon {
     width: 15px;
-
-    &_hover {
-      path {
-        fill: colors.$main-gray;
-      }
-    }
   }
 }
 
