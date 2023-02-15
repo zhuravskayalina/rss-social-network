@@ -11,7 +11,11 @@ const Cover = ({ user: { name, surname, location, profilePhoto } }: CoverProps) 
     <div className={cx('cover')}>
       <div className={cx('cover__gradient')}>
         <div className={cx('cover__info-block')}>
-          <img className={cx('cover__img')} src={profilePhoto || noAvatarImg} alt='profile' />
+          <div className={cx('cover__image')}>
+            <div className={cx('cover__img-box')}>
+              <img className={cx('cover__img')} src={profilePhoto || noAvatarImg} alt='profile' />
+            </div>
+          </div>
           <div className={cx('cover-info')}>
             <p className={cx('cover-info__name')}>
               {name} {surname}

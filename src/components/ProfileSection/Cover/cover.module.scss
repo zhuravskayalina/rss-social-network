@@ -36,9 +36,20 @@
     }
   }
 
-  &__img {
+  &__image {
     width: 125px;
     height: 125px;
+  }
+
+  &__img-box {
+    position: relative;
+  }
+
+  &__img {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
     background-color: colors.$white;
     border-radius: 50%;
     border: 3px solid white;
