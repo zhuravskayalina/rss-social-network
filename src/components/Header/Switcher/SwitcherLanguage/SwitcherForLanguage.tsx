@@ -1,11 +1,11 @@
 import classNames from 'classnames/bind';
 import styles from './switcherLanguage.module.scss';
 import SwitcherInput from '../SwitcherInput/SwitcherInput';
-import { ChangeLocalProps } from '../../../../AppTypes';
+import { SwitcherLanguageProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const SwitcherLanguage = ({ currentLocale, handleChange }: ChangeLocalProps) => {
+const SwitcherLanguage = ({ currentLocale, handleChange }: SwitcherLanguageProps) => {
   return (
     <div className={cx('language-switcher')}>
       <span className={cx('switcher__text-language', 'header__empty-space')}>ENG</span>

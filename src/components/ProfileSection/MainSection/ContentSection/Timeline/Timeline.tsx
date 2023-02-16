@@ -36,25 +36,31 @@ const Timeline = ({ posts, setPosts, user }: TimelineProps) => {
     });
   };
 
-  const addPost = (content: string) => {
-    const newPost = {
-      user: {
-        id: user.id,
-        name: user.name,
-        surname: user.surname,
-      },
-      userId: user.id,
-      date: new Date().toDateString(),
-      content,
-      likes: 0,
-      isLikedByUser: false,
-    };
+  const getUserPhoto = () => {
+    if (user) return user.profilePhoto;
+    return null;
+  };
 
-    NetworkClient.createPost(newPost).then((post) => {
-      posts.push(post);
-      setPosts(posts);
-      setModalActive(false);
-    });
+  const addPost = (text: string) => {
+    if (user) {
+      const newPost = {
+        user: {
+          id: user.id,
+          name: user.name,
+          surname: user.surname,
+        },
+        date: new Date().toDateString(),
+        text,
+        likes: 0,
+        isLikedByUser: false,
+      };
+
+      NetworkClient.createPost(newPost).then((post) => {
+        posts.push(post);
+        setPosts(posts);
+        setModalActive(false);
+      });
+    }
   };
 
   const renderPosts = () => {
@@ -72,6 +78,7 @@ const Timeline = ({ posts, setPosts, user }: TimelineProps) => {
             userName={`${postItem.user ? postItem.user.name : 'Dog'} ${
               postItem.user ? postItem.user.surname : 'Patron'
             }`}
+            userPhoto={getUserPhoto()}
           />
         );
       })

@@ -1,50 +1,56 @@
 export interface PostItem {
-  id: string;
-  userId?: string;
-  user?: {
-    id: string;
+  readonly id: string;
+  user: {
+    readonly id: string;
     name: string;
     surname: string;
   };
   date: string;
-  content: string;
+  text: string;
   likes: number;
   isLikedByUser: boolean;
 }
 
 export interface User {
-  id: string;
+  readonly id: string;
+  login: string;
+  password: string;
   profilePhoto: string | null;
   name: string;
   surname: string;
   location: string;
-  socialMedia?: SocialMediaLinks;
-  email?: string;
-  info?: {
+  socialMedia: SocialMediaLinks;
+  email: string;
+  info: {
     hobbies: string;
     music: string;
     cinema: string;
     books: string;
   };
-  friends?: string[];
+  friends: string[];
   posts: PostItem[];
-  photos?: [];
-  chat?: Chat[];
+  photos: string[];
+  chat: Chat[];
 }
 
 interface SocialMediaLinks {
-  instagram?: string;
-  twitter?: string;
-  linkedIn?: string;
+  instagram: string | null;
+  twitter: string | null;
+  linkedIn: string | null;
 }
 
 interface ChatHistory {
-  from: string;
+  text: string;
   time: string;
-  content: string;
+  isOwnMessage: boolean;
 }
 
 interface Chat {
-  userId: string;
+  readonly senderId: string;
+  senderInfo: {
+    name: string;
+    surname: string;
+    profilePhoto: string;
+  };
   history: ChatHistory[];
 }

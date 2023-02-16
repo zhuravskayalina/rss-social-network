@@ -6,11 +6,11 @@ import LoginButtonHeader from './LoginButton/LoginButton';
 import Searcher from './Searcher/Searcher';
 import SwitcherLanguage from './Switcher/SwitcherLanguage/SwitcherForLanguage';
 import styles from './header.module.scss';
-import { ChangeLocalProps } from '../../AppTypes';
+import { ChangeLocalProps } from './AppTypes';
 
 const cx = classNames.bind(styles);
 
-const Header = ({ currentLocale, handleChange }: ChangeLocalProps) => {
+const Header = ({ currentLocale, handleChange, isUser }: ChangeLocalProps) => {
   return (
     <div className={cx('header')}>
       <button className={cx('header__menu-btn')}>
@@ -22,7 +22,7 @@ const Header = ({ currentLocale, handleChange }: ChangeLocalProps) => {
         </Link>
         <SwitcherLanguage currentLocale={currentLocale} handleChange={handleChange} />
         <Searcher />
-        <LoginButtonHeader />
+        <LoginButtonHeader isUser={isUser} />
       </div>
     </div>
   );

@@ -15,8 +15,18 @@
   &__photo {
     width: 45px;
     height: 45px;
+  }
+
+  &__photo-box {
+    position: relative;
+  }
+
+  &__photo-img {
+    position: absolute;
     border-radius: 50%;
-    background-color: #fd5949;
+    object-fit: cover;
+    width: 45px;
+    height: 45px;
   }
 
   &__info {

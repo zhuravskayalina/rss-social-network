@@ -4,7 +4,7 @@ import { HttpClient } from '../HttpClient/HttpClient';
 import { PostItem, User } from '../types/interfaces';
 
 enum Path {
-  users = '',
+  users = '/users',
   newsfeed = '/newsfeed',
 }
 
@@ -24,7 +24,7 @@ export class NetworkClientMethods {
       }
       throw new Error(`${response.status}`);
     } catch (error) {
-      console.error(`Something went wrong: ${error}`);
+      console.error(`Something went wrong about getting user: ${error}`);
     }
   };
 

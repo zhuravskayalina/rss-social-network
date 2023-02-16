@@ -14,45 +14,25 @@ import MainPage from './components/mainPage/MainPage';
 import Timeline from './components/ProfileSection/MainSection/ContentSection/Timeline/Timeline';
 import { PostItem, User } from './types/interfaces';
 import { NetworkClient } from './NetworkClient/NetworkClient';
+import About from './components/ProfileSection/MainSection/ContentSection/About/About';
+import Page404 from './components/Page404/Page404';
 
 const cx = classNames.bind(styles);
 
-const userEx: User = {
-  id: '',
-  name: 'Name',
-  surname: 'Surname',
-  location: 'City, Country',
-  profilePhoto: null,
-  posts: [
-    {
-      id: '',
-      userId: '',
-      user: {
-        id: '',
-        name: '',
-        surname: '',
-      },
-      date: '',
-      content: '',
-      likes: 0,
-      isLikedByUser: false,
-    },
-  ],
-};
-
-const getProfilePage = (user: User) => {
-  return (
-    <MainContainer>
-      <ProfileSection user={user} />
-    </MainContainer>
-  );
+const getProfilePage = (user: User | null) => {
+  if (user)
+    return (
+      <MainContainer>
+        <ProfileSection user={user} />
+      </MainContainer>
+    );
 };
 
 const App = () => {
   const userId = '1';
 
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
-  const [user, setUser] = useState<User>(userEx);
+  const [user, setUser] = useState<User | null>(null);
   const [posts, setPosts] = useState<PostItem[]>([]);
 
   useEffect(() => {
@@ -78,17 +58,19 @@ const App = () => {
       defaultLocale={LOCALES.ENGLISH}
     >
       <div className={cx('app')}>
-        <Header currentLocale={currentLocale} handleChange={handleChange} />
+        <Header currentLocale={currentLocale} handleChange={handleChange} isUser={!!user} />
         <Routes>
-          <Route path='' element={<MainPage />} />
-          <Route path='profile' element={getProfilePage(user)}>
-            <Route path='' element={<Timeline posts={posts} setPosts={setPosts} user={user} />} />
-            <Route path='about' element={<div>About</div>} />
-            <Route path='friends' element={<div>Friends</div>} />
-            <Route path='gallery' element={<div>Gallery</div>} />
-          </Route>
+          <Route path='/' element={<MainPage />} />
+          {user ? (
+            <Route path='profile' element={getProfilePage(user)}>
+              <Route path='' element={<Timeline posts={posts} setPosts={setPosts} user={user} />} />
+              <Route path='about' element={<About user={user} />} />
+              <Route path='friends' element={<div>Friends</div>} />
+              <Route path='gallery' element={<div>Gallery</div>} />
+            </Route>
+          ) : null}
+          <Route index element={<Page404 />} />
         </Routes>
-
         <Footer />
       </div>
     </IntlProvider>
