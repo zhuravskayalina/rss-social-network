@@ -1,0 +1,33 @@
+.main {
+  display: flex;
+
+  &__friends {
+    width: 80%;
+
+    &-filter {
+      display: flex;
+      width: 12rem;
+      height: 45px;
+      background: white;
+      border-radius: 8px;
+      margin: 20px 0;
+
+      .filter {
+        align-items: center;
+        margin: 0 auto;
+        padding: 11px;
+      }
+
+      select {
+        display: inline-block;
+        border: none;
+        background: white;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &__ads {
+    margin: 20px 0;
+  }
+}
