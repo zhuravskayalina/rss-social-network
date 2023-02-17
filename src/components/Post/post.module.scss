@@ -1,0 +1,78 @@
+@use './src/stylesheets/variables/numbers';
+@use './src/stylesheets/variables/colors';
+
+.post {
+  padding: 30px;
+  background-color: colors.$white;
+  border-radius: numbers.$border-radius;
+  position: relative;
+
+  &__head {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__photo {
+    width: 45px;
+    height: 45px;
+  }
+
+  &__photo-box {
+    position: relative;
+  }
+
+  &__photo-img {
+    position: absolute;
+    border-radius: 50%;
+    object-fit: cover;
+    width: 45px;
+    height: 45px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__name {
+    font-weight: 500;
+  }
+
+  &__date {
+    font-weight: 400;
+    font-size: 13px;
+    color: colors.$gray-text;
+  }
+
+  &__content {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: colors.$main-gray;
+    line-height: 140%;
+  }
+
+  &__delete {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 14px;
+    right: 10px;
+
+    &:hover {
+      cursor: pointer;
+
+      .post__delete-icon {
+        path {
+          fill: colors.$main-gray;
+        }
+      }
+    }
+  }
+
+  &__delete-icon {
+    width: 15px;
+  }
+}
+

@@ -1,41 +1,42 @@
-@import '../../stylesheets/variables/colors';
-@import '../../stylesheets/mixins/mixins';
+@use '../../stylesheets/variables/colors';
+@use '../../stylesheets/mixins/mixins';
 
 .header {
+  height: 65px;
+  @include mixins.center-content;
+  background-color: colors.$color-header-background;
+  color: colors.$white;
+  position: relative;
   display: flex;
-  justify-content: left;
-  flex-wrap: wrap;
-  align-items: center;
-  background-color: $color-header-background;
-  color: $color-pure-white;
-  height: 100%;
-  padding: 0.5% 11% 0.5% 3%;
 
-  &__logo-icon {
-    height: 46.5px;
-    width: 146px;
-    margin-left: 20%;
-    background: url('../../assets/icons/headerFullLogo.svg');
+  &__menu-btn {
+    position: absolute;
+    top: 17px;
+    left: 12px;
+    background-color: transparent;
+    border: none;
 
-      @include media-tablet {
-        width: 46.5px;
-        background: url('../../assets/icons/logoWhite.svg');
-        background-size: 46.5px 46.5px;
-      }
+    &:hover {
+      cursor: pointer;
+    }
 
-      @include media-mobile {
-        height: 35px;
-        width: 35px;
-        background-size: 35px 35px;
-        padding-right: 5%;
-      }
+    &:focus-visible {
+      outline: none;
+    }
   }
 
-  &__text-language {
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 23px;
-    line-height: 28px;
-    color: $color-pure-white;
+  &__container {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__menu-icon {
+
+  }
+
+  &__logo-icon {
+    width: 110px;
   }
 }

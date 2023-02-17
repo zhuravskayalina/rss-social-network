@@ -1,11 +1,11 @@
 import classNames from 'classnames/bind';
 import styles from './switcher.module.scss';
 import { LOCALES } from '../../../../IntlLocale/locales';
-import { ChangeLocalProps } from '../../../../AppTypes';
+import { SwitcherInputProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const SwitcherInput = ({ currentLocale, handleChange }: ChangeLocalProps) => {
+const SwitcherInput = ({ currentLocale, handleChange }: SwitcherInputProps) => {
   const isRussian = currentLocale === LOCALES.RUSSIAN;
 
   return (

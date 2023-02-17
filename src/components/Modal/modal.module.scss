@@ -1,0 +1,63 @@
+@use './src/stylesheets/variables/colors';
+@use './src/stylesheets/variables/numbers';
+@use './src/stylesheets/z-indexes/z-index';
+@use './src/stylesheets/mixins/mixins';
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: colors.$black-transparent;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: z-index.$newpost-modal;
+  transition: .5s;
+
+  &__content {
+    background-color: colors.$main-background;
+    border-radius: numbers.$border-radius;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: fit-content;
+    position: relative;
+  }
+
+  &_open {
+   opacity: 1;
+    pointer-events: all;
+  }
+
+  &__close-icon {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 30px;
+    height: 30px;
+    @include mixins.center-content;
+    background-color: colors.$white;
+    border-radius: 50%;
+
+    &:hover {
+      cursor: pointer;
+
+      path {
+        transition: .2s;
+        fill: colors.$main-gray;
+      }
+    }
+
+    svg {
+      width: 12px;
+    }
+  }
+
+
+
+}

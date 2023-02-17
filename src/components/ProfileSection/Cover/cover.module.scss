@@ -1,8 +1,10 @@
 @use "./src/stylesheets/mixins/mixins";
+@use "../../../stylesheets/variables/numbers";
+@use './src/stylesheets/variables/colors';
 
 .cover {
   width: 100%;
-  border-radius: 8px;
+  border-radius: numbers.$border-radius;
   height: 340px;
   background-image: url('../../../assets/images/wallpaper.png');
   background-position: center;
@@ -16,7 +18,7 @@
     display: flex;
     align-items: flex-end;
     padding: 35px 50px;
-    border-radius: 8px;
+    border-radius: numbers.$border-radius;
 
     @media (max-width: 600px) {
       justify-content: center;
@@ -34,9 +36,21 @@
     }
   }
 
-  &__img {
+  &__image {
     width: 125px;
     height: 125px;
+  }
+
+  &__img-box {
+    position: relative;
+  }
+
+  &__img {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    background-color: colors.$white;
     border-radius: 50%;
     border: 3px solid white;
   }

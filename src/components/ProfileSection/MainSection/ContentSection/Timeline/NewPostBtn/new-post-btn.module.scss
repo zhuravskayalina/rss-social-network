@@ -1,0 +1,30 @@
+@use './src/stylesheets/variables/colors';
+@use './src/stylesheets/variables/numbers';
+@use './src/stylesheets/mixins/mixins';
+
+.button {
+  width: fit-content;
+  padding: 8px 20px;
+  background-color: colors.$white;
+  border: none;
+  border-radius: numbers.$border-radius;
+  font-weight: 500;
+  font-size: 16px;
+  @include mixins.center-content;
+
+  &__icon {
+    color: colors.$main-blue;
+    font-size: 26px;
+    margin-right: 10px;
+    transition: 0.5s;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .button__icon {
+      transform: scale(1.3);
+    }
+  }
+}
+

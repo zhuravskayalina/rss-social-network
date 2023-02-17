@@ -1,5 +1,5 @@
-@import '../../../stylesheets/variables/colors.scss';
-@import '../../../stylesheets/mixins/mixins.scss';
+@use '../../../stylesheets/variables/colors.scss';
+@use '../../../stylesheets/mixins/mixins.scss';
 
 * {
   box-sizing: border-box;
@@ -12,20 +12,20 @@
   padding: 4px;
   display: flex;
   justify-content: space-between;
-  border: 1px solid $color-pure-white;
+  border: 1px solid colors.$color-pure-white;
   border-radius: 25px;
   cursor: pointer;
 
   &:hover {
     transform: scale(1.03);
-    border: 1px solid $color-switcher-language;
+    border: 1px solid colors.$color-switcher-language;
   }
 
   &:active {
     transform: scale(0.98);
   }
 
-  @include media-desktop-middle {
+  @include mixins.media-desktop-middle {
     margin: 30px auto;
   }
 
@@ -37,10 +37,10 @@
 
   &__arrow {
     text-align: center;
-    padding-top: 10px;
+    @include mixins.center-content;
     width: 40px;
     height: 40px;
-    background-color: $color-switcher-language;
+    background-color: colors.$color-switcher-language;
     border-radius: 50%;
   }
 }

@@ -1,15 +1,16 @@
-@import '../../../../stylesheets/variables/colors';
+@use '../../../../stylesheets/variables/colors';
 
 .switcher__text-language {
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 23px;
-  line-height: 28px;
-  color: $color-pure-white;
+  font-size: 15px;
+  color: colors.$color-pure-white;
+  user-select: none;
 }
 
 .language-switcher {
-  margin-left: auto;
   display: flex;
   align-items: center;
+  margin-left: auto;
+  margin-right: 60px;
 }
