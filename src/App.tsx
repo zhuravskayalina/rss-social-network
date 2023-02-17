@@ -16,10 +16,11 @@ import { PostItem, User } from './types/interfaces';
 import { NetworkClient } from './NetworkClient/NetworkClient';
 import About from './components/ProfileSection/MainSection/ContentSection/About/About';
 import Page404 from './components/Page404/Page404';
+import Loading from './components/Loading/Loading';
 
 const cx = classNames.bind(styles);
 
-const getProfilePage = (user: User | null) => {
+const getProfilePage = (user: User) => {
   if (user)
     return (
       <MainContainer>
@@ -32,7 +33,7 @@ const App = () => {
   const userId = '1';
 
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User>();
   const [posts, setPosts] = useState<PostItem[]>([]);
 
   useEffect(() => {
@@ -51,29 +52,29 @@ const App = () => {
     localStorage.setItem('locale', `${localeForStorage}`);
   };
 
-  return (
+  return user ? (
     <IntlProvider
       messages={messages[currentLocale]}
       locale={currentLocale}
       defaultLocale={LOCALES.ENGLISH}
     >
       <div className={cx('app')}>
-        <Header currentLocale={currentLocale} handleChange={handleChange} isUser={!!user} />
+        <Header currentLocale={currentLocale} handleChange={handleChange} />
         <Routes>
-          <Route path='/' element={<MainPage />} />
-          {user ? (
-            <Route path='profile' element={getProfilePage(user)}>
-              <Route path='' element={<Timeline posts={posts} setPosts={setPosts} user={user} />} />
-              <Route path='about' element={<About user={user} />} />
-              <Route path='friends' element={<div>Friends</div>} />
-              <Route path='gallery' element={<div>Gallery</div>} />
-            </Route>
-          ) : null}
-          <Route index element={<Page404 />} />
+          <Route path='' element={<MainPage />} />
+          <Route path='profile' element={getProfilePage(user)}>
+            <Route path='' element={<Timeline posts={posts} setPosts={setPosts} user={user} />} />
+            <Route path='about' element={<About user={user} />} />
+            <Route path='friends' element={<div>Friends</div>} />
+            <Route path='gallery' element={<div>Gallery</div>} />
+          </Route>
+          <Route path='*' element={<Page404 />} />
         </Routes>
         <Footer />
       </div>
     </IntlProvider>
+  ) : (
+    <Loading />
   );
 };
 

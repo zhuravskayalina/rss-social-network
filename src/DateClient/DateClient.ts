@@ -1,9 +1,9 @@
 export class DateClient {
-  public static formatPost(date: string): string {
+  public static formatPost(date: string | number): string {
     const timestamp = Number(date);
     const newDate = new Date(timestamp);
     const month = newDate.getMonth() + 1;
-    const day = newDate.getDay();
+    const day = newDate.getDate();
     const year = newDate.getFullYear();
     const hours = newDate.getHours();
     const minutes = newDate.getMinutes();

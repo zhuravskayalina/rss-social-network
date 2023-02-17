@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable no-console */
 
 import { HttpClient } from '../HttpClient/HttpClient';
 import { PostItem, User } from '../types/interfaces';
@@ -79,6 +79,19 @@ export class NetworkClientMethods {
     }
   };
 
+  public updatePost = async (id: string, body: PostItem) => {
+    try {
+      const response = await HttpClient.put(`${this.baseUrl}${Path.newsfeed}/${id}`, body);
+
+      if (response.ok) {
+        return await response.json();
+      }
+      throw new Error(`${response.status}`);
+    } catch (error) {
+      console.error(`Something went wrong: ${error}`);
+    }
+  };
+
   public deleteUser = async (id: string) => {
     try {
       const response = await HttpClient.delete(`${this.baseUrl}${Path.users}/${id}`);
@@ -104,7 +117,5 @@ export class NetworkClientMethods {
     }
   };
 }
-
-// TODO: update post & user
 
 export const NetworkClient = new NetworkClientMethods();

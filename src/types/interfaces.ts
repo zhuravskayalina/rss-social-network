@@ -5,7 +5,7 @@ export interface PostItem {
     name: string;
     surname: string;
   };
-  date: string;
+  date: string | number;
   text: string;
   likes: number;
   isLikedByUser: boolean;
@@ -27,7 +27,7 @@ export interface User {
     cinema: string;
     books: string;
   };
-  friends: string[];
+  friends: Pick<User, 'id' | 'name' | 'surname' | 'profilePhoto'>[];
   posts: PostItem[];
   photos: string[];
   chat: Chat[];

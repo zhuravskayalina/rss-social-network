@@ -10,7 +10,6 @@ import { TimelineProps } from './types';
 
 const cx = classNames.bind(styles);
 
-// TODO: patch post when user liked
 // TODO: патчить пользователя и добавлять ему новый пост
 
 const Timeline = ({ posts, setPosts, user }: TimelineProps) => {
@@ -20,12 +19,18 @@ const Timeline = ({ posts, setPosts, user }: TimelineProps) => {
     setModalActive((prev) => !prev);
   };
 
-  const likePost = (id: string, index: number) => {
-    const post = posts[index];
-    post.likes = post.isLikedByUser ? post.likes - 1 : post.likes + 1;
-    post.isLikedByUser = !post.isLikedByUser;
-    const temp = [...posts];
-    setPosts(temp);
+  const likePost = (id: string) => {
+    const post = posts.find((postItem) => postItem.id === id);
+
+    if (post) {
+      post.likes = post.isLikedByUser ? post.likes - 1 : post.likes + 1;
+      post.isLikedByUser = !post.isLikedByUser;
+
+      NetworkClient.updatePost(id, post).then(() => {
+        const temp = [...posts];
+        setPosts(temp);
+      });
+    }
   };
 
   const deletePost = (id: string, index: number) => {
@@ -42,25 +47,26 @@ const Timeline = ({ posts, setPosts, user }: TimelineProps) => {
   };
 
   const addPost = (text: string) => {
-    if (user) {
-      const newPost = {
-        user: {
-          id: user.id,
-          name: user.name,
-          surname: user.surname,
-        },
-        date: new Date().toDateString(),
-        text,
-        likes: 0,
-        isLikedByUser: false,
-      };
+    const newPost = {
+      user: {
+        id: user.id,
+        name: user.name,
+        surname: user.surname,
+      },
+      date: Date.now(),
+      text,
+      likes: 0,
+      isLikedByUser: false,
+    };
 
-      NetworkClient.createPost(newPost).then((post) => {
+    NetworkClient.createPost(newPost)
+      .then((post) => {
         posts.push(post);
         setPosts(posts);
+      })
+      .then(() => {
         setModalActive(false);
       });
-    }
   };
 
   const renderPosts = () => {
@@ -73,7 +79,7 @@ const Timeline = ({ posts, setPosts, user }: TimelineProps) => {
             likesCount={postItem.likes}
             isUserLike={postItem.isLikedByUser}
             key={`hi${index}`}
-            likePost={() => likePost(postItem.id, index)}
+            likePost={() => likePost(postItem.id)}
             deletePost={() => deletePost(postItem.id, index)}
             userName={`${postItem.user ? postItem.user.name : 'Dog'} ${
               postItem.user ? postItem.user.surname : 'Patron'

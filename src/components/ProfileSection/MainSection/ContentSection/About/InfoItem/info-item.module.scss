@@ -4,7 +4,7 @@
 .item {
   border-bottom: 1px solid colors.$half-transparent-gray;
   color: colors.$color-footer-content;
-  padding: 15px 0;
+  padding: 19px 50px 19px 0;
   display: grid;
   grid-template-columns: 1fr 2fr;
   font-size: 16px;
@@ -22,6 +22,10 @@
     @include mixins.link-style-reset;
     border-bottom: 1px solid colors.$color-footer-content;
     color: colors.$color-footer-content;
+  }
+
+  &__content {
+    word-wrap: break-word;
   }
 
 }

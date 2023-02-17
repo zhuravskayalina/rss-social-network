@@ -10,7 +10,7 @@ import { ChangeLocalProps } from './AppTypes';
 
 const cx = classNames.bind(styles);
 
-const Header = ({ currentLocale, handleChange, isUser }: ChangeLocalProps) => {
+const Header = ({ currentLocale, handleChange }: ChangeLocalProps) => {
   return (
     <div className={cx('header')}>
       <button className={cx('header__menu-btn')}>
@@ -22,7 +22,7 @@ const Header = ({ currentLocale, handleChange, isUser }: ChangeLocalProps) => {
         </Link>
         <SwitcherLanguage currentLocale={currentLocale} handleChange={handleChange} />
         <Searcher />
-        <LoginButtonHeader isUser={isUser} />
+        <LoginButtonHeader />
       </div>
     </div>
   );
