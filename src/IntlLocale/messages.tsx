@@ -11,6 +11,10 @@ export const messages = {
     newPost: 'New Post',
     gallery: 'Gallery',
     go: 'Go',
+    delete: 'Delete',
+    name: 'name',
+    location: 'location',
+    sort: 'Order by:',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -23,5 +27,9 @@ export const messages = {
     newPost: 'Новый пост',
     gallery: 'Фото',
     go: 'Перейти',
+    delete: 'Удалить',
+    name: 'имя',
+    location: 'место',
+    sort: 'Сортировать по:',
   },
 };

@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-
+import { FormattedMessage } from 'react-intl';
 import styles from './friendss-section.module.scss';
 import Friend from './Friend/Friend';
 import { FriendSectionProps } from './types';
@@ -13,10 +13,16 @@ const FriendsSection = ({ user }: FriendSectionProps) => {
       <div className={cx('main__friends')}>
         <div className={cx('main__friends-filter')}>
           <div className={cx('filter')}>
-            <span>Order by:</span>
+            <span>
+              <FormattedMessage id='sort' />
+            </span>
             <select className={cx('filter-select')}>
-              <option>name</option>
-              <option>location</option>
+              <option value=''>
+                <FormattedMessage id='name' />
+              </option>
+              <option value=''>
+                <FormattedMessage id='location' />
+              </option>
             </select>
           </div>
         </div>
