@@ -7,10 +7,9 @@ import Modal from '../../../../Modal/Modal';
 import NewPostModal from './NewPostModal/NewPostModal';
 import { NetworkClient } from '../../../../../NetworkClient/NetworkClient';
 import { TimelineProps } from './types';
+import { PostItem } from '../../../../../types/interfaces';
 
 const cx = classNames.bind(styles);
-
-// TODO: патчить пользователя и добавлять ему новый пост
 
 const Timeline = ({ posts, setPosts, user }: TimelineProps) => {
   const [isModalActive, setModalActive] = useState(false);
@@ -33,11 +32,10 @@ const Timeline = ({ posts, setPosts, user }: TimelineProps) => {
     }
   };
 
-  const deletePost = (id: string, index: number) => {
-    NetworkClient.deletePost(id).then(() => {
-      const postsCopy = [...posts];
-      postsCopy.splice(index, 1);
-      setPosts(postsCopy);
+  const deletePost = (postId: string) => {
+    NetworkClient.deletePost(postId).then(() => {
+      const newPosts = posts.filter(({ id }) => id !== postId);
+      setPosts(newPosts);
     });
   };
 
@@ -59,28 +57,24 @@ const Timeline = ({ posts, setPosts, user }: TimelineProps) => {
       isLikedByUser: false,
     };
 
-    NetworkClient.createPost(newPost)
-      .then((post) => {
-        posts.push(post);
-        setPosts(posts);
-      })
-      .then(() => {
-        setModalActive(false);
-      });
+    NetworkClient.createPost(newPost).then((post: PostItem) => {
+      setPosts((prev) => [...prev, post]);
+      setModalActive(false);
+    });
   };
 
   const renderPosts = () => {
     if (!posts.length) return <h2>No posts yet.</h2>;
     return posts
-      .map((postItem, index) => {
+      .map((postItem) => {
         return (
           <Post
             post={postItem}
             likesCount={postItem.likes}
             isUserLike={postItem.isLikedByUser}
-            key={`hi${index}`}
+            key={postItem.id}
             likePost={() => likePost(postItem.id)}
-            deletePost={() => deletePost(postItem.id, index)}
+            deletePost={() => deletePost(postItem.id)}
             userName={`${postItem.user ? postItem.user.name : 'Dog'} ${
               postItem.user ? postItem.user.surname : 'Patron'
             }`}
