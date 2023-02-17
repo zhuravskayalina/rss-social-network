@@ -1,0 +1,39 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/mixins/mixins';
+
+.dialog {
+  &__message {
+    display: flex;
+    flex-direction: row;
+    max-width: 45%;
+    margin-left: 0;
+    margin-bottom: 11px;
+    margin-top: 11px;
+  }
+
+  &__message.friends-messages {
+    margin-left: auto;
+  }
+
+  &__message-text {
+    border-radius: 0px 20px 20px 20px;
+    padding: 20px;
+    background: colors.$main-background;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: colors.$message-black-text;
+  }
+
+  &__message-text.friends-messages {
+    border-radius: 20px 0px 20px 20px;
+  }
+
+  &__chat-avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+  }
+}
+

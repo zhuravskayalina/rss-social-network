@@ -1,0 +1,48 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/mixins/mixins';
+
+.dialog {
+
+  &__friend {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    font-style: normal;
+    color: colors.$color-friend-name;
+  }
+
+  &__friend.list {
+    padding: 27px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    border-bottom: 1px solid colors.$border-light-gray;
+  }
+
+  &__friend-list.active {
+    background: colors.$main-blue;
+    color: colors.$main-background;
+  }
+
+  &__avatar-list {
+    width: 16%;
+    border: none;
+    border-radius: 50%;
+  }
+
+  &__friend-name-list {
+    padding-left: 5px;
+  }
+
+  &__avatar-chat {
+    width: 16%;
+    border: none;
+    border-radius: 50%;
+  }
+
+  &__friend-name-chat {
+    padding-left: 5px;
+  }
+
+}
