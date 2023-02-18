@@ -13,7 +13,7 @@ export const messages = {
     go: 'Go',
     delete: 'Delete',
     name: 'name',
-    location: 'location',
+    surname: 'surname',
     sort: 'Order by:',
   },
 
@@ -29,7 +29,7 @@ export const messages = {
     go: 'Перейти',
     delete: 'Удалить',
     name: 'имя',
-    location: 'место',
+    surname: 'фамилия',
     sort: 'Сортировать по:',
   },
 };

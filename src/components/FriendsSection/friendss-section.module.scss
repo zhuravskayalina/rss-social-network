@@ -2,15 +2,14 @@
   display: flex;
 
   &__friends {
-    width: 80%;
+    width: 100%;
 
     &-filter {
       display: flex;
-      width: 14rem;
-      height: 45px;
+      width: 240px;
+      height: 48px;
       background: white;
       border-radius: 8px;
-      margin: 20px 0;
 
       .filter {
         align-items: center;
@@ -25,9 +24,5 @@
         margin-left: 1rem;
       }
     }
-  }
-
-  &__ads {
-    margin: 20px 0;
   }
 }

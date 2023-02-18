@@ -2,36 +2,29 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import styles from './friend.module.scss';
 import { FriendProps } from './types';
-import DelFriendButton from './DelFriendButton/DelFriendButton';
-import avatar from '../../../assets/images/max.jpeg';
+import { ReactComponent as DeleteIcon } from '../../../assets/icons/delete.svg';
 
 const cx = classNames.bind(styles);
 
-const Friend = ({ user: { name, surname, location, profilePhoto } }: FriendProps) => {
+const Friend = ({ user: { name, surname, profilePhoto } }: FriendProps) => {
   return (
     <div className={cx('friend')}>
-      <Link to='/friend-1'>
+      <Link to='/profile'>
         <div
           className={cx('friend__photo')}
           style={{
             background: `url(${profilePhoto}) 50%/ cover border-box padding-box`,
-            // backdropFilter: 'blur(5px)',
           }}
-        >
-          {/* <img src={avatar} alt='' /> */}
-        </div>
+        />
       </Link>
       <div className={cx('friend__info')}>
         <h3>
           {name} {surname}
         </h3>
-        <p>{location}</p>
       </div>
-      <div className={cx('friend__del')}>
-        <div className={cx('friend__del-wrapper')}>
-          <DelFriendButton />
-        </div>
-      </div>
+      <button className={cx('friend__delete')}>
+        <DeleteIcon className={cx('friend__delete-icon')} />
+      </button>
     </div>
   );
 };

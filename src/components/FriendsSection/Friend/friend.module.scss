@@ -1,24 +1,19 @@
+@use './src/stylesheets/variables/colors';
+
 .friend {
   display: flex;
-  justify-content: space-between;
+  position: relative;
   align-items: center;
-  width: 95%;
+  width: 100%;
   background: white;
   border-radius: 8px;
   margin: 20px 0;
 
   &__photo {
-    width: 120px;
-    height: 120px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-
-
-    img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-    }
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+    border-radius: 50%;
   }
 
   &__info {
@@ -32,12 +27,25 @@
     }
   }
 
-  &__del {
-    width: 20%;
+  &__delete {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 14px;
+    right: 10px;
 
+    &:hover {
+      cursor: pointer;
 
-    &-wrapper {
-      margin: 0 auto;
+      .post__delete-icon {
+        path {
+          fill: colors.$main-gray;
+        }
+      }
+    }
+
+    &-delete-icon {
+      width: 15px;
     }
   }
 }

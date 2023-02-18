@@ -17,6 +17,7 @@ import { NetworkClient } from './NetworkClient/NetworkClient';
 import About from './components/ProfileSection/MainSection/ContentSection/About/About';
 import Page404 from './components/Page404/Page404';
 import Loading from './components/Loading/Loading';
+import FriendsSection from './components/FriendsSection/FriendsSection';
 
 const cx = classNames.bind(styles);
 
@@ -65,7 +66,7 @@ const App = () => {
           <Route path='profile' element={getProfilePage(user)}>
             <Route path='' element={<Timeline posts={posts} setPosts={setPosts} user={user} />} />
             <Route path='about' element={<About user={user} />} />
-            <Route path='friends' element={<div>Friends</div>} />
+            <Route path='friends' element={<FriendsSection user={user} />} />
             <Route path='gallery' element={<div>Gallery</div>} />
           </Route>
           <Route path='*' element={<Page404 />} />

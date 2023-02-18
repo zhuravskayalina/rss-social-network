@@ -21,7 +21,7 @@ const FriendsSection = ({ user }: FriendSectionProps) => {
                 <FormattedMessage id='name' />
               </option>
               <option value=''>
-                <FormattedMessage id='location' />
+                <FormattedMessage id='surname' />
               </option>
             </select>
           </div>
@@ -31,9 +31,6 @@ const FriendsSection = ({ user }: FriendSectionProps) => {
           <Friend user={user} />
           <Friend user={user} />
         </div>
-      </div>
-      <div className={cx('main__ads')}>
-        <img src={ADS} alt='nbvngv' />
       </div>
     </div>
   );
