@@ -1,5 +1,5 @@
 import { User } from '../../../types/interfaces';
 
-export interface ChatsListProps {
+export interface DialogPageProps {
   user: User;
 }

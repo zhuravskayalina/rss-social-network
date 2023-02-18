@@ -1,0 +1,14 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/mixins/mixins';
+@use '../../../stylesheets/variables/numbers';
+
+.dialog__page {
+  display: grid;
+  grid-template-columns: 38fr 62fr;
+  width: 75%;
+  background-color: colors.$white;
+  border-radius: numbers.$border-radius;
+  padding: 0 20px;
+  margin-left: 14%;
+  margin-right: 11%;
+}

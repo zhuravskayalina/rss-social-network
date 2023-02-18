@@ -10,14 +10,20 @@
     text-decoration: none;
     font-style: normal;
     color: colors.$color-friend-name;
+    background-color: colors.$white;
+    border-bottom: 1px solid colors.$border-light-gray;
   }
 
   &__friend.list {
-    padding: 27px;
+    padding: 27px 20px;
     font-weight: 500;
     font-size: 18px;
-    line-height: 22px;
-    border-bottom: 1px solid colors.$border-light-gray;
+    line-height: 140%;
+  }
+
+  &__friend.chat {
+    border-left: 1px solid colors.$border-light-gray;
+    padding: 16px;
   }
 
   &__friend-list.active {
@@ -25,24 +31,52 @@
     color: colors.$main-background;
   }
 
-  &__avatar-list {
-    width: 16%;
-    border: none;
-    border-radius: 50%;
+  &__image.chat {
+    width: 50px;
+    height: 50px;
+    margin-right: 16px;
   }
 
-  &__friend-name-list {
-    padding-left: 5px;
+  &__image.list {
+    width: 70px;
+    height: 70px;
+    margin-right: 12px;
   }
 
-  &__avatar-chat {
-    width: 16%;
-    border: none;
+  &__img-box {
+    position: relative;
+  }
+
+  &__img {
+    position: absolute;
+    object-fit: cover;
+    background-color: colors.$white;
     border-radius: 50%;
+    border: 3px solid white;
+  }
+
+  &__img.chat {
+    width: 50px;
+    height: 50px;
+  }
+
+  &__img.list {
+    width: 70px;
+    height: 70px;
+  }
+
+  &__friend-name {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: colors.$black;
+  }
+
+  &__friend-name.list {
+    font-size: 18px;
   }
 
   &__friend-name-chat {
-    padding-left: 5px;
+    font-size: 24px;
   }
-
 }

@@ -1,23 +1,28 @@
 import classNames from 'classnames/bind';
 import styles from './FriendFromDialogsList.module.scss';
 import { FriendFromDialogListProps } from './FriendFromDialogListTypes';
+import noAvatarImg from '../../../assets/images/user-avatar.png';
 
 const cx = classNames.bind(styles);
 
 const FriendFromDialogList = ({
-  myChat: { senderId, senderInfo },
+  myChat: { senderInfo },
   styleClass,
 }: FriendFromDialogListProps) => {
-  const pathForRouter = `dialog/${senderId}`;
   return (
     <div className={cx('dialog__friend', `${styleClass}`)}>
-      <img
-        src={senderInfo.profilePhoto}
-        alt='My friend`s avatar'
-        className={cx(`dialog__avatar-${styleClass}`)}
-      />
+      <div className={cx('dialog__image', `${styleClass}`)}>
+        <div className={cx('dialog__img-box')}>
+          <img
+            className={cx('dialog__img', `${styleClass}`)}
+            src={senderInfo.profilePhoto || noAvatarImg}
+            alt='My friend`s avatar'
+          />
+        </div>
+      </div>
+
       <p
-        className={`dialog__friend-name-${styleClass}`}
+        className={cx('dialog__friend-name', `${styleClass}`)}
       >{`${senderInfo.name} ${senderInfo.surname}`}</p>
     </div>
   );

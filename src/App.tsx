@@ -11,8 +11,6 @@ import MainContainer from './components/MainContainer/MainContainer';
 import ProfileSection from './components/ProfileSection/ProfileSection';
 import { getInitialLocale } from './localStorageUtils';
 import { users } from './components/DialogPage/dataExample';
-import Chat from './components/DialogPage/Chat/Chat';
-import ChatFullBlock from './components/DialogPage/ChatFullBlock/ChatFullBlock';
 import MainPage from './components/mainPage/MainPage';
 import Timeline from './components/ProfileSection/MainSection/ContentSection/Timeline/Timeline';
 import { PostItem, User } from './types/interfaces';
@@ -20,6 +18,7 @@ import { NetworkClient } from './NetworkClient/NetworkClient';
 import About from './components/ProfileSection/MainSection/ContentSection/About/About';
 import Page404 from './components/Page404/Page404';
 import Loading from './components/Loading/Loading';
+import DialogPageWrapper from './components/DialogPage/DialogsPageWrapper/DialogsPageWrapper';
 
 const cx = classNames.bind(styles);
 
@@ -73,7 +72,7 @@ const App = () => {
           </Route>
           <Route path='*' element={<Page404 />} />
         </Routes>
-        <ChatFullBlock dialog={users[0].chat[0]} />
+        <DialogPageWrapper user={users[0]} />
         <Footer />
       </div>
     </IntlProvider>

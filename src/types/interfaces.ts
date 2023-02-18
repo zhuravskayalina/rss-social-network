@@ -33,19 +33,19 @@ export interface User {
   chat: Chat[];
 }
 
-interface SocialMediaLinks {
+export interface SocialMediaLinks {
   instagram: string | null;
   twitter: string | null;
   linkedIn: string | null;
 }
 
-interface ChatHistory {
+export interface ChatHistory {
   text: string;
   time: string;
   isOwnMessage: boolean;
 }
 
-interface Chat {
+export interface Chat {
   readonly senderId: string;
   senderInfo: {
     name: string;

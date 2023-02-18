@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 const Chat = ({ dialog: { senderId, senderInfo, history } }: ChatProps) => {
   return (
-    <div className='dialog__chat'>
+    <div className={cx('dialog__chat')}>
       {history.map((message) => (
         <Message
           key={`message-${senderId}-${message.time}`}

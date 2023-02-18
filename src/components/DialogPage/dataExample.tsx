@@ -1,26 +1,4 @@
-import { User, Chat } from '../../types/interfaces';
-
-export const myChat: Chat = {
-  senderId: '2',
-  senderInfo: {
-    name: 'Dog',
-    surname: 'Patron',
-    profilePhoto:
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
-  },
-  history: [
-    {
-      text: 'Patron you are the best dog!!!!',
-      time: '1673388774477',
-      isOwnMessage: true,
-    },
-    {
-      text: 'Дзякуй Меган, ти теж супер!',
-      time: '1673388774488',
-      isOwnMessage: false,
-    },
-  ],
-};
+import { User } from '../../types/interfaces';
 
 export const users: Array<User> = [
   {
@@ -28,7 +6,7 @@ export const users: Array<User> = [
     password: 'meganfox',
     id: '0',
     profilePhoto:
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
     name: 'Megan',
     surname: 'Fox',
     location: 'Mozyr, Belarus',
@@ -44,10 +22,32 @@ export const users: Array<User> = [
       cinema: 'jennifers body',
       books: 'ninja turtles',
     },
-    friends: ['1', '2', '3'],
-    posts: [
+    friends: [
       {
         id: '1',
+        name: 'Slim',
+        surname: 'Shady',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
+      },
+      {
+        id: '2',
+        name: 'Dog',
+        surname: 'Patron',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
+      },
+      {
+        id: '3',
+        name: 'Biggie',
+        surname: 'Smalls',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
+      },
+    ],
+    posts: [
+      {
+        id: '0',
         user: {
           id: '0',
           name: 'Megan',
@@ -59,7 +59,7 @@ export const users: Array<User> = [
         isLikedByUser: false,
       },
       {
-        id: '2',
+        id: '1',
         user: {
           id: '0',
           name: 'Megan',
@@ -71,7 +71,7 @@ export const users: Array<User> = [
         isLikedByUser: false,
       },
       {
-        id: '3',
+        id: '2',
         user: {
           id: '0',
           name: 'Megan',
@@ -84,9 +84,9 @@ export const users: Array<User> = [
       },
     ],
     photos: [
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/megan/1.jpeg',
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/1.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
     ],
     chat: [
       {
@@ -105,7 +105,7 @@ export const users: Array<User> = [
           },
           {
             text: 'I think you are not real just government project',
-            time: '1673388774478',
+            time: '1673388774477',
             isOwnMessage: false,
           },
           {
@@ -121,7 +121,7 @@ export const users: Array<User> = [
           name: 'Dog',
           surname: 'Patron',
           profilePhoto:
-            'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
         },
         history: [
           {
@@ -142,7 +142,7 @@ export const users: Array<User> = [
           name: 'Biggie',
           surname: 'Smalls',
           profilePhoto:
-            'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
         },
         history: [
           {
@@ -164,7 +164,7 @@ export const users: Array<User> = [
     password: 'eminem',
     id: '1',
     profilePhoto:
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
     name: 'Slim',
     surname: 'Shady',
     location: 'Brest, Belarus',
@@ -180,10 +180,32 @@ export const users: Array<User> = [
       cinema: '8 mile',
       books: 'cook books',
     },
-    friends: ['0', '2', '3'],
-    posts: [
+    friends: [
       {
         id: '0',
+        name: 'Megan',
+        surname: 'Fox',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
+      },
+      {
+        id: '2',
+        name: 'Dog',
+        surname: 'Patron',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
+      },
+      {
+        id: '3',
+        name: 'Biggie',
+        surname: 'Smalls',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
+      },
+    ],
+    posts: [
+      {
+        id: '3',
         user: {
           id: '1',
           name: 'Slim',
@@ -196,9 +218,9 @@ export const users: Array<User> = [
       },
     ],
     photos: [
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/eminem/1.jpeg',
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/eminem/2.jpeg',
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/eminem/1.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/eminem/2.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
     ],
     chat: [
       {
@@ -207,7 +229,7 @@ export const users: Array<User> = [
           name: 'Megan',
           surname: 'Fox',
           profilePhoto:
-            'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
         },
         history: [
           {
@@ -233,7 +255,7 @@ export const users: Array<User> = [
           name: 'Biggie',
           surname: 'Smalls',
           profilePhoto:
-            'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
         },
         history: [
           {
@@ -259,7 +281,7 @@ export const users: Array<User> = [
           name: 'Dog',
           surname: 'Patron',
           profilePhoto:
-            'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
         },
         history: [
           {
@@ -286,7 +308,7 @@ export const users: Array<User> = [
     password: 'pespatron',
     id: '2',
     profilePhoto:
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
     name: 'Dog',
     surname: 'Patron',
     location: 'Kyiv, Ukraine',
@@ -302,10 +324,32 @@ export const users: Array<User> = [
       cinema: 'кішки проти собак',
       books: 'не люблю читати, краще поговорити',
     },
-    friends: ['0', '1', '3'],
-    posts: [
+    friends: [
       {
         id: '0',
+        name: 'Megan',
+        surname: 'Fox',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
+      },
+      {
+        id: '1',
+        name: 'Slim',
+        surname: 'Shady',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
+      },
+      {
+        id: '3',
+        name: 'Biggie',
+        surname: 'Smalls',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
+      },
+    ],
+    posts: [
+      {
+        id: '4',
         user: {
           id: '2',
           name: 'Dog',
@@ -317,7 +361,7 @@ export const users: Array<User> = [
         isLikedByUser: false,
       },
       {
-        id: '1',
+        id: '5',
         user: {
           id: '2',
           name: 'Dog',
@@ -330,10 +374,10 @@ export const users: Array<User> = [
       },
     ],
     photos: [
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/patron/2.jpeg',
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/patron/3.jpeg',
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/patron/4.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/2.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/3.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/4.jpeg',
     ],
     chat: [
       {
@@ -342,7 +386,7 @@ export const users: Array<User> = [
           name: 'Megan',
           surname: 'Fox',
           profilePhoto:
-            'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
         },
         history: [
           {
@@ -363,7 +407,7 @@ export const users: Array<User> = [
           name: 'Slim',
           surname: 'Shady',
           profilePhoto:
-            'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
         },
         history: [
           {
@@ -390,7 +434,7 @@ export const users: Array<User> = [
     password: 'notorius',
     id: '3',
     profilePhoto:
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
     name: 'Biggie',
     surname: 'Smalls',
     location: 'Brooklyn, New York',
@@ -406,10 +450,32 @@ export const users: Array<User> = [
       cinema: 'New York Undercover, Martin',
       books: 'will say later',
     },
-    friends: ['0', '1', '2'],
-    posts: [
+    friends: [
       {
         id: '0',
+        name: 'Megan',
+        surname: 'Fox',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
+      },
+      {
+        id: '1',
+        name: 'Slim',
+        surname: 'Shady',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
+      },
+      {
+        id: '2',
+        name: 'Dog',
+        surname: 'Patron',
+        profilePhoto:
+          'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
+      },
+    ],
+    posts: [
+      {
+        id: '6',
         user: {
           id: '3',
           name: 'Biggie',
@@ -421,7 +487,7 @@ export const users: Array<User> = [
         isLikedByUser: false,
       },
       {
-        id: '1',
+        id: '7',
         user: {
           id: '3',
           name: 'Biggie',
@@ -433,7 +499,7 @@ export const users: Array<User> = [
         isLikedByUser: false,
       },
       {
-        id: '2',
+        id: '8',
         user: {
           id: '3',
           name: 'Biggie',
@@ -446,11 +512,11 @@ export const users: Array<User> = [
       },
     ],
     photos: [
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/notorius/1.jpeg',
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/notorius/2.jpeg',
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/notorius/3.jpeg',
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/notorius/4.webp',
-      'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/1.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/2.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/3.jpeg',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/4.webp',
+      'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
     ],
     chat: [
       {
@@ -459,7 +525,7 @@ export const users: Array<User> = [
           name: 'Megan',
           surname: 'Fox',
           profilePhoto:
-            'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
         },
         history: [
           {
@@ -480,7 +546,7 @@ export const users: Array<User> = [
           name: 'Slim',
           surname: 'Shady',
           profilePhoto:
-            'https://raw.githubusertext.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
         },
         history: [
           {
