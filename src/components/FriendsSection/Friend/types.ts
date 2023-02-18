@@ -1,5 +1,5 @@
-import { User } from '../../../types/interfaces';
+import { FriendType } from '../../../types/interfaces';
 
 export interface FriendProps {
-  user: User;
+  friend: FriendType;
 }

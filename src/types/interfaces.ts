@@ -54,3 +54,10 @@ interface Chat {
   };
   history: ChatHistory[];
 }
+
+export interface FriendType {
+  readonly id: string;
+  name: string;
+  surname: string;
+  profilePhoto: string;
+}

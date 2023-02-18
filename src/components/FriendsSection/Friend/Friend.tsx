@@ -6,7 +6,7 @@ import { ReactComponent as DeleteIcon } from '../../../assets/icons/delete.svg';
 
 const cx = classNames.bind(styles);
 
-const Friend = ({ user: { name, surname, profilePhoto } }: FriendProps) => {
+const Friend = ({ friend: { name, surname, profilePhoto } }: FriendProps) => {
   return (
     <div className={cx('friend')}>
       <Link to='/profile'>

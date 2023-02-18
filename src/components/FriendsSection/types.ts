@@ -1,5 +1,5 @@
-import { User } from '../../types/interfaces';
+import { FriendType } from '../../types/interfaces';
 
 export interface FriendSectionProps {
-  user: User;
+  friends: FriendType[];
 }

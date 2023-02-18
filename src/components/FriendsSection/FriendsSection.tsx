@@ -1,13 +1,12 @@
 import classNames from 'classnames/bind';
 import { FormattedMessage } from 'react-intl';
+import { FriendSectionProps } from './types';
 import styles from './friendss-section.module.scss';
 import Friend from './Friend/Friend';
-import { FriendSectionProps } from './types';
-import ADS from '../../assets/images/div.png';
 
 const cx = classNames.bind(styles);
-
-const FriendsSection = ({ user }: FriendSectionProps) => {
+const FriendsSection = ({ friends }: FriendSectionProps) => {
+  const friendsEl = [...friends].map((item) => <Friend friend={item} key={item.id} />);
   return (
     <div className={cx('main')}>
       <div className={cx('main__friends')}>
@@ -26,11 +25,7 @@ const FriendsSection = ({ user }: FriendSectionProps) => {
             </select>
           </div>
         </div>
-        <div className={cx('main__friends-wrapper')}>
-          <Friend user={user} />
-          <Friend user={user} />
-          <Friend user={user} />
-        </div>
+        <div className={cx('main__friends-wrapper')}>{friendsEl}</div>
       </div>
     </div>
   );
