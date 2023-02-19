@@ -1,26 +1,49 @@
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import styles from './info-item.module.scss';
 import { InfoItemProps } from './types';
+import EditButton from './EditButton/EditButton';
 
 const cx = classNames.bind(styles);
 
-const InfoItem = ({ sectionName, sectionContent }: InfoItemProps) => {
-  const formatStringToLink = (string: string) => {
-    if (string.startsWith('http')) {
-      return (
-        <Link className={cx('item__link')} to={string}>
-          watch
-        </Link>
-      );
-    }
-    return string;
+const InfoItem = ({ sectionName, sectionContent, changeField }: InfoItemProps) => {
+  const isOwnPage = true;
+
+  const [isEdit, setEdit] = useState(false);
+  const [inputValue, setInputValue] = useState(sectionContent);
+  const [content, setContent] = useState(sectionContent);
+
+  const handleEdit = () => {
+    setEdit(true);
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSaveChanges = () => {
+    setEdit(false);
+    setContent(inputValue);
+
+    changeField(sectionName, inputValue, sectionContent);
   };
 
   return (
-    <li className={cx('item')}>
+    <li className={cx('item', { item_edit: isEdit })}>
       <span className={cx('item__name')}>{sectionName}</span>
-      <span className={cx('item__content')}>{formatStringToLink(sectionContent)}</span>
+      {isEdit ? (
+        <input
+          type='text'
+          onChange={handleInputChange}
+          value={inputValue}
+          className={cx('edit-input')}
+        />
+      ) : (
+        <span className={cx('item__content')}>{content}</span>
+      )}
+      {isOwnPage ? (
+        <EditButton isEdit={isEdit} handleSaveChanges={handleSaveChanges} handleEdit={handleEdit} />
+      ) : null}
     </li>
   );
 };
