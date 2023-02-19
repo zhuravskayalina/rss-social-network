@@ -28,8 +28,8 @@ export const messages = {
     gallery: 'Фото',
     go: 'Перейти',
     delete: 'Удалить',
-    name: 'имя',
-    surname: 'фамилия',
+    name: 'имени',
+    surname: 'фамилии',
     sort: 'Сортировать по:',
   },
 };

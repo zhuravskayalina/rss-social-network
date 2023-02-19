@@ -6,7 +6,7 @@ import { ReactComponent as DeleteIcon } from '../../../assets/icons/delete.svg';
 
 const cx = classNames.bind(styles);
 
-const Friend = ({ friend: { name, surname, profilePhoto } }: FriendProps) => {
+const Friend = ({ friend: { name, surname, profilePhoto }, deleteFriend }: FriendProps) => {
   return (
     <div className={cx('friend')}>
       <Link to='/profile'>
@@ -22,7 +22,7 @@ const Friend = ({ friend: { name, surname, profilePhoto } }: FriendProps) => {
           {name} {surname}
         </h3>
       </div>
-      <button className={cx('friend__delete')}>
+      <button className={cx('friend__delete')} onClick={deleteFriend}>
         <DeleteIcon className={cx('friend__delete-icon')} />
       </button>
     </div>

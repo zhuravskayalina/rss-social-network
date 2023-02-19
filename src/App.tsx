@@ -68,7 +68,10 @@ const App = () => {
           <Route path='profile' element={getProfilePage(user)}>
             <Route path='' element={<Timeline posts={posts} setPosts={setPosts} user={user} />} />
             <Route path='about' element={<About user={user} />} />
-            <Route path='friends' element={<FriendsSection friends={friends} />} />
+            <Route
+              path='friends'
+              element={<FriendsSection friends={friends} setFriends={setFriends} userId={userId} />}
+            />
             <Route path='gallery' element={<div>Gallery</div>} />
           </Route>
           <Route path='*' element={<Page404 />} />
