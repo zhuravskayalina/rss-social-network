@@ -5,18 +5,16 @@ import Message from '../Message/Message';
 
 const cx = classNames.bind(styles);
 
-const Chat = ({ dialog: { senderId, senderInfo, history } }: ChatProps) => {
-  return (
-    <div className={cx('dialog__chat')}>
-      {history.map((message) => (
-        <Message
-          key={`message-${senderId}-${message.time}`}
-          message={message}
-          senderAvatar={senderInfo.profilePhoto}
-        />
-      ))}
-    </div>
-  );
-};
+const Chat = ({ dialog: { senderId, senderInfo, history } }: ChatProps) => (
+  <div className={cx('dialog__chat')}>
+    {history.map((message) => (
+      <Message
+        key={`message-${senderId}-${message.time}`}
+        message={message}
+        senderAvatar={senderInfo.profilePhoto}
+      />
+    ))}
+  </div>
+);
 
 export default Chat;

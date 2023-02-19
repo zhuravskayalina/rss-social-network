@@ -22,9 +22,9 @@ const Message = ({ message: { text, time, isOwnMessage }, senderAvatar }: Messag
             </div>
           </div>
         )}
-        <p className={cx('dialog__message-text', { [activeClass]: !isOwnMessage })}>{`${text}`}</p>
+        <p className={cx('dialog__message-text', { [activeClass]: !isOwnMessage })}>{text}</p>
       </div>
-      <p className={cx('dialog__message-time')}>{`${time}`}</p>
+      <p className={cx('dialog__message-time')}>{time}</p>
     </div>
   );
 };
