@@ -1,15 +1,23 @@
 import classNames from 'classnames/bind';
 import { FormattedMessage } from 'react-intl';
 import { NetworkClient } from 'src/NetworkClient/NetworkClient';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { FriendType } from 'src/types/interfaces';
 import { FriendSectionProps } from './types';
 import styles from './friendss-section.module.scss';
 import Friend from './Friend/Friend';
 
 const cx = classNames.bind(styles);
 
-const FriendsSection = ({ friends, setFriends, userId }: FriendSectionProps) => {
+const FriendsSection = ({ userId }: FriendSectionProps) => {
   const [value, setValue] = useState<'name' | 'surname'>('name');
+  const [friends, setFriends] = useState<FriendType[]>([]);
+
+  useEffect(() => {
+    NetworkClient.getFriends(userId).then((userData) => {
+      setFriends(userData);
+    });
+  }, []);
 
   const changeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     setValue(e.target.value as 'name' | 'surname');
@@ -24,7 +32,7 @@ const FriendsSection = ({ friends, setFriends, userId }: FriendSectionProps) => 
     });
   };
 
-  const friendsEl = [...friends].map((item) => (
+  const friendsEl: JSX.Element[] = friends.map((item) => (
     <Friend deleteFriend={() => deleteFriend(item.id)} friend={item} key={item.id} />
   ));
   return (

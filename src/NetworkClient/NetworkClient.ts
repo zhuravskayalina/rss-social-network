@@ -54,6 +54,18 @@ export class NetworkClientMethods {
     }
   };
 
+  public getFriends = async (id: string) => {
+    try {
+      const response = await HttpClient.get(`${this.baseUrl}${Path.friends}/${id}`);
+      if (response.ok) {
+        return await response.json();
+      }
+      throw new Error(`${response.status}`);
+    } catch (error) {
+      console.error(`Something went wrong: ${error}`);
+    }
+  };
+
   public createUser = async (body: Omit<User, 'id'>) => {
     try {
       const response = await HttpClient.post(`${this.baseUrl}${Path.users}`, body);

@@ -12,7 +12,7 @@ import ProfileSection from './components/ProfileSection/ProfileSection';
 import { getInitialLocale } from './localStorageUtils';
 import MainPage from './components/mainPage/MainPage';
 import Timeline from './components/ProfileSection/MainSection/ContentSection/Timeline/Timeline';
-import { FriendType, PostItem, User } from './types/interfaces';
+import { PostItem, User } from './types/interfaces';
 import { NetworkClient } from './NetworkClient/NetworkClient';
 import About from './components/ProfileSection/MainSection/ContentSection/About/About';
 import Page404 from './components/Page404/Page404';
@@ -36,13 +36,11 @@ const App = () => {
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
   const [user, setUser] = useState<User>();
   const [posts, setPosts] = useState<PostItem[]>([]);
-  const [friends, setFriends] = useState<FriendType[]>([]);
 
   useEffect(() => {
     NetworkClient.getUser(userId).then((userData) => {
       setUser(userData);
       setPosts(userData.posts);
-      setFriends(userData.friends);
     });
   }, []);
 
@@ -68,10 +66,7 @@ const App = () => {
           <Route path='profile' element={getProfilePage(user)}>
             <Route path='' element={<Timeline posts={posts} setPosts={setPosts} user={user} />} />
             <Route path='about' element={<About user={user} />} />
-            <Route
-              path='friends'
-              element={<FriendsSection friends={friends} setFriends={setFriends} userId={userId} />}
-            />
+            <Route path='friends' element={<FriendsSection userId={userId} />} />
             <Route path='gallery' element={<div>Gallery</div>} />
           </Route>
           <Route path='*' element={<Page404 />} />
