@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { LOCALES } from './IntlLocale/locales';
 import { messages } from './IntlLocale/messages';
 import styles from './App.scss';
-import Header from './components/Header/Header';
+import Header from './components/header/Header';
 import Footer from './components/Footer/Footer';
 import MainContainer from './components/MainContainer/MainContainer';
 import ProfileSection from './components/ProfileSection/ProfileSection';
@@ -17,6 +17,7 @@ import { NetworkClient } from './NetworkClient/NetworkClient';
 import About from './components/ProfileSection/MainSection/ContentSection/About/About';
 import Page404 from './components/Page404/Page404';
 import Loading from './components/Loading/Loading';
+import FotoGallery from './components/FotoGallery/FotoGallery';
 import FriendsSection from './components/FriendsSection/FriendsSection';
 import DialogPageWrapper from './components/DialogPage/DialogsPageWrapper/DialogsPageWrapper';
 
@@ -36,10 +37,12 @@ const App = () => {
 
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
   const [user, setUser] = useState<User>();
+  const [foto, setFoto] = useState<string[]>([]);
 
   useEffect(() => {
     NetworkClient.getUser(userId).then((userData) => {
       setUser(userData);
+      setFoto(userData.photos);
     });
   }, []);
 
@@ -66,7 +69,7 @@ const App = () => {
             <Route path='' element={<Timeline user={user} />} />
             <Route path='about' element={<About user={user} setUser={setUser} />} />
             <Route path='friends' element={<FriendsSection userId={userId} />} />
-            <Route path='gallery' element={<div>Gallery</div>} />
+            <Route path='gallery' element={<FotoGallery foto={foto} />} />
           </Route>
           <Route path='messages' element={<DialogPageWrapper user={user} />} />
           <Route path='*' element={<Page404 />} />

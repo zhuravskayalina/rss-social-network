@@ -13,7 +13,7 @@ export class NetworkClientMethods {
   private readonly baseUrl: string;
 
   constructor() {
-    this.baseUrl = 'http://localhost:6969';
+    this.baseUrl = 'https://server-production-4095.up.railway.app';
   }
 
   public getUsers = async () => {
