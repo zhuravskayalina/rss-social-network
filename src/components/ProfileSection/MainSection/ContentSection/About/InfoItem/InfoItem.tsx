@@ -41,9 +41,9 @@ const InfoItem = ({ sectionName, sectionContent, changeField }: InfoItemProps) =
       ) : (
         <span className={cx('item__content')}>{content}</span>
       )}
-      {isOwnPage ? (
+      {isOwnPage && (
         <EditButton isEdit={isEdit} handleSaveChanges={handleSaveChanges} handleEdit={handleEdit} />
-      ) : null}
+      )}
     </li>
   );
 };
