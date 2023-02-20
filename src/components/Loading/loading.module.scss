@@ -21,7 +21,7 @@ $repetition: infinite;
   display: block;
   width: $width;
   height: $height;
-  transform-origin: calc(($width + $border) / 2) calc(($width + $border) / 2);;
+  transform-origin: calc($width / 2) calc($width / 2);
   animation: spin $duration $repetition linear;
 
   .spinner {
