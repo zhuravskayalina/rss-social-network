@@ -1,0 +1,60 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/mixins/mixins';
+
+.dialog {
+
+  &__write {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    padding: 22px 16px;
+    border-left: 1px solid colors.$border-light-gray;
+  }
+
+  &__write-input {
+    width: 85%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    border: none;
+  }
+
+  &__write-input::placeholder {
+    color: colors.$gray-placeholder-and-time;
+  }
+
+  &__write-input:focus {
+    outline: none;
+  }
+
+  &__buttons{
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__icon {
+    border: none;
+    background-color: colors.$white;
+  }
+
+  &__icon:hover.emoji {
+    svg {
+      fill: colors.$yellow-emoji;
+      opacity: 0.5;
+    }
+    svg path {
+      stroke: colors.$black;
+    }
+  }
+
+  &__icon:hover.message {
+    svg {
+      fill: colors.$main-blue;
+    }
+    svg path {
+      stroke: colors.$messages-icon-hover;
+    }
+  }
+}

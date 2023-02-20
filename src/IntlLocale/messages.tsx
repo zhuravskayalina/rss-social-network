@@ -11,6 +11,7 @@ export const messages = {
     newPost: 'New Post',
     gallery: 'Gallery',
     go: 'Go',
+    messageInput: 'Type your Message...',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -23,5 +24,6 @@ export const messages = {
     newPost: 'Новый пост',
     gallery: 'Фото',
     go: 'Перейти',
+    messageInput: 'Ваше сообщение...  ',
   },
 };
