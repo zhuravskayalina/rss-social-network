@@ -106,7 +106,7 @@ export const users: Array<User> = [
         history: [
           {
             text: 'Hi Megan how are you.....',
-            time: '1673388774477',
+            time: '1673388774478',
             isOwnMessage: false,
           },
           {
