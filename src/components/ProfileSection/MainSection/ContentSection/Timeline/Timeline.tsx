@@ -11,8 +11,9 @@ import { PostItem } from '../../../../../types/interfaces';
 
 const cx = classNames.bind(styles);
 
-const Timeline = ({ posts, setPosts, user }: TimelineProps) => {
+const Timeline = ({ user }: TimelineProps) => {
   const [isModalActive, setModalActive] = useState(false);
+  const [posts, setPosts] = useState<PostItem[]>(user.posts);
 
   const handleOpenModal = () => {
     setModalActive((prev) => !prev);

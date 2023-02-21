@@ -15,6 +15,7 @@ export const messages = {
     name: 'name',
     surname: 'surname',
     sort: 'Order by:',
+    messageInput: 'Type your Message...',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -31,5 +32,6 @@ export const messages = {
     name: 'имени',
     surname: 'фамилии',
     sort: 'Сортировать по:',
+    messageInput: 'Ваше сообщение...  ',
   },
 };

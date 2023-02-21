@@ -10,14 +10,16 @@ import Footer from './components/Footer/Footer';
 import MainContainer from './components/MainContainer/MainContainer';
 import ProfileSection from './components/ProfileSection/ProfileSection';
 import { getInitialLocale } from './localStorageUtils';
+import { users } from './components/DialogPage/dataExample';
 import MainPage from './components/mainPage/MainPage';
 import Timeline from './components/ProfileSection/MainSection/ContentSection/Timeline/Timeline';
-import { PostItem, User } from './types/interfaces';
+import { User } from './types/interfaces';
 import { NetworkClient } from './NetworkClient/NetworkClient';
 import About from './components/ProfileSection/MainSection/ContentSection/About/About';
 import Page404 from './components/Page404/Page404';
 import Loading from './components/Loading/Loading';
-import FriendsSection from './components/FriendsSection/FriendsSection';
+import FriendsSection from './components/FriendsSection/FriendsSection'
+import DialogPageWrapper from './components/DialogPage/DialogsPageWrapper/DialogsPageWrapper';
 
 const cx = classNames.bind(styles);
 
@@ -35,12 +37,10 @@ const App = () => {
 
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
   const [user, setUser] = useState<User>();
-  const [posts, setPosts] = useState<PostItem[]>([]);
 
   useEffect(() => {
     NetworkClient.getUser(userId).then((userData) => {
       setUser(userData);
-      setPosts(userData.posts);
     });
   }, []);
 
@@ -64,13 +64,14 @@ const App = () => {
         <Routes>
           <Route path='' element={<MainPage />} />
           <Route path='profile' element={getProfilePage(user)}>
-            <Route path='' element={<Timeline posts={posts} setPosts={setPosts} user={user} />} />
-            <Route path='about' element={<About user={user} />} />
+            <Route path='' element={<Timeline user={user} />} />
+            <Route path='about' element={<About user={user} setUser={setUser} />} />
             <Route path='friends' element={<FriendsSection userId={userId} />} />
             <Route path='gallery' element={<div>Gallery</div>} />
           </Route>
           <Route path='*' element={<Page404 />} />
         </Routes>
+        <DialogPageWrapper user={users[0]} />
         <Footer />
       </div>
     </IntlProvider>

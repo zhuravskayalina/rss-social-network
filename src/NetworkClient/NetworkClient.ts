@@ -105,6 +105,19 @@ export class NetworkClientMethods {
     }
   };
 
+  public updateUser = async (id: string, body: User) => {
+    try {
+      const response = await HttpClient.put(`${this.baseUrl}${Path.users}/${id}`, body);
+
+      if (response.ok) {
+        return await response.json();
+      }
+      throw new Error(`${response.status}`);
+    } catch (error) {
+      console.error(`Something went wrong about updating user: ${error}`);
+    }
+  };
+
   public deleteUser = async (id: string) => {
     try {
       const response = await HttpClient.delete(`${this.baseUrl}${Path.users}/${id}`);

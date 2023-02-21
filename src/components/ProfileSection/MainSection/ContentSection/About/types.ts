@@ -7,11 +7,12 @@ export interface UserData {
   twitter: string;
   linkedIn: string;
   hobbies: string;
-  'favourite music': string;
-  'favourite books': string;
-  'favourite movies': string;
+  music: string;
+  books: string;
+  cinema: string;
 }
 
 export interface AboutProps {
   user: User;
+  setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
 }
