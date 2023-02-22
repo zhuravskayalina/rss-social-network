@@ -18,6 +18,7 @@ import { NetworkClient } from './NetworkClient/NetworkClient';
 import About from './components/ProfileSection/MainSection/ContentSection/About/About';
 import Page404 from './components/Page404/Page404';
 import Loading from './components/Loading/Loading';
+import FriendsSection from './components/FriendsSection/FriendsSection'
 import DialogPageWrapper from './components/DialogPage/DialogsPageWrapper/DialogsPageWrapper';
 
 const cx = classNames.bind(styles);
@@ -32,7 +33,7 @@ const getProfilePage = (user: User) => {
 };
 
 const App = () => {
-  const userId = '1';
+  const userId = '2';
 
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
   const [user, setUser] = useState<User>();
@@ -65,7 +66,7 @@ const App = () => {
           <Route path='profile' element={getProfilePage(user)}>
             <Route path='' element={<Timeline user={user} />} />
             <Route path='about' element={<About user={user} setUser={setUser} />} />
-            <Route path='friends' element={<div>Friends</div>} />
+            <Route path='friends' element={<FriendsSection userId={userId} />} />
             <Route path='gallery' element={<div>Gallery</div>} />
           </Route>
           <Route path='*' element={<Page404 />} />

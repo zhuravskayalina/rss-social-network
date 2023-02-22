@@ -6,6 +6,7 @@ import { PostItem, User } from '../types/interfaces';
 enum Path {
   users = '/users',
   newsfeed = '/newsfeed',
+  friends = '/friends',
 }
 
 export class NetworkClientMethods {
@@ -44,6 +45,18 @@ export class NetworkClientMethods {
   public getUser = async (id: string) => {
     try {
       const response = await HttpClient.get(`${this.baseUrl}${Path.users}/${id}`);
+      if (response.ok) {
+        return await response.json();
+      }
+      throw new Error(`${response.status}`);
+    } catch (error) {
+      console.error(`Something went wrong: ${error}`);
+    }
+  };
+
+  public getFriends = async (id: string) => {
+    try {
+      const response = await HttpClient.get(`${this.baseUrl}${Path.friends}/${id}`);
       if (response.ok) {
         return await response.json();
       }
@@ -121,6 +134,20 @@ export class NetworkClientMethods {
   public deletePost = async (id: string) => {
     try {
       const response = await HttpClient.delete(`${this.baseUrl}${Path.newsfeed}/${id}`);
+
+      if (!response.ok) {
+        throw new Error(`Got an error: ${response.status}`);
+      }
+    } catch (error) {
+      console.error(`Something went wrong: ${error}`);
+    }
+  };
+
+  public deleteFriend = async (userId: string, friendId: string) => {
+    try {
+      const response = await HttpClient.delete(
+        `${this.baseUrl}${Path.friends}/${userId}/${friendId}`,
+      );
 
       if (!response.ok) {
         throw new Error(`Got an error: ${response.status}`);
