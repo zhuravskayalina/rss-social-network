@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { LOCALES } from './IntlLocale/locales';
 import { messages } from './IntlLocale/messages';
 import styles from './App.scss';
-import Header from './components/header/Header';
+import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import MainContainer from './components/MainContainer/MainContainer';
 import ProfileSection from './components/ProfileSection/ProfileSection';
