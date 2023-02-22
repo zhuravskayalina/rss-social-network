@@ -7,12 +7,21 @@ import MessageTextArea from '../MessageTextArea/MessageTextArea';
 
 const cx = classNames.bind(styles);
 
-const ChatFullBlock = ({ dialog }: ChatFullBlockProps) => {
+const ChatFullBlock = ({
+  value,
+  dialog,
+  handleSendClick,
+  handleMessageInput,
+}: ChatFullBlockProps) => {
   return (
     <div className={cx('dialog__chat-block')}>
       <FriendFromDialogList myChat={dialog} styleClass='chat' />
       <Chat dialog={dialog} />
-      <MessageTextArea />
+      <MessageTextArea
+        value={value}
+        handleSendClick={handleSendClick}
+        handleMessageInput={handleMessageInput}
+      />
     </div>
   );
 };
