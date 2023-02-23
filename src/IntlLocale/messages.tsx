@@ -16,6 +16,10 @@ export const messages = {
     surname: 'surname',
     sort: 'Order by:',
     messageInput: 'Type your Message...',
+    profile: 'Profile',
+    messages: 'Messages',
+    newsfeed: 'Newsfeed',
+    settings: 'Settings',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -33,5 +37,9 @@ export const messages = {
     surname: 'фамилии',
     sort: 'Сортировать по:',
     messageInput: 'Ваше сообщение...  ',
+    profile: 'Профиль',
+    messages: 'Сообщения',
+    newsfeed: 'Новостная лента',
+    settings: 'Настройки',
   },
 };
