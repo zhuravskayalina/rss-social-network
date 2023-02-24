@@ -19,7 +19,6 @@ import Page404 from './components/Page404/Page404';
 import Loading from './components/Loading/Loading';
 import FriendsSection from './components/FriendsSection/FriendsSection';
 import Authorization from './components/Authorization/Authorization';
-import DialogPageWrapper from './components/DialogPage/DialogsPageWrapper/DialogsPageWrapper';
 
 const cx = classNames.bind(styles);
 
@@ -34,10 +33,7 @@ const getProfilePage = (user: User) => {
 
 const App = () => {
   const isUserLoggedIn = () => {
-    if (localStorage.getItem('isLoggedIn') === 'true') {
-      return true;
-    }
-    return false;
+    return localStorage.getItem('isLoggedIn') === 'true';
   };
 
   const [isLoggedIn, setLoggedIn] = useState(isUserLoggedIn());

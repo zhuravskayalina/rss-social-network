@@ -1,5 +1,4 @@
 import { FormattedMessage } from 'react-intl';
-import { useId } from 'react';
 import { ReactComponent as ProfileIcon } from '../../../assets/icons/headerMenuIcons/profileIcon.svg';
 import { ReactComponent as FriendsIcon } from '../../../assets/icons/headerMenuIcons/friendsIcon.svg';
 import { ReactComponent as ChatIcon } from '../../../assets/icons/headerMenuIcons/chatIcon.svg';
