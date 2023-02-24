@@ -53,6 +53,9 @@
     "react/no-array-index-key": "off",
     "consistent-return": "off",
     "@typescript-eslint/ban-ts-comment": "off",
+    "default-case": "off",
+    "no-nested-ternary": "off",
+    "react/require-default-prop": "off",
     "quotes": [
       "error",
       "single"

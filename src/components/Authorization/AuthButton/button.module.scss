@@ -1,0 +1,33 @@
+@use './src/stylesheets/variables/colors';
+@use './src/stylesheets/variables/numbers';
+@use './src/stylesheets/mixins/mixins';
+
+.auth__btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px 20px;
+  border: 1px solid colors.$color-primary-blue;
+  border-radius: numbers.$border-radius-buttons;
+  color: colors.$color-primary-blue;
+  font-weight: 500;
+  font-size: 18px;
+  background-color: colors.$white;
+  margin-bottom: 12px;
+  transition: .2s;
+  @include mixins.center-content;
+  @include mixins.link-style-reset;
+
+  &[disabled] {
+    pointer-events: none;
+    cursor: auto;
+    background-color: colors.$half-transparent-gray;
+    color: colors.$gray-text;
+    border-color: colors.$gray-text;
+  }
+
+  &:hover:not([disabled]) {
+    cursor: pointer;
+    color: colors.$white;
+    background-color: colors.$color-primary-blue;
+  }
+}

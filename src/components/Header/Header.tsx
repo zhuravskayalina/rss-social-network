@@ -1,19 +1,32 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as MenuIcon } from '../../assets/icons/menu.svg';
 import { ReactComponent as LogoIcon } from '../../assets/icons/headerFullLogo.svg';
 import LoginButtonHeader from './LoginButton/LoginButton';
 import Searcher from './Searcher/Searcher';
 import SwitcherLanguage from './Switcher/SwitcherLanguage/SwitcherForLanguage';
 import styles from './header.module.scss';
-import { ChangeLocalProps } from './AppTypes';
+import { HeaderProps } from './AppTypes';
 import Navigation from './HeaderNavigation/HeaderNavigation';
 
 const cx = classNames.bind(styles);
 
-const Header = ({ currentLocale, handleChange }: ChangeLocalProps) => {
+const Header = ({
+  currentLocale,
+  handleChange,
+  openAuthorization,
+  isLoggedIn,
+  logOut,
+  user,
+}: HeaderProps) => {
   const [showNav, setShowNaw] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleGoToProfile = () => {
+    if (user) navigate(`profile/${user.id}`);
+  };
 
   const clickMenuHandler = () => {
     setShowNaw(!showNav);
@@ -31,7 +44,18 @@ const Header = ({ currentLocale, handleChange }: ChangeLocalProps) => {
         </Link>
         <SwitcherLanguage currentLocale={currentLocale} handleChange={handleChange} />
         <Searcher />
-        <LoginButtonHeader />
+        {isLoggedIn && user && (
+          <button onClick={handleGoToProfile} className={cx('avatar-btn')}>
+            <div className={cx('avatar-box')}>
+              <img src={user.profilePhoto || ''} className={cx('avatar')} alt='avatar' />
+            </div>
+          </button>
+        )}
+        <LoginButtonHeader
+          openAuthorization={openAuthorization}
+          isLoggedIn={isLoggedIn}
+          logOut={logOut}
+        />
       </div>
     </div>
   );

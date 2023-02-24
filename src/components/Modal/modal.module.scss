@@ -9,7 +9,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: colors.$black-transparent;
+  background: colors.$black-transparent;
+  backdrop-filter: blur(8px);
   opacity: 0;
   pointer-events: none;
   display: flex;
@@ -30,7 +31,7 @@
   }
 
   &_open {
-   opacity: 1;
+    opacity: 1;
     pointer-events: all;
   }
 
@@ -57,7 +58,27 @@
       width: 12px;
     }
   }
+}
 
+.auth {
+  width: 440px;
+  padding: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: colors.$gray-text;
 
+  @media screen and (max-width: 500px) {
+    width: 90%;
+  }
+}
 
+.questions {
+  width: 60%;
+  height: 600px;
+  padding: 0 0 40px;
+
+  @media screen and (max-width: 800px) {
+    width: 90%;
+  }
 }
