@@ -6,14 +6,21 @@ import { InfoBlockProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const InfoBlock = ({ data, heading }: InfoBlockProps) => {
+const InfoBlock = ({ data, heading, changeField }: InfoBlockProps) => {
   return (
     <div className={cx('info-block')}>
       <h3 className={cx('info-block__heading')}>{heading}</h3>
       <DecorLine />
       <ul className={cx('info-block__list')}>
         {Object.entries(data).map(([key, value]) => {
-          return <InfoItem sectionName={key} sectionContent={value} key={key} />;
+          return (
+            <InfoItem
+              sectionName={key}
+              sectionContent={value}
+              key={key}
+              changeField={changeField}
+            />
+          );
         })}
       </ul>
     </div>

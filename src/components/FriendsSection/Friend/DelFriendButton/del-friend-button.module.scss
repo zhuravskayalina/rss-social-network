@@ -1,0 +1,15 @@
+@import '../../../../stylesheets/mixins/mixins.scss';
+
+.del-button {
+  width: 90px;
+  height: 45px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  border-radius: 4px;
+
+  @include media-mobile {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}

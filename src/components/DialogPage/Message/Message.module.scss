@@ -1,0 +1,67 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/mixins/mixins';
+
+.dialog {
+  &__message {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 45%;
+    margin-left: 0;
+    margin-bottom: 11px;
+    margin-top: 11px;
+  }
+
+  &__friends-text {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__message.friends-messages {
+    margin-left: auto;
+  }
+
+  &__message-text {
+    border-radius: 0px 20px 20px 20px;
+    padding: 20px;
+    background: colors.$main-background;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: colors.$light-black;
+  }
+
+  &__message-text.friends-messages {
+    border-radius: 20px 0px 20px 20px;
+  }
+
+  &__chat-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__chat-avatar-box {
+    position: relative;
+  }
+
+  &__chat-avatar-img {
+    position: absolute;
+    object-fit: cover;
+    background-color: colors.$white;
+    border-radius: 50%;
+    border: 3px solid white;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+  }
+
+  &__message-time {
+    color: colors.$gray-placeholder-and-time;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    margin-left: auto;
+  }
+}
+
