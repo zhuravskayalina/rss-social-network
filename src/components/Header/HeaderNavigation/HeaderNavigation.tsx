@@ -1,5 +1,4 @@
 import classNames from 'classnames/bind';
-import { useId } from 'react';
 import styles from './HeaderNavigation.module.scss';
 import { NavItemInterface } from './types';
 import NavItem from './HeaderNavItem';
@@ -11,7 +10,7 @@ const Navigation = () => {
   return (
     <div className={cx('nav')}>
       {navItems.map((item: NavItemInterface) => (
-        <li key={useId()} className={cx('nav__item')}>
+        <li key={item.key} className={cx('nav__item')}>
           <NavItem item={item} />
         </li>
       ))}
