@@ -17,7 +17,6 @@ import { NetworkClient } from './NetworkClient/NetworkClient';
 import About from './components/ProfileSection/MainSection/ContentSection/About/About';
 import Page404 from './components/Page404/Page404';
 import Loading from './components/Loading/Loading';
-import FriendsSection from './components/FriendsSection/FriendsSection';
 import Authorization from './components/Authorization/Authorization';
 
 const cx = classNames.bind(styles);
@@ -33,7 +32,10 @@ const getProfilePage = (user: User) => {
 
 const App = () => {
   const isUserLoggedIn = () => {
-    return localStorage.getItem('isLoggedIn') === 'true';
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      return true;
+    }
+    return false;
   };
 
   const [isLoggedIn, setLoggedIn] = useState(isUserLoggedIn());
@@ -100,7 +102,7 @@ const App = () => {
               <Route path={`profile/${user.id}`} element={getProfilePage(user)}>
                 <Route path='' element={<Timeline user={user} />} />
                 <Route path='about' element={<About user={user} setUser={setUser} />} />
-                <Route path='friends' element={<FriendsSection userId={user.id} />} />
+                <Route path='friends' element={<div>Friends</div>} />
                 <Route path='gallery' element={<div>Gallery</div>} />
               </Route>
             )}
