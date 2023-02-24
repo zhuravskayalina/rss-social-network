@@ -37,12 +37,12 @@ const App = () => {
 
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
   const [user, setUser] = useState<User>();
-  const [foto, setFoto] = useState<string[]>([]);
+  const [photos, setPhotos] = useState<string[]>([]);
 
   useEffect(() => {
     NetworkClient.getUser(userId).then((userData) => {
       setUser(userData);
-      setFoto(userData.photos);
+      setPhotos(userData.photos);
     });
   }, []);
 
@@ -69,7 +69,7 @@ const App = () => {
             <Route path='' element={<Timeline user={user} />} />
             <Route path='about' element={<About user={user} setUser={setUser} />} />
             <Route path='friends' element={<FriendsSection userId={userId} />} />
-            <Route path='gallery' element={<FotoGallery foto={foto} />} />
+            <Route path='gallery' element={<FotoGallery photos={photos} />} />
           </Route>
           <Route path='messages' element={<DialogPageWrapper user={user} />} />
           <Route path='*' element={<Page404 />} />
