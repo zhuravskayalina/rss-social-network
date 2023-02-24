@@ -1,11 +1,12 @@
 @use "./assets/fonts/icon-font/icons-font.css";
 @use './stylesheets/base/reset';
 @use './stylesheets/variables/colors';
+@import 'assets/fonts/HelveticaNeue/stylesheet.css';
 
 .app {
   background-color: colors.$main-background;
   height: 100%;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "HelveticaNeueCyr", sans-serif;
 }
 
 .blue {

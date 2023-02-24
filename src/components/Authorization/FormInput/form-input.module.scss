@@ -1,0 +1,23 @@
+@use './src/stylesheets/variables/colors';
+@use './src/stylesheets/variables/numbers';
+
+.input {
+  border: 1px solid colors.$half-transparent-gray;
+  padding: 16px;
+  border-radius: numbers.$border-radius;
+  width: 100%;
+  font-size: 16px;
+  color: #71728C;
+
+  &_error {
+    border-color: colors.$error;
+
+    &:focus-visible {
+      border-color: colors.$half-transparent-gray;
+    }
+  }
+
+  &:focus-visible {
+    outline: 1px solid colors.$color-primary-blue;
+  }
+}

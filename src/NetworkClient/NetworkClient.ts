@@ -6,6 +6,7 @@ import { PostItem, User } from '../types/interfaces';
 enum Path {
   users = '/users',
   newsfeed = '/newsfeed',
+  user = '/user',
 }
 
 export class NetworkClientMethods {
@@ -28,6 +29,19 @@ export class NetworkClientMethods {
     }
   };
 
+  public createUser = async (body: Omit<User, 'id'>) => {
+    try {
+      const response = await HttpClient.post(`${this.baseUrl}${Path.user}`, body);
+
+      if (response.ok) {
+        return await response.json();
+      }
+      throw new Error(`${response.status}`);
+    } catch (error) {
+      console.error(`Something went wrong: ${error}`);
+    }
+  };
+
   public getPosts = async () => {
     try {
       const response = await HttpClient.get(`${this.baseUrl}${Path.newsfeed}`);
@@ -44,19 +58,6 @@ export class NetworkClientMethods {
   public getUser = async (id: string) => {
     try {
       const response = await HttpClient.get(`${this.baseUrl}${Path.users}/${id}`);
-      if (response.ok) {
-        return await response.json();
-      }
-      throw new Error(`${response.status}`);
-    } catch (error) {
-      console.error(`Something went wrong: ${error}`);
-    }
-  };
-
-  public createUser = async (body: Omit<User, 'id'>) => {
-    try {
-      const response = await HttpClient.post(`${this.baseUrl}${Path.users}`, body);
-
       if (response.ok) {
         return await response.json();
       }

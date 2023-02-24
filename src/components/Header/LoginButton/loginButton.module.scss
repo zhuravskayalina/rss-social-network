@@ -2,23 +2,27 @@
 @use '../../../stylesheets/variables/colors';
 @use './src/stylesheets/variables/numbers';
 
-.header__login-button {
+.button {
   @include mixins.link-style-reset;
   @include mixins.center-content;
-  padding: 5px 15px;
-  font-weight: 500;
-  font-size: 16px;
-  border-radius: numbers.$border-radius;
-  background-color: colors.$white;
-  color: colors.$black;
   height: 35px;
   text-transform: uppercase;
+  border: none;
+  background-color: transparent;
 
   &:hover {
-    box-shadow: 0 0 10px colors.$white;
-  }
+    cursor: pointer;
 
-  &:active {
-    box-shadow: 0 0 13px colors.$white;
+    .icon {
+      path {
+        stroke: colors.$color-switcher-language;
+      }
+    }
+  }
+}
+
+.icon {
+  path {
+    transition: .3s;
   }
 }
