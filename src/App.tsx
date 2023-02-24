@@ -36,13 +36,13 @@ const App = () => {
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
   const [user, setUser] = useState<User>();
   const [posts, setPosts] = useState<PostItem[]>([]);
-  const [foto, setFoto] = useState<string[]>([]);
+  const [photos, setPhotos] = useState<string[]>([]);
 
   useEffect(() => {
     NetworkClient.getUser(userId).then((userData) => {
       setUser(userData);
       setPosts(userData.posts);
-      setFoto(userData.photos);
+      setPhotos(userData.photos);
     });
   }, []);
 
@@ -69,7 +69,7 @@ const App = () => {
             <Route path='' element={<Timeline posts={posts} setPosts={setPosts} user={user} />} />
             <Route path='about' element={<About user={user} />} />
             <Route path='friends' element={<div>Friends</div>} />
-            <Route path='gallery' element={<FotoGallery foto={foto} />} />
+            <Route path='gallery' element={<FotoGallery photos={photos} />} />
           </Route>
           <Route path='*' element={<Page404 />} />
         </Routes>

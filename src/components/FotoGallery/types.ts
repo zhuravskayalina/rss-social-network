@@ -1,3 +1,3 @@
 export interface FotoGalleryProps {
-  foto: string[];
+  photos: string[];
 }
