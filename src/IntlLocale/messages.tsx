@@ -26,6 +26,9 @@ export const messages = {
     lena: 'Elena Smolina',
     pasha: 'Pavel Troinich',
     aboutOWL: 'Social media for life. Over a billion people already on Owl. Be one of them.',
+    profile: 'Profile',
+    messages: 'Messages',
+    settings: 'Settings',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -53,5 +56,8 @@ export const messages = {
     lena: 'Елена Смолина',
     pasha: 'Павел Тройнич',
     aboutOWL: 'Жизнь в общении. Более миллиарда человек уже пользуются Owl- будь одним из них.',
+    profile: 'Профиль',
+    messages: 'Сообщения',
+    settings: 'Настройки',
   },
 };

@@ -10,7 +10,6 @@ import Footer from './components/Footer/Footer';
 import MainContainer from './components/MainContainer/MainContainer';
 import ProfileSection from './components/ProfileSection/ProfileSection';
 import { getInitialLocale } from './localStorageUtils';
-import { users } from './components/DialogPage/dataExample';
 import MainPage from './components/mainPage/MainPage';
 import Timeline from './components/ProfileSection/MainSection/ContentSection/Timeline/Timeline';
 import { User } from './types/interfaces';
@@ -69,9 +68,9 @@ const App = () => {
             <Route path='friends' element={<FriendsSection userId={userId} />} />
             <Route path='gallery' element={<div>Gallery</div>} />
           </Route>
+          <Route path='messages' element={<DialogPageWrapper user={user} />} />
           <Route path='*' element={<Page404 />} />
         </Routes>
-        <DialogPageWrapper user={users[0]} />
         <Footer />
       </div>
     </IntlProvider>
