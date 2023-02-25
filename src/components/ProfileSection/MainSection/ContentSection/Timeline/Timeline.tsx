@@ -51,6 +51,7 @@ const Timeline = ({ user }: TimelineProps) => {
         id: user.id,
         name: user.name,
         surname: user.surname,
+        profilePhoto: user.profilePhoto,
       },
       date: Date.now(),
       text,
@@ -70,6 +71,7 @@ const Timeline = ({ user }: TimelineProps) => {
       .map((postItem) => {
         return (
           <Post
+            isOwner={user.id === postItem.user.id}
             post={postItem}
             likesCount={postItem.likes}
             isUserLike={postItem.isLikedByUser}

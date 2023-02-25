@@ -9,6 +9,7 @@ import anatarImg from '../../assets/images/user-avatar.png';
 const cx = classNames.bind(styles);
 
 const Post = ({
+  isOwner,
   likesCount,
   post,
   isUserLike,
@@ -17,6 +18,7 @@ const Post = ({
   userName,
   userPhoto,
 }: PostProps) => {
+  const locale = localStorage.getItem('locale');
   const backImage = userPhoto || anatarImg;
   return (
     <div className={cx('post')}>
@@ -33,7 +35,11 @@ const Post = ({
       </div>
       <div className={cx('post__content')}>{post.text}</div>
       <Like likesCount={likesCount} isUserLike={isUserLike} likePost={likePost} />
-      <button className={cx('post__delete')} onClick={deletePost}>
+      <button
+        className={cx('post__delete', { disabled: !isOwner })}
+        onClick={deletePost}
+        title={locale === 'ru' ? 'Удалить пост' : 'Delete post'}
+      >
         <DeleteIcon className={cx('post__delete-icon')} />
       </button>
     </div>
