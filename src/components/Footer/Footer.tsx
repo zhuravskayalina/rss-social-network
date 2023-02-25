@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames/bind';
 import styles from './Footer.module.scss';
 import logoIcon from '../../assets/icons/logoBlack.svg';
@@ -13,7 +14,7 @@ const Footer = () => {
         <div>
           <img src={logoIcon} alt='Owl' className={cx('footer__logo-icon')} />
           <p className={cx('footer__text')}>
-            Social media for life. Over a billion people already on Owl. Be one of them.
+            <FormattedMessage id='aboutOWL' />
           </p>
         </div>
         <MenuBlock
