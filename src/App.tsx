@@ -108,7 +108,7 @@ const App = () => {
                   <Route path='friends' element={<FriendsSection userId={user.id} />} />
                   <Route path='gallery' element={<FotoGallery photos={photos} />} />
                 </Route>
-                <Route path='messages' element={<DialogPageWrapper user={user} />} />
+                <Route path={`messages/${user.id}`} element={<DialogPageWrapper user={user} />} />
               </>
             )}
             <Route path='*' element={<Page404 />} />

@@ -6,7 +6,7 @@ import { NavProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const NavItem = ({ item: { icon, description, link } }: NavProps) => {
+const NavItem = ({ item: { icon, description, link, sublink }, userId }: NavProps) => {
   const [showToolTip, setShowToolTip] = useState(false);
   const toolTipTimeout = useRef<NodeJS.Timeout>();
 
@@ -27,7 +27,7 @@ const NavItem = ({ item: { icon, description, link } }: NavProps) => {
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
     >
-      <Link to={link} className={cx('nav__icon-link')}>
+      <Link to={`${link}/${userId}${sublink}`} className={cx('nav__icon-link')}>
         {icon}
       </Link>
       {showToolTip && (

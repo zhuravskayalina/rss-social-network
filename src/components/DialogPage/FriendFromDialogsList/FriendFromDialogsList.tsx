@@ -10,8 +10,9 @@ const FriendFromDialogList = ({
   myChat,
   styleClass,
   handleClickChat,
+  userId,
 }: FriendFromDialogListProps) => {
-  const url = '/messages';
+  const url = `/messages/${userId}`;
   return (
     <NavLink to={url}>
       {/* eslint-disable-next-line jsx-a11y/interactive-supports-focus */}

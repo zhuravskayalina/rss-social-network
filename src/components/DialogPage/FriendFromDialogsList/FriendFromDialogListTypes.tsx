@@ -4,4 +4,5 @@ export interface FriendFromDialogListProps {
   myChat: Chat;
   styleClass: string;
   handleClickChat: (choiceChat: Chat) => void;
+  userId: string;
 }

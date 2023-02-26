@@ -66,7 +66,7 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
 
   return (
     <div className={cx('dialog__page')}>
-      <ChatsList user={user} handleClickChat={handleClickChat} />
+      <ChatsList user={user} handleClickChat={handleClickChat} userId={user.id} />
       <ChatFullBlock
         value={value}
         dialog={chat}
@@ -74,6 +74,7 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
         handleSendClick={handleSendClick}
         handleMessageInput={handleMessageInput}
         handleClickChat={handleClickChat}
+        userId={user.id}
       />
     </div>
   );

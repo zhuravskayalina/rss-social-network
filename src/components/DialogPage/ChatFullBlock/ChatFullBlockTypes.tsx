@@ -8,4 +8,5 @@ export interface ChatFullBlockProps {
   handleSendClick: () => void;
   handleMessageInput: (event: ChangeEvent<HTMLInputElement>) => void;
   handleClickChat: (choiceChat: Chat) => void;
+  userId: string;
 }
