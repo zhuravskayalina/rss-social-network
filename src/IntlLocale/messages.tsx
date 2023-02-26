@@ -77,6 +77,7 @@ export const messages = {
     'favourite movies': 'Favourite movies',
     cancel: 'Cancel',
     back: 'Back',
+    'choose photo': 'Choose photo',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -155,5 +156,6 @@ export const messages = {
     'favourite movies': 'Любимые фильмы',
     cancel: 'Отмена',
     back: 'Назад',
+    'choose photo': 'Выберите фото',
   },
 };

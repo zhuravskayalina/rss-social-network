@@ -8,5 +8,5 @@ export interface PostProps {
   likePost: () => void;
   deletePost: () => void;
   userName: string;
-  userPhoto: string | null;
+  userPhoto: string | null | undefined;
 }
