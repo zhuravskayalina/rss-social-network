@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, MouseEventHandler } from 'react';
 import { Chat } from '../../../types/interfaces';
 
 export interface ChatFullBlockProps {
@@ -6,4 +6,5 @@ export interface ChatFullBlockProps {
   dialog: Chat;
   handleSendClick: () => void;
   handleMessageInput: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleClickChat: MouseEventHandler;
 }

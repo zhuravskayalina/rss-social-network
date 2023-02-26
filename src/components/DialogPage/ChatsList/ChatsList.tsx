@@ -6,7 +6,7 @@ import styles from '../Chat/Chat.module.scss';
 
 const cx = classNames.bind(styles);
 
-const ChatsList = ({ user: { chat } }: ChatsListProps) => {
+const ChatsList = ({ user: { chat }, handleClickChat }: ChatsListProps) => {
   return (
     <div className='dialog__chats-wrapper'>
       {chat.map((dialog: Chat) => (
@@ -14,6 +14,7 @@ const ChatsList = ({ user: { chat } }: ChatsListProps) => {
           key={`chat_${dialog.senderId}`}
           myChat={dialog}
           styleClass={cx('list')}
+          handleClickChat={handleClickChat}
         />
       ))}
     </div>

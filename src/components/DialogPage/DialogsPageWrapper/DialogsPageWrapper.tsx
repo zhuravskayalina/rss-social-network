@@ -5,7 +5,7 @@ import styles from './DialogsPageWrapper.module.scss';
 import ChatsList from '../ChatsList/ChatsList';
 import ChatFullBlock from '../ChatFullBlock/ChatFullBlock';
 import { DialogPageProps } from './DialogsPageWrapperProps';
-import { User } from '../../../types/interfaces';
+import { Chat, User } from '../../../types/interfaces';
 
 interface ChatMessageInterface {
   text: string;
@@ -16,11 +16,15 @@ interface ChatMessageInterface {
 const cx = classNames.bind(styles);
 
 const DialogPageWrapper = ({ user }: DialogPageProps) => {
-  const chat = user.chat[0];
   const webs = useRef<Socket | null>(null);
   const [messages, setMessages] = useState<Array<ChatMessageInterface>>([]);
   const [value, setValue] = useState('');
   const [users, setUsers] = useState<Array<User>>([]);
+  const [chat, setChat] = useState(user.chat[0]);
+
+  const handleClickChat = (choiceChat: Chat) => {
+    setChat(choiceChat);
+  };
 
   const handleMessageInput = (ev: ChangeEvent<HTMLInputElement>) => {
     const { value: inputValue } = ev.target;
@@ -34,7 +38,7 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
       const message = {
         text: value,
         userId: user.id,
-        to: 3,
+        to: 0,
         isOwnMessage: true,
       };
       webs.current.emit('chatMessage', message);
@@ -59,17 +63,16 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
 
   return (
     <div className={cx('dialog__page')}>
-      <ChatsList user={user} />
+      <ChatsList user={user} handleClickChat={handleClickChat} />
       <ChatFullBlock
         value={value}
         dialog={chat}
         handleSendClick={handleSendClick}
         handleMessageInput={handleMessageInput}
+        handleClickChat={handleClickChat}
       />
     </div>
   );
 };
-
-// todo передать в инпут handleMessageInput,в кнопку handleSendClick;
 
 export default DialogPageWrapper;

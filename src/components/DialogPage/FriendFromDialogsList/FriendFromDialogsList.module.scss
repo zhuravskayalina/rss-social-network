@@ -52,7 +52,7 @@
     object-fit: cover;
     background-color: colors.$white;
     border-radius: 50%;
-    border: 3px solid white;
+    border: none;
   }
 
   &__img.chat {
@@ -79,4 +79,12 @@
   &__friend-name-chat {
     font-size: 24px;
   }
+}
+
+.active {
+    color: colors.$white;
+    background-color: colors.$main-blue;
+}
+a {
+  text-decoration: none;
 }
