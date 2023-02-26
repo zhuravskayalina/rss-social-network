@@ -77,6 +77,11 @@ export const messages = {
     'favourite movies': 'Favourite movies',
     cancel: 'Cancel',
     back: 'Back',
+    '404msg1': 'OOOPS! THIS PAGE DOES NOT EXIST...',
+    '404msg2': 'GO TO HOME PAGE',
+    mainMsg1:
+      'Having real social contacts can sometimes be difficult FUN, everything becomes much simpler!',
+    mainMsg2: 'Connected People',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -155,5 +160,10 @@ export const messages = {
     'favourite movies': 'Любимые фильмы',
     cancel: 'Отмена',
     back: 'Назад',
+    '404msg1': 'ОЙ! ТАКОЙ СТРАНИЦЫ ЗДЕСЬ НЕТ...',
+    '404msg2': 'ВЕРНУТЬСЯ НА ГЛАВНУЮ',
+    mainMsg1:
+      'Иногда поддерживать общение становится непросто. С социальной сетью OWL все станет гораздо проще!',
+    mainMsg2: 'Подключенных пользователей',
   },
 };

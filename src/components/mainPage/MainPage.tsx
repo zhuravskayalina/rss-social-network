@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import styles from './mainPage.module.scss';
 import DiscoverButton from './discoverButton/DicoverButton';
 
@@ -11,12 +12,13 @@ const MainPage = () => {
       <div className={cx('main__content')}>
         <h1 className={cx('main__content-title')}>OWL Community</h1>
         <p className={cx('main__content-text')}>
-          Having real social contacts can sometimes be difficult FUN, everything becomes much
-          simpler!
+          <FormattedMessage id='mainMsg1' />
         </p>
         <p className={cx('main__content-count')}>10,95,219</p>
-        <p>Connected People</p>
-        <Link to='/'>
+        <p>
+          <FormattedMessage id='mainMsg2' />
+        </p>
+        <Link to='/profile/0'>
           <DiscoverButton />
         </Link>
       </div>

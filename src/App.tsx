@@ -21,6 +21,7 @@ import FriendsSection from './components/FriendsSection/FriendsSection';
 import Authorization from './components/Authorization/Authorization';
 import FotoGallery from './components/FotoGallery/FotoGallery';
 import DialogPageWrapper from './components/DialogPage/DialogsPageWrapper/DialogsPageWrapper';
+import NewsFeed from './components/NewsFeed/NewsFeed';
 
 const cx = classNames.bind(styles);
 
@@ -107,6 +108,7 @@ const App = () => {
                   <Route path='about' element={<About user={user} setUser={setUser} />} />
                   <Route path='friends' element={<FriendsSection userId={user.id} />} />
                   <Route path='gallery' element={<FotoGallery photos={photos} />} />
+                  <Route path='newsfeed' element={<NewsFeed userId={user.id} />} />
                 </Route>
                 <Route path='messages' element={<DialogPageWrapper user={user} />} />
               </>
