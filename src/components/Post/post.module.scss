@@ -71,6 +71,10 @@
     }
   }
 
+  &__delete.disabled {
+    display: none;
+  }
+
   &__delete-icon {
     width: 15px;
   }

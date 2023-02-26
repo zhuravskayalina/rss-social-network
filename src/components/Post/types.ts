@@ -1,6 +1,7 @@
 import { PostItem } from '../../types/interfaces';
 
 export interface PostProps {
+  isOwner: boolean;
   post: PostItem;
   likesCount: number;
   isUserLike: boolean;

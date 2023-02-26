@@ -4,6 +4,7 @@ export interface PostItem {
     readonly id: string;
     name: string;
     surname: string;
+    profilePhoto: string | null;
   };
   date: string | number;
   text: string;

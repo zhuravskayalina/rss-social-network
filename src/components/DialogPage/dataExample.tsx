@@ -52,6 +52,8 @@ export const users: Array<User> = [
           id: '0',
           name: 'Megan',
           surname: 'Fox',
+          profilePhoto:
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
         },
         date: '1676475021785',
         text: 'Хто тримає цей район? Пес Патрон, пес Патрон!',
@@ -64,6 +66,8 @@ export const users: Array<User> = [
           id: '0',
           name: 'Megan',
           surname: 'Fox',
+          profilePhoto:
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
         },
         date: '1676488446677',
         text: 'Хто крутіший за iPhone? Пес Патрон, пес Патрон!',
@@ -76,6 +80,8 @@ export const users: Array<User> = [
           id: '0',
           name: 'Megan',
           surname: 'Fox',
+          profilePhoto:
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/megan/2.jpeg',
         },
         date: '1673388774477',
         text: 'Хто не ходить на газон? Пес Патрон, пес Патрон!',
@@ -210,6 +216,8 @@ export const users: Array<User> = [
           id: '1',
           name: 'Slim',
           surname: 'Shady',
+          profilePhoto:
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/eminem/3.jpeg',
         },
         date: '1676475021785',
         text: 'Megan Fox is not real!!',
@@ -354,6 +362,8 @@ export const users: Array<User> = [
           id: '2',
           name: 'Dog',
           surname: 'Patron',
+          profilePhoto:
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
         },
         date: '1676475021785',
         text: 'кішки sucks',
@@ -366,6 +376,8 @@ export const users: Array<User> = [
           id: '2',
           name: 'Dog',
           surname: 'Patron',
+          profilePhoto:
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/patron/1.jpeg',
         },
         date: '1676475021789',
         text: 'I <3 NY',
@@ -480,6 +492,8 @@ export const users: Array<User> = [
           id: '3',
           name: 'Biggie',
           surname: 'Smalls',
+          profilePhoto:
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
         },
         date: '1676475021785',
         text: 'Biggie, Biggie, Biggie, can`t you see? Sometimes your words just hypnotize me.',
@@ -492,6 +506,8 @@ export const users: Array<User> = [
           id: '3',
           name: 'Biggie',
           surname: 'Smalls',
+          profilePhoto:
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
         },
         date: '1676475021799',
         text: 'And I just love your flashy ways. Guess that`s why they broke, and you`re so paid.',
@@ -504,6 +520,8 @@ export const users: Array<User> = [
           id: '3',
           name: 'Biggie',
           surname: 'Smalls',
+          profilePhoto:
+            'https://raw.githubusercontent.com/zhuravskayalina/soc-network-photos/main/notorius/5.jpeg',
         },
         date: '1676475021799',
         text: 'I love CATS more than dogs =^____^=',
