@@ -6,6 +6,7 @@ import { PostItem, User } from '../types/interfaces';
 enum Path {
   users = '/users',
   newsfeed = '/newsfeed',
+  user = '/user',
   friends = '/friends',
 }
 
@@ -68,7 +69,7 @@ export class NetworkClientMethods {
 
   public createUser = async (body: Omit<User, 'id'>) => {
     try {
-      const response = await HttpClient.post(`${this.baseUrl}${Path.users}`, body);
+      const response = await HttpClient.post(`${this.baseUrl}${Path.user}`, body);
 
       if (response.ok) {
         return await response.json();

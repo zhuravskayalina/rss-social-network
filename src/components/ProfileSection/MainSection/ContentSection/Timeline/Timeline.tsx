@@ -78,9 +78,7 @@ const Timeline = ({ user }: TimelineProps) => {
             key={postItem.id}
             likePost={() => likePost(postItem.id)}
             deletePost={() => deletePost(postItem.id)}
-            userName={`${postItem.user ? postItem.user.name : 'Dog'} ${
-              postItem.user ? postItem.user.surname : 'Patron'
-            }`}
+            userName={`${postItem.user.name} ${postItem.user.surname}`}
             userPhoto={getUserPhoto()}
           />
         );

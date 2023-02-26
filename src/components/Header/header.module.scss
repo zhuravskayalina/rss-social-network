@@ -40,3 +40,38 @@
     width: 110px;
   }
 }
+
+.avatar-btn {
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  position: relative;
+  margin-right: 10px;
+  @include mixins.center-content;
+  border: 2px solid colors.$white;
+  transition: .3s;
+
+  &:hover {
+    cursor: pointer;
+    border-color: colors.$color-switcher-language;
+  }
+}
+
+.avatar-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}

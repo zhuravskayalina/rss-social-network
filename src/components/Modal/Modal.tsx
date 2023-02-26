@@ -5,10 +5,10 @@ import { ModalProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const Modal = ({ isActive, setActive, children }: ModalProps) => {
+const Modal = ({ isActive, setActive, className, children }: ModalProps) => {
   return (
     <div className={cx('modal', { modal_open: isActive })} onClick={() => setActive(false)}>
-      <div className={cx('modal__content')} onClick={(e) => e.stopPropagation()}>
+      <div className={cx('modal__content', className)} onClick={(e) => e.stopPropagation()}>
         {children}
         <div className={cx('modal__close-icon')} onClick={() => setActive(false)}>
           <CloseIcon />
