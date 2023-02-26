@@ -4,7 +4,7 @@ export interface PostItem {
     readonly id: string;
     name: string;
     surname: string;
-    profilePhoto: string | null;
+    profilePhoto: string | null | undefined;
   };
   date: string | number;
   text: string;
@@ -16,7 +16,7 @@ export interface User {
   readonly id: string;
   login: string;
   password: string;
-  profilePhoto: string | null;
+  profilePhoto: string | null | undefined;
   name: string;
   surname: string;
   location: string;

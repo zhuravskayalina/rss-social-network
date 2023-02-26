@@ -1,7 +1,8 @@
 import classNames from 'classnames/bind';
 import { FormattedMessage } from 'react-intl';
 import React, { useState } from 'react';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import InputFile from 'src/components/InputFile/InputFile';
 import styles from '../SignIn/sign-in.module.scss';
 import FormInput from '../FormInput/FormInput';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -10,7 +11,6 @@ import AuthButton from '../AuthButton/AuthButton';
 import { NetworkClient } from '../../../NetworkClient/NetworkClient';
 import UserPhoto from '../../../assets/images/user-avatar.png';
 import { QuestionnaireProps } from './types';
-import InputFile from '../../InputFile/InputFile';
 import uploadIcon from '../../../assets/icons/upload.svg';
 
 const cx = classNames.bind(styles);
