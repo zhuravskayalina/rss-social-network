@@ -10,6 +10,7 @@ const cx = classNames.bind(styles);
 const ChatFullBlock = ({
   value,
   dialog,
+  messages,
   handleSendClick,
   handleMessageInput,
   handleClickChat,
@@ -17,7 +18,7 @@ const ChatFullBlock = ({
   return (
     <div className={cx('dialog__chat-block')}>
       <FriendFromDialogList myChat={dialog} styleClass='chat' handleClickChat={handleClickChat} />
-      <Chat dialog={dialog} />
+      <Chat dialog={dialog} messages={messages} />
       <MessageTextArea
         value={value}
         handleSendClick={handleSendClick}

@@ -11,8 +11,6 @@ const FriendFromDialogList = ({
   styleClass,
   handleClickChat,
 }: FriendFromDialogListProps) => {
-  const basicClassName = 'link';
-  const activeClassName = 'link_active';
   const url = '/messages';
   return (
     <NavLink to={url}>
@@ -20,7 +18,7 @@ const FriendFromDialogList = ({
       <div
         className={cx('dialog__friend', `${styleClass}`)}
         role='button'
-        onClick={handleClickChat(myChat)}
+        onClick={() => handleClickChat(myChat)}
       >
         <div className={cx('dialog__image', `${styleClass}`)}>
           <div className={cx('dialog__img-box')}>

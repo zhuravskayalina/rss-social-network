@@ -1,4 +1,4 @@
-import { ReactNode, useId } from 'react';
+import { ReactNode } from 'react';
 
 export interface NavItemInterface {
   icon: ReactNode;
@@ -6,6 +6,7 @@ export interface NavItemInterface {
   link: string;
   key: string;
 }
+
 export interface NavProps {
   item: NavItemInterface;
 }

@@ -1,7 +1,6 @@
-import { MouseEventHandler } from 'react';
-import { User } from '../../../types/interfaces';
+import { Chat, User } from '../../../types/interfaces';
 
 export interface ChatsListProps {
   user: User;
-  handleClickChat: MouseEventHandler;
+  handleClickChat: (choiceChat: Chat) => void;
 }

@@ -4,10 +4,9 @@ import styles from './Chat.module.scss';
 import Message from '../Message/Message';
 
 const cx = classNames.bind(styles);
-
-const Chat = ({ dialog: { senderId, senderInfo, history } }: ChatProps) => (
+const Chat = ({ dialog: { senderId, senderInfo }, messages }: ChatProps) => (
   <div className={cx('dialog__chat')}>
-    {history.map((message) => (
+    {messages.map((message) => (
       <Message
         key={`message-${senderId}-${message.time}`}
         message={message}

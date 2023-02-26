@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, ChangeEvent } from 'react';
-import classNames from 'classnames/bind';
 import { io, Socket } from 'socket.io-client';
+import classNames from 'classnames/bind';
 import styles from './DialogsPageWrapper.module.scss';
 import ChatsList from '../ChatsList/ChatsList';
 import ChatFullBlock from '../ChatFullBlock/ChatFullBlock';
@@ -17,13 +17,14 @@ const cx = classNames.bind(styles);
 
 const DialogPageWrapper = ({ user }: DialogPageProps) => {
   const webs = useRef<Socket | null>(null);
-  const [messages, setMessages] = useState<Array<ChatMessageInterface>>([]);
   const [value, setValue] = useState('');
   const [users, setUsers] = useState<Array<User>>([]);
   const [chat, setChat] = useState(user.chat[0]);
+  const [messages, setMessages] = useState<Array<ChatMessageInterface>>(chat.history);
 
   const handleClickChat = (choiceChat: Chat) => {
     setChat(choiceChat);
+    setMessages(choiceChat.history);
   };
 
   const handleMessageInput = (ev: ChangeEvent<HTMLInputElement>) => {
@@ -38,11 +39,13 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
       const message = {
         text: value,
         userId: user.id,
-        to: 0,
+        to: chat.senderId,
         isOwnMessage: true,
       };
+
       webs.current.emit('chatMessage', message);
       setValue('');
+      // setMessages((prevMessages) => [...prevMessages, messageData]);
     }
   };
 
@@ -67,6 +70,7 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
       <ChatFullBlock
         value={value}
         dialog={chat}
+        messages={messages}
         handleSendClick={handleSendClick}
         handleMessageInput={handleMessageInput}
         handleClickChat={handleClickChat}
