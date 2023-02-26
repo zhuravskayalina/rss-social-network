@@ -100,7 +100,16 @@ const App = () => {
         />
         {!isUserLoading ? (
           <Routes>
-            <Route path='' element={<MainPage />} />
+            <Route
+              path=''
+              element={
+                <MainPage
+                  userId={user?.id}
+                  isLoggedIn={isLoggedIn}
+                  openAuthorization={handleOpenAuthorization}
+                />
+              }
+            />
             {user && (
               <>
                 <Route path={`profile/${user.id}`} element={getProfilePage(user)}>

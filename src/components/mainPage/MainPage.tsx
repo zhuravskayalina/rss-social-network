@@ -1,12 +1,12 @@
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import styles from './mainPage.module.scss';
 import DiscoverButton from './discoverButton/DicoverButton';
+import { DiscoverButtonProps } from './discoverButton/types';
 
 const cx = classNames.bind(styles);
 
-const MainPage = () => {
+const MainPage = ({ userId, isLoggedIn, openAuthorization }: DiscoverButtonProps) => {
   return (
     <div className={cx('main')}>
       <div className={cx('main__content')}>
@@ -18,9 +18,11 @@ const MainPage = () => {
         <p>
           <FormattedMessage id='mainMsg2' />
         </p>
-        <Link to='/profile/0'>
-          <DiscoverButton />
-        </Link>
+        <DiscoverButton
+          userId={userId}
+          isLoggedIn={isLoggedIn}
+          openAuthorization={openAuthorization}
+        />
       </div>
       <div className={cx('main__img')}> </div>
     </div>

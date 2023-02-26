@@ -82,6 +82,7 @@ export const messages = {
     mainMsg1:
       'Having real social contacts can sometimes be difficult FUN, everything becomes much simpler!',
     mainMsg2: 'Connected People',
+    discover: 'Discover Now',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -165,5 +166,6 @@ export const messages = {
     mainMsg1:
       'Иногда поддерживать общение становится непросто. С социальной сетью OWL все станет гораздо проще!',
     mainMsg2: 'Подключенных пользователей',
+    discover: 'Перейти',
   },
 };
