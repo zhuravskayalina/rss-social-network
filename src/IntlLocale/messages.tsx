@@ -88,6 +88,7 @@ export const messages = {
     linkedIn: 'LinkedIn',
     twitter: 'Twitter',
     instagram: 'Instagram',
+    'choose photo': 'Choose photo',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -177,5 +178,6 @@ export const messages = {
     linkedIn: 'LinkedIn',
     twitter: 'Twitter',
     instagram: 'Instagram',
+    'choose photo': 'Выберите фото',
   },
 };

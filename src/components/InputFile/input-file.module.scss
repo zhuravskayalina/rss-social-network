@@ -1,0 +1,72 @@
+@use './src/stylesheets/variables/colors';
+@use './src/stylesheets/variables/numbers';
+@use './src/stylesheets/mixins/mixins';
+
+.input-file-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.input {
+  &__wrapper {
+    width: 100%;
+  }
+
+  &__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+
+  &__label {
+    width: 100%;
+    padding: 20px;
+    background: colors.$color-primary-blue;
+    color: colors.$white;
+    font-weight: 700;
+    @include mixins.center-content;
+    gap: 10px;
+    border-radius: numbers.$border-radius;
+    cursor: pointer;
+  }
+
+  &__img-preview {
+    width: 100px;
+  }
+
+  &__file-icon {
+    path {
+      stroke: colors.$white;
+    }
+  }
+}
+
+@keyframes marching-ants {
+  0% {
+    background-position: 0 0, 10px 100%, 0 10px, 100% 0;
+  }
+  100% {
+    background-position: 10px 0, 0 100%, 0 0, 100% 10px;
+  }
+}
+
+.drop-box {
+  background: colors.$white;
+  border-radius: numbers.$border-radius;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  display: flex;
+}
+
+.input__img-preview {
+  color: #fff;
+  cursor: pointer;
+  border-radius: numbers.$border-radius;
+  background-image: linear-gradient(90deg, colors.$color-primary-blue 50%, transparent 50%), linear-gradient(90deg, colors.$color-primary-blue 50%, transparent 50%), linear-gradient(0, colors.$color-primary-blue 50%, transparent 50%), linear-gradient(0, colors.$color-primary-blue 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 10px 2px, 10px 2px, 2px 10px, 2px 10px;
+  animation: marching-ants 400ms infinite linear;
+}

@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { FormattedMessage } from 'react-intl';
+import React, { useState } from 'react';
 import styles from '../SignIn/sign-in.module.scss';
 import FormInput from '../FormInput/FormInput';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -8,6 +9,8 @@ import AuthButton from '../AuthButton/AuthButton';
 import { NetworkClient } from '../../../NetworkClient/NetworkClient';
 import UserPhoto from '../../../assets/images/user-avatar.png';
 import { QuestionnaireProps } from './types';
+import InputFile from '../../InputFile/InputFile';
+import uploadIcon from '../../../assets/icons/upload.svg';
 
 const cx = classNames.bind(styles);
 
@@ -31,6 +34,41 @@ const Questionnaire = ({
   const books = useInput('', { isEmpty: true });
   const cinema = useInput('', { isEmpty: true });
 
+  const [avatar, setAvatar] = useState<File>();
+  const [avatarUrl, setAvatarUrl] = useState<string>();
+
+  const fileReader = new FileReader();
+  fileReader.onloadend = () => {
+    setAvatarUrl(fileReader.result as string);
+  };
+
+  const handleUploadPhoto = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length) {
+      const file = event.target.files[0];
+
+      if (file.size > 65000) {
+        // eslint-disable-next-line no-alert
+        alert('File size is too big! Please select another one.');
+      } else {
+        setAvatar(file);
+        fileReader.readAsDataURL(file);
+      }
+    }
+  };
+
+  const handleDragEmpty = (event: React.DragEvent<HTMLImageElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
+  const handleDrop = (event: React.DragEvent<HTMLImageElement>) => {
+    handleDragEmpty(event);
+    if (event.dataTransfer.files && event.dataTransfer.files.length) {
+      setAvatar(event.dataTransfer.files[0]);
+      fileReader.readAsDataURL(event.dataTransfer.files[0]);
+    }
+  };
+
   const handleCancelRegistration = () => {
     setLogin('');
     setPassword('');
@@ -43,7 +81,7 @@ const Questionnaire = ({
     const newUser = {
       login,
       password,
-      profilePhoto: UserPhoto,
+      profilePhoto: avatarUrl ?? UserPhoto,
       name: name.value,
       surname: surname.value,
       location: location.value,
@@ -197,6 +235,12 @@ const Questionnaire = ({
           value={cinema.value}
           onChange={cinema.onChange}
           onBlur={cinema.onBlur}
+        />
+        <InputFile
+          onChange={handleUploadPhoto}
+          src={avatar ? avatarUrl : uploadIcon}
+          handleDragEmpty={handleDragEmpty}
+          handleDrop={handleDrop}
         />
         <AuthButton name='continue' disabled={!validateFields()} type='submit' />
       </form>
