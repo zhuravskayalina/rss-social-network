@@ -1,5 +1,5 @@
 export interface MenuSectionInterface {
-  title: string;
+  title: JSX.Element;
   link: string;
 }
 

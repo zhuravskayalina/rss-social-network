@@ -1,48 +1,50 @@
+import { FormattedMessage } from 'react-intl';
+
 export const importantLinks = [
   {
-    title: 'About Us',
+    title: <FormattedMessage id='aboutAs' />,
+    link: '/profile/1',
+  },
+  {
+    title: <FormattedMessage id='contactUs' />,
     link: '#!',
   },
   {
-    title: 'Contact Us',
-    link: '#!',
-  },
-  {
-    title: 'Help',
+    title: <FormattedMessage id='help' />,
     link: '#!',
   },
 ];
 
 export const communityLinks = [
   {
-    title: 'Newsfeed',
+    title: <FormattedMessage id='newsfeed' />,
+    link: '/newsfeed',
+  },
+  {
+    title: <FormattedMessage id='groups' />,
     link: '#!',
   },
   {
-    title: 'Groups',
-    link: '#!',
+    title: <FormattedMessage id='friends' />,
+    link: '/profile/friends',
   },
   {
-    title: 'Friends',
-    link: '#!',
-  },
-  {
-    title: 'Forums',
+    title: <FormattedMessage id='forums' />,
     link: '#!',
   },
 ];
 
 export const developersLinks = [
   {
-    title: 'Anhelina Zhurauskaya',
+    title: <FormattedMessage id='anhelina' />,
     link: 'https://github.com/zhuravskayalina',
   },
   {
-    title: 'Elena Smolina',
+    title: <FormattedMessage id='lena' />,
     link: 'https://github.com/esmolina',
   },
   {
-    title: 'Pavel Troinich',
+    title: <FormattedMessage id='pasha' />,
     link: 'https://github.com/pavel-troinich',
   },
 ];
