@@ -19,6 +19,8 @@ import Page404 from './components/Page404/Page404';
 import Loading from './components/Loading/Loading';
 import FriendsSection from './components/FriendsSection/FriendsSection';
 import Authorization from './components/Authorization/Authorization';
+import FotoGallery from './components/FotoGallery/FotoGallery';
+import DialogPageWrapper from './components/DialogPage/DialogsPageWrapper/DialogsPageWrapper';
 
 const cx = classNames.bind(styles);
 
@@ -99,13 +101,15 @@ const App = () => {
           <Routes>
             <Route path='' element={<MainPage />} />
             {user && (
-              <Route path={`profile/${user.id}`} element={getProfilePage(user)}>
-                <Route path='' element={<Timeline user={user} />} />
-                <Route path='about' element={<About user={user} setUser={setUser} />} />
-                <Route path='friends' element={<FriendsSection userId={user.id} />} />
-                <Route path='gallery' element={<FotoGallery photos={photos} />} />
-              </Route>
-              <Route path='messages' element={<DialogPageWrapper user={user} />} />
+              <>
+                <Route path={`profile/${user.id}`} element={getProfilePage(user)}>
+                  <Route path='' element={<Timeline user={user} />} />
+                  <Route path='about' element={<About user={user} setUser={setUser} />} />
+                  <Route path='friends' element={<FriendsSection userId={user.id} />} />
+                  <Route path='gallery' element={<FotoGallery photos={photos} />} />
+                </Route>
+                <Route path='messages' element={<DialogPageWrapper user={user} />} />
+              </>
             )}
             <Route path='*' element={<Page404 />} />
           </Routes>
