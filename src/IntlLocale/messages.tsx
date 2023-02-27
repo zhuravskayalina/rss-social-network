@@ -57,6 +57,7 @@ export const messages = {
     'Password cannot be empty': 'Password cannot be empty',
     'Wrong username or password': 'Wrong username or password',
     'Must be longer than 5 characters': 'Must be longer than 5 characters',
+    'Password should be more than 6 characters': 'Password should be more than 6 characters',
     'User with this login already exist': 'User with this login already exist',
     'Login cannot be empty': 'Login cannot be empty',
     'Must be longer than 6 characters': 'Must be longer than 6 characters',
@@ -179,5 +180,6 @@ export const messages = {
     twitter: 'Twitter',
     instagram: 'Instagram',
     'choose photo': 'Выберите фото',
+    'Password should be more than 6 characters': 'Пароль должен содержать больше 6 символов',
   },
 };
