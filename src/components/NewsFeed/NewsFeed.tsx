@@ -9,7 +9,7 @@ import Post from '../Post/Post';
 
 const cx = classNames.bind(styles);
 
-const NewsFeed = ({ userId }: NewsFeedProps) => {
+const NewsFeed = ({ userId, isOwnPage }: NewsFeedProps) => {
   const [allPosts, setAllPosts] = useState<PostItem[]>([]);
   const [value, setValue] = useState<'new' | 'old' | 'name' | 'surname'>('new');
 
@@ -68,6 +68,7 @@ const NewsFeed = ({ userId }: NewsFeedProps) => {
             postItem.user ? postItem.user.surname : 'Patron'
           }`}
           userPhoto={postItem.user.profilePhoto}
+          isOwnPage={isOwnPage}
         />
       );
     });

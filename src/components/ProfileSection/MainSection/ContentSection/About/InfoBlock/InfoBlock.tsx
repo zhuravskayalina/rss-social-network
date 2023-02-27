@@ -7,7 +7,7 @@ import { InfoBlockProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const InfoBlock = ({ data, heading, changeField }: InfoBlockProps) => {
+const InfoBlock = ({ data, heading, changeField, isOwnPage }: InfoBlockProps) => {
   const intl = useIntl();
 
   return (
@@ -24,6 +24,7 @@ const InfoBlock = ({ data, heading, changeField }: InfoBlockProps) => {
               sectionContent={value}
               key={key}
               changeField={changeField}
+              isOwnPage={isOwnPage}
             />
           );
         })}

@@ -15,4 +15,5 @@ export interface UserData {
 export interface AboutProps {
   user: User;
   setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
+  isOwnPage: boolean;
 }
