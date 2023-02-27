@@ -241,6 +241,7 @@ const Questionnaire = ({
           src={avatar ? avatarUrl : uploadIcon}
           handleDragEmpty={handleDragEmpty}
           handleDrop={handleDrop}
+          className='questionnaire'
         />
         <AuthButton name='continue' disabled={!validateFields()} type='submit' />
       </form>
