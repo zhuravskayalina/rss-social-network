@@ -17,6 +17,7 @@ const Post = ({
   deletePost,
   userName,
   userPhoto,
+  isOwnPage,
 }: PostProps) => {
   const locale = localStorage.getItem('locale');
   const backImage = userPhoto || anatarImg;
@@ -35,13 +36,15 @@ const Post = ({
       </div>
       <div className={cx('post__content')}>{post.text}</div>
       <Like likesCount={likesCount} isUserLike={isUserLike} likePost={likePost} />
-      <button
-        className={cx('post__delete', { disabled: !isOwner })}
-        onClick={deletePost}
-        title={locale === 'ru' ? 'Удалить пост' : 'Delete post'}
-      >
-        <DeleteIcon className={cx('post__delete-icon')} />
-      </button>
+      {isOwnPage && (
+        <button
+          className={cx('post__delete', { disabled: !isOwner })}
+          onClick={deletePost}
+          title={locale === 'ru' ? 'Удалить пост' : 'Delete post'}
+        >
+          <DeleteIcon className={cx('post__delete-icon')} />
+        </button>
+      )}
     </div>
   );
 };

@@ -11,7 +11,7 @@ import { PostItem } from '../../../../../types/interfaces';
 
 const cx = classNames.bind(styles);
 
-const Timeline = ({ user }: TimelineProps) => {
+const Timeline = ({ user, isOwnPage }: TimelineProps) => {
   const [isModalActive, setModalActive] = useState(false);
   const [posts, setPosts] = useState<PostItem[]>(user.posts);
 
@@ -80,6 +80,7 @@ const Timeline = ({ user }: TimelineProps) => {
             deletePost={() => deletePost(postItem.id)}
             userName={`${postItem.user.name} ${postItem.user.surname}`}
             userPhoto={getUserPhoto()}
+            isOwnPage={isOwnPage}
           />
         );
       })
@@ -88,7 +89,7 @@ const Timeline = ({ user }: TimelineProps) => {
 
   return (
     <>
-      <NewPostBtn onClick={handleOpenModal} />
+      {isOwnPage && <NewPostBtn onClick={handleOpenModal} />}
       <Modal isActive={isModalActive} setActive={setModalActive}>
         <NewPostModal addPost={addPost} />
       </Modal>

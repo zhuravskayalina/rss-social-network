@@ -8,7 +8,7 @@ const MenuLinksSection = ({ links, blockClass, itemClass }: MenuSectionProps) =>
   return (
     <ul className={cx(`${blockClass}`)}>
       {links.map((sectionUnit: MenuSectionInterface) => (
-        <li key={`footer-${sectionUnit.title}`}>
+        <li key={`footer-${sectionUnit.id}`}>
           <a href={`${sectionUnit.link}`} className={cx(`${itemClass}`)}>
             {sectionUnit.title}
           </a>

@@ -9,4 +9,5 @@ export interface PostProps {
   deletePost: () => void;
   userName: string;
   userPhoto: string | null;
+  isOwnPage: boolean;
 }
