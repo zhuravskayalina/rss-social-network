@@ -54,6 +54,7 @@ const Authorization = ({
         setPassword={setPassword}
         resetForms={resetForms}
         setUser={setUser}
+        setAuthModalActive={setAuthModalActive}
       />
     </Modal>
   );

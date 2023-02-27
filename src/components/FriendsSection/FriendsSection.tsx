@@ -42,7 +42,7 @@ const FriendsSection = ({ userId, isOwnPage }: FriendSectionProps) => {
   ));
   if (!friends.length) {
     return (
-      <h2>
+      <h2 className={cx('friends-heading')}>
         <FormattedMessage id='noFriend' />
       </h2>
     );
