@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import { FormattedMessage } from 'react-intl';
 import React, { useState } from 'react';
+import { redirect, useNavigate } from 'react-router-dom';
 import styles from '../SignIn/sign-in.module.scss';
 import FormInput from '../FormInput/FormInput';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -21,6 +22,7 @@ const Questionnaire = ({
   setPassword,
   resetForms,
   setUser,
+  setAuthModalActive,
 }: QuestionnaireProps) => {
   const name = useInput('', { isEmpty: true });
   const surname = useInput('', { isEmpty: true });
@@ -33,6 +35,8 @@ const Questionnaire = ({
   const music = useInput('', { isEmpty: true });
   const books = useInput('', { isEmpty: true });
   const cinema = useInput('', { isEmpty: true });
+
+  const navigate = useNavigate();
 
   const [avatar, setAvatar] = useState<File>();
   const [avatarUrl, setAvatarUrl] = useState<string>();
@@ -103,13 +107,17 @@ const Questionnaire = ({
       chat: [],
     };
 
-    NetworkClient.createUser(newUser).then((user) => {
-      setUser(user);
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('loggedUserId', user.id);
-      document.location.reload();
-    });
-
+    NetworkClient.createUser(newUser)
+      .then((user) => {
+        setUser(user);
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('loggedUserId', user.id);
+        return user;
+      })
+      .then((user) => {
+        setAuthModalActive(false);
+        navigate(`/profile/${user.id}`);
+      });
     setLogin('');
     setPassword('');
   };
