@@ -19,7 +19,6 @@ const Header = ({
   isLoggedIn,
   logOut,
   user,
-  handleClickOnUser,
 }: HeaderProps) => {
   const [showNav, setShowNaw] = useState(false);
 
@@ -40,11 +39,7 @@ const Header = ({
         <SwitcherLanguage currentLocale={currentLocale} handleChange={handleChange} />
         <Searcher />
         {isLoggedIn && user && (
-          <Link
-            to={`/profile/${user.id}`}
-            onClick={() => handleClickOnUser(user?.id)}
-            className={cx('avatar-btn')}
-          >
+          <Link to={`/profile/${user.id}`} className={cx('avatar-btn')}>
             <div className={cx('avatar-box')}>
               <img src={user.profilePhoto || ''} className={cx('avatar')} alt='avatar' />
             </div>

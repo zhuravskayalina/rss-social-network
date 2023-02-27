@@ -1,7 +1,7 @@
 import { IntlProvider } from 'react-intl';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { LOCALES } from './IntlLocale/locales';
 import { messages } from './IntlLocale/messages';
 import styles from './App.scss';
@@ -45,38 +45,49 @@ const App = () => {
   const [isUserLoading, setUserLoading] = useState(true);
   const [userDetails, setUserDetails] = useState<User>();
   const [isOwnPage, setIsOwnPage] = useState(true);
-  const [isFriendLoading, setFriendLoading] = useState(false);
 
-  const handleClickOnUser = (id: string) => {
-    if (user) {
-      if (user.id === id) {
-        setIsOwnPage(true);
-      } else {
-        setIsOwnPage(false);
-      }
-      setFriendLoading(true);
-      NetworkClient.getUser(id).then((userData) => {
-        setUserDetails(userData);
-        setFriendLoading(false);
-      });
-    }
-  };
-
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
+    const path = location.pathname.split('/');
+    const id = path[2];
+
     if (isLoggedIn) {
-      setUserLoading(true);
-      const userId = localStorage.getItem('loggedUserId') as string;
-      NetworkClient.getUser(userId).then((userData) => {
-        setUser(userData);
-        setUserDetails(userData);
-        setUserLoading(false);
-      });
+      if (!user) {
+        setUserLoading(true);
+        const userId = localStorage.getItem('loggedUserId') as string;
+        NetworkClient.getUser(userId).then((userData) => {
+          setUser(userData);
+          setUserLoading(false);
+
+          const returnIsOwnPage = userData.id === id;
+          setIsOwnPage(returnIsOwnPage);
+
+          if (!returnIsOwnPage && userDetails?.id !== id) {
+            setUserLoading(true);
+            NetworkClient.getUser(id).then((userData1) => {
+              setUserDetails(userData1);
+              setUserLoading(false);
+            });
+          }
+        });
+      } else {
+        const returnIsOwnPage = user.id === id;
+        setIsOwnPage(returnIsOwnPage);
+
+        if (!returnIsOwnPage && userDetails?.id !== id) {
+          setUserLoading(true);
+          NetworkClient.getUser(id).then((userData) => {
+            setUserDetails(userData);
+            setUserLoading(false);
+          });
+        }
+      }
     } else {
       setUserLoading(false);
     }
-  }, []);
+  }, [location]);
 
   const handleChangeLanguage = () => {
     setCurrentLocale(
@@ -113,9 +124,8 @@ const App = () => {
           isLoggedIn={isLoggedIn}
           logOut={logOut}
           user={user}
-          handleClickOnUser={handleClickOnUser}
         />
-        {!isUserLoading && !isFriendLoading ? (
+        {!isUserLoading ? (
           <Routes>
             <Route path='' element={<MainPage />} />
             {user && (
@@ -148,7 +158,6 @@ const App = () => {
                     element={
                       <FriendsSection
                         userId={isOwnPage ? user.id : ((userDetails as User).id as string)}
-                        handleClickOnFriend={handleClickOnUser}
                         isOwnPage={isOwnPage}
                       />
                     }
