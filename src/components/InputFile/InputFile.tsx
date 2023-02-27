@@ -6,9 +6,9 @@ import { InputFileProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const InputFile = ({ onChange, src, handleDrop, handleDragEmpty }: InputFileProps) => {
+const InputFile = ({ onChange, src, handleDrop, handleDragEmpty, className }: InputFileProps) => {
   return (
-    <div className={cx('input-file-wrapper')}>
+    <div className={cx('input-file-wrapper', className)}>
       <div className={cx('input__wrapper')}>
         <input
           name='file'

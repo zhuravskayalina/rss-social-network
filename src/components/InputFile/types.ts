@@ -3,4 +3,5 @@ export interface InputFileProps {
   src: string | undefined;
   handleDrop: (event: React.DragEvent<HTMLImageElement>) => void;
   handleDragEmpty: (event: React.DragEvent<HTMLImageElement>) => void;
+  className: string;
 }
