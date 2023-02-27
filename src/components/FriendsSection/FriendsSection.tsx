@@ -35,6 +35,13 @@ const FriendsSection = ({ userId }: FriendSectionProps) => {
   const friendsEl: JSX.Element[] = friends.map((item) => (
     <Friend deleteFriend={() => deleteFriend(item.id)} friend={item} key={item.id} />
   ));
+  if (!friends.length) {
+    return (
+      <h2>
+        <FormattedMessage id='noFriend' />
+      </h2>
+    );
+  }
   return (
     <div className={cx('main')}>
       <div className={cx('main__friends')}>
