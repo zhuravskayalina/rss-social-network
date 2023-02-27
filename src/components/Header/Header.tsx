@@ -33,7 +33,7 @@ const Header = ({
       </button>
       {showNav && <Navigation />}
       <div className={cx('header__container')}>
-        <Link to='/'>
+        <Link to={isLoggedIn ? `/profile/${user?.id}` : '/'}>
           <LogoIcon className={cx('header__logo-icon')} />
         </Link>
         <SwitcherLanguage currentLocale={currentLocale} handleChange={handleChange} />
