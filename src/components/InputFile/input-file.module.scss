@@ -88,36 +88,4 @@
       width: fit-content;
     }
   }
-
-
-}
-
-.input__img-preview {
-  color: #fff;
-  cursor: pointer;
-  object-fit: cover;
-  border-radius: numbers.$border-radius;
-}
-
-
-.input-file-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: center;
-
-  &__gallery {
-    flex-direction: row;
-
-    .drop-box {
-      height: 66px;
-    }
-
-    .input__wrapper,
-    .input__label {
-      width: fit-content;
-    }
-  }
-
-
 }
