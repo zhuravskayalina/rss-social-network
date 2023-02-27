@@ -19,7 +19,7 @@ import Page404 from './components/Page404/Page404';
 import Loading from './components/Loading/Loading';
 import FriendsSection from './components/FriendsSection/FriendsSection';
 import Authorization from './components/Authorization/Authorization';
-import FotoGallery from './components/FotoGallery/FotoGallery';
+import PhotoGallery from './components/PhotoGallery/PhotoGallery';
 import DialogPageWrapper from './components/DialogPage/DialogsPageWrapper/DialogsPageWrapper';
 
 const cx = classNames.bind(styles);
@@ -41,7 +41,6 @@ const App = () => {
   const [isLoggedIn, setLoggedIn] = useState(isUserLoggedIn());
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
   const [user, setUser] = useState<User>();
-  const [photos, setPhotos] = useState<string[]>([]);
   const [isAuthModalActive, setAuthModalActive] = useState(false);
   const [isUserLoading, setUserLoading] = useState(true);
 
@@ -53,7 +52,6 @@ const App = () => {
       const userId = localStorage.getItem('loggedUserId') as string;
       NetworkClient.getUser(userId).then((userData) => {
         setUser(userData);
-        setPhotos(userData.photos);
         setUserLoading(false);
       });
     } else {
@@ -106,7 +104,7 @@ const App = () => {
                   <Route path='' element={<Timeline user={user} />} />
                   <Route path='about' element={<About user={user} setUser={setUser} />} />
                   <Route path='friends' element={<FriendsSection userId={user.id} />} />
-                  <Route path='gallery' element={<FotoGallery photos={photos} />} />
+                  <Route path='gallery' element={<PhotoGallery user={user} setUser={setUser} />} />
                 </Route>
                 <Route path='messages' element={<DialogPageWrapper user={user} />} />
               </>
