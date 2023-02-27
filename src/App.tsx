@@ -25,7 +25,7 @@ import NewsFeed from './components/NewsFeed/NewsFeed';
 
 const cx = classNames.bind(styles);
 
-const getProfilePage = (user: User) => {
+const getProfilePage = (user: User | undefined) => {
   if (user)
     return (
       <MainContainer>
@@ -42,9 +42,26 @@ const App = () => {
   const [isLoggedIn, setLoggedIn] = useState(isUserLoggedIn());
   const [currentLocale, setCurrentLocale] = useState(getInitialLocale());
   const [user, setUser] = useState<User>();
-  const [photos, setPhotos] = useState<string[]>([]);
   const [isAuthModalActive, setAuthModalActive] = useState(false);
   const [isUserLoading, setUserLoading] = useState(true);
+  const [userDetails, setUserDetails] = useState<User>();
+  const [isOwnPage, setIsOwnPage] = useState(true);
+  const [isFriendLoading, setFriendLoading] = useState(false);
+
+  const handleClickOnUser = (id: string) => {
+    if (user) {
+      if (user.id === id) {
+        setIsOwnPage(true);
+      } else {
+        setIsOwnPage(false);
+      }
+      setFriendLoading(true);
+      NetworkClient.getUser(id).then((userData) => {
+        setUserDetails(userData);
+        setFriendLoading(false);
+      });
+    }
+  };
 
   const navigate = useNavigate();
 
@@ -54,7 +71,7 @@ const App = () => {
       const userId = localStorage.getItem('loggedUserId') as string;
       NetworkClient.getUser(userId).then((userData) => {
         setUser(userData);
-        setPhotos(userData.photos);
+        setUserDetails(userData);
         setUserLoading(false);
       });
     } else {
@@ -97,8 +114,9 @@ const App = () => {
           isLoggedIn={isLoggedIn}
           logOut={logOut}
           user={user}
+          handleClickOnUser={handleClickOnUser}
         />
-        {!isUserLoading ? (
+        {!isUserLoading && !isFriendLoading ? (
           <Routes>
             <Route
               path=''
@@ -112,12 +130,48 @@ const App = () => {
             />
             {user && (
               <>
-                <Route path={`profile/${user.id}`} element={getProfilePage(user)}>
-                  <Route path='' element={<Timeline user={user} />} />
-                  <Route path='about' element={<About user={user} setUser={setUser} />} />
-                  <Route path='friends' element={<FriendsSection userId={user.id} />} />
-                  <Route path='gallery' element={<PhotoGallery photos={photos} />} />
-                  <Route path='newsfeed' element={<NewsFeed userId={user.id} />} />
+                <Route
+                  path={`profile/${isOwnPage ? user.id : (userDetails as User).id}`}
+                  element={getProfilePage(isOwnPage ? user : userDetails)}
+                >
+                  <Route
+                    path=''
+                    element={
+                      <Timeline
+                        user={isOwnPage ? user : (userDetails as User)}
+                        isOwnPage={isOwnPage}
+                      />
+                    }
+                  />
+                  <Route
+                    path='about'
+                    element={
+                      <About
+                        user={isOwnPage ? user : (userDetails as User)}
+                        setUser={setUser}
+                        isOwnPage={isOwnPage}
+                      />
+                    }
+                  />
+                  <Route
+                    path='friends'
+                    element={
+                      <FriendsSection
+                        userId={isOwnPage ? user.id : ((userDetails as User).id as string)}
+                        handleClickOnFriend={handleClickOnUser}
+                        isOwnPage={isOwnPage}
+                      />
+                    }
+                  />
+                  <Route
+                    path='gallery'
+                    element={
+                      <PhotoGallery
+                        user={isOwnPage ? user : (userDetails as User)}
+                        isOwnPage={isOwnPage}
+                      />
+                    }
+                  />
                 </Route>
                 <Route path='messages' element={<DialogPageWrapper user={user} />} />
               </>

@@ -6,7 +6,7 @@ import { NetworkClient } from '../../../../../NetworkClient/NetworkClient';
 
 const cx = classNames.bind(styles);
 
-const About = ({ user, setUser }: AboutProps) => {
+const About = ({ user, setUser, isOwnPage }: AboutProps) => {
   const changeField = (field: string, content: string, initialContent: string) => {
     if (content === initialContent) return;
 
@@ -42,8 +42,18 @@ const About = ({ user, setUser }: AboutProps) => {
 
   return (
     <div className={cx('about')}>
-      <InfoBlock heading='contact info' data={contactInfo} changeField={changeField} />
-      <InfoBlock heading='personal info' data={personalInfo} changeField={changeField} />
+      <InfoBlock
+        heading='contact info'
+        data={contactInfo}
+        changeField={changeField}
+        isOwnPage={isOwnPage}
+      />
+      <InfoBlock
+        heading='personal info'
+        data={personalInfo}
+        changeField={changeField}
+        isOwnPage={isOwnPage}
+      />
     </div>
   );
 };

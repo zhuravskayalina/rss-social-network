@@ -6,9 +6,7 @@ import EditButton from './EditButton/EditButton';
 
 const cx = classNames.bind(styles);
 
-const InfoItem = ({ sectionName, sectionContent, changeField }: InfoItemProps) => {
-  const isOwnPage = true;
-
+const InfoItem = ({ sectionName, sectionContent, changeField, isOwnPage }: InfoItemProps) => {
   const [isEdit, setEdit] = useState(false);
   const [inputValue, setInputValue] = useState(sectionContent);
   const [content, setContent] = useState(sectionContent);
