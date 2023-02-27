@@ -7,4 +7,6 @@ export interface QuestionnaireProps {
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   resetForms: () => void;
   setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
+  setAuthModalActive: (state: boolean) => void;
+  setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
 }

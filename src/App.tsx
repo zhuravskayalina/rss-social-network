@@ -173,6 +173,7 @@ const App = () => {
                     element={
                       <PhotoGallery
                         user={isOwnPage ? user : (userDetails as User)}
+                        setUser={setUser}
                         isOwnPage={isOwnPage}
                       />
                     }
