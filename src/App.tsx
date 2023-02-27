@@ -50,6 +50,16 @@ const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const setAnotherUserDetails = (condition: boolean, id: string) => {
+    if (condition) {
+      setUserLoading(true);
+      NetworkClient.getUser(id).then((userData) => {
+        setUserDetails(userData);
+        setUserLoading(false);
+      });
+    }
+  };
+
   useEffect(() => {
     const path = location.pathname.split('/');
     const id = path[2];
@@ -64,26 +74,12 @@ const App = () => {
 
           const returnIsOwnPage = userData.id === id;
           setIsOwnPage(returnIsOwnPage);
-
-          if (!returnIsOwnPage && userDetails?.id !== id) {
-            setUserLoading(true);
-            NetworkClient.getUser(id).then((userData1) => {
-              setUserDetails(userData1);
-              setUserLoading(false);
-            });
-          }
+          setAnotherUserDetails(!returnIsOwnPage && userDetails?.id !== id, id);
         });
       } else {
         const returnIsOwnPage = user.id === id;
         setIsOwnPage(returnIsOwnPage);
-
-        if (!returnIsOwnPage && userDetails?.id !== id) {
-          setUserLoading(true);
-          NetworkClient.getUser(id).then((userData) => {
-            setUserDetails(userData);
-            setUserLoading(false);
-          });
-        }
+        setAnotherUserDetails(!returnIsOwnPage && userDetails?.id !== id, id);
       }
     } else {
       setUserLoading(false);
