@@ -7,5 +7,4 @@ export interface HeaderProps {
   isLoggedIn: boolean;
   logOut: () => void;
   user: User | undefined;
-  handleClickOnUser: (id: string) => void;
 }

@@ -10,13 +10,13 @@ const cx = classNames.bind(styles);
 const Friend = ({
   friend: { name, surname, profilePhoto, id },
   deleteFriend,
-  handleClickOnFriend,
+  // handleClickOnFriend,
   isOwnPage,
 }: FriendProps) => {
   const intl = useIntl();
   return (
     <div className={cx('friend')}>
-      <Link to={`/profile/${id}`} onClick={() => handleClickOnFriend(id)}>
+      <Link to={`/profile/${id}`}>
         <div
           className={cx('friend__photo')}
           style={{

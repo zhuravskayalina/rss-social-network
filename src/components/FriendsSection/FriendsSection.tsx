@@ -9,7 +9,7 @@ import Friend from './Friend/Friend';
 
 const cx = classNames.bind(styles);
 
-const FriendsSection = ({ userId, handleClickOnFriend, isOwnPage }: FriendSectionProps) => {
+const FriendsSection = ({ userId, isOwnPage }: FriendSectionProps) => {
   const [value, setValue] = useState<'name' | 'surname'>('name');
   const [friends, setFriends] = useState<FriendType[]>([]);
 
@@ -37,7 +37,7 @@ const FriendsSection = ({ userId, handleClickOnFriend, isOwnPage }: FriendSectio
       deleteFriend={() => deleteFriend(friend.id)}
       friend={friend}
       key={friend.id}
-      handleClickOnFriend={handleClickOnFriend}
+      // handleClickOnFriend={handleClickOnFriend}
       isOwnPage={isOwnPage}
     />
   ));
