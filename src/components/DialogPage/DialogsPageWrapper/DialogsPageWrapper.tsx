@@ -42,10 +42,27 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
         to: chat.senderId,
         isOwnMessage: true,
       };
+      const date = new Date();
+      const hour = date.getHours();
+      const fullHourMorning = hour <= 9 ? `0${hour}` : `${hour}`;
+      const fullHourEvening = hour <= 19 ? `0${hour - 12}` : `${hour - 12}`;
+      const minutes = date.getMinutes();
+      const fullMinutes = minutes <= 9 ? `0${minutes}` : `${minutes}`;
+      const isMorning = date.getHours() < 12;
+
+      const localTime = isMorning
+        ? `${fullHourMorning}:${fullMinutes} AM`
+        : `${fullHourEvening}:${fullMinutes} PM`;
 
       webs.current.emit('chatMessage', message);
+
+      const localMessage = {
+        text: value,
+        time: localTime,
+        isOwnMessage: true,
+      };
+      setMessages((prevMessages) => [...prevMessages, localMessage]);
       setValue('');
-      // setMessages((prevMessages) => [...prevMessages, messageData]);
     }
   };
 
@@ -56,7 +73,6 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
       setUsers([...connectedUsers]);
     });
     socket.on('message', (message: ChatMessageInterface) => {
-      console.log(message);
       setMessages((prevMessages) => [...prevMessages, message]);
     });
     webs.current = socket;

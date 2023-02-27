@@ -44,6 +44,7 @@ export interface ChatHistory {
   text: string;
   time: string;
   isOwnMessage: boolean;
+  id?: string;
 }
 
 export interface Chat {

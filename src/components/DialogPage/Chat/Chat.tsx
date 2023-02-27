@@ -17,7 +17,7 @@ const Chat = ({ dialog: { senderId, senderInfo }, messages }: ChatProps) => {
     <div className={cx('dialog__chat')} ref={chatRef}>
       {messages.map((message) => (
         <Message
-          key={`message-${senderId}-${message.time}`}
+          key={message.id ?? `message-${senderId}-${message.time}-${message.text}`}
           message={message}
           senderAvatar={senderInfo.profilePhoto}
         />
