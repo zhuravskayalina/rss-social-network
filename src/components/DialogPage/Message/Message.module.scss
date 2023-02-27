@@ -1,5 +1,5 @@
 @use '../../../stylesheets/variables/colors';
-@use '../../../stylesheets/mixins/mixins';
+@import '../../../stylesheets/mixins/mixins';
 
 .dialog {
   &__message {
@@ -27,8 +27,12 @@
     background: colors.$main-background;
     font-weight: 400;
     font-size: 16px;
-    line-height: 19px;
+    line-height: 140%;
     color: colors.$light-black;
+      @include media-mobile {
+        padding: 10px;
+        font-size: 14px;
+      }
   }
 
   &__message-text.friends-messages {
@@ -42,6 +46,7 @@
 
   &__chat-avatar-box {
     position: relative;
+    width: 40px;
   }
 
   &__chat-avatar-img {

@@ -1,5 +1,5 @@
 @use '../../../stylesheets/variables/colors';
-@use '../../../stylesheets/mixins/mixins';
+@import '../../../stylesheets/mixins/mixins';
 
 .dialog {
 
@@ -7,9 +7,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
     padding: 22px 16px;
     border-left: 1px solid colors.$border-light-gray;
+      @include media-mobile {
+        padding: 11px 8px;
+      }
   }
 
   &__write-input {
@@ -19,6 +22,9 @@
     font-size: 16px;
     line-height: 140%;
     border: none;
+      @include media-mobile {
+        font-size: 14px;
+      }
   }
 
   &__write-input::placeholder {

@@ -31,7 +31,8 @@ const Header = ({
       <button className={cx('header__menu-btn')} onClick={clickMenuHandler}>
         <MenuIcon className={cx('header__menu-icon')} />
       </button>
-      {showNav && <Navigation />}
+      {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
+      {showNav && <Navigation userId={user!.id} />}
       <div className={cx('header__container')}>
         <Link to='/'>
           <LogoIcon className={cx('header__logo-icon')} />

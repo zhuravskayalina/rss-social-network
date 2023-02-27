@@ -4,4 +4,10 @@
 .dialog__chat {
   border-left: 1px solid colors.$border-light-gray;
   border-bottom: 1px solid colors.$border-light-gray;
+  overflow: scroll;
+  max-height: 650px;
+}
+
+.dialog__chat::-webkit-scrollbar {
+  width: 0;
 }

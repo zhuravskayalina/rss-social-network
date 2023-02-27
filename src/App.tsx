@@ -178,7 +178,7 @@ const App = () => {
                     }
                   />
                 </Route>
-                <Route path='messages' element={<DialogPageWrapper user={user} />} />
+                <Route path={`messages/${user.id}`} element={<DialogPageWrapper user={user} />} />
               </>
             )}
             <Route path='*' element={<Page404 />} />
