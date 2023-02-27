@@ -84,6 +84,7 @@ export const messages = {
     mainMsg2: 'Connected People',
     discover: 'Discover Now',
     noFriend: 'No friends yet.',
+    delFriend: 'Remove from friends',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -169,5 +170,6 @@ export const messages = {
     mainMsg2: 'Подключенных пользователей',
     discover: 'Перейти',
     noFriend: 'У тебя ещё нет друзей.',
+    delFriend: 'Удалить из друзей',
   },
 };
