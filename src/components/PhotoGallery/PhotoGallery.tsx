@@ -12,14 +12,12 @@ import { PhotoGalleryProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const PhotoGallery = ({ photos }: PhotoGalleryProps) => {
-  const images: JSX.Element[] = photos.map((item) => {
-    return (
-      <a href={item} key={item}>
-        <img className={cx('gallery__img')} src={item} alt='foto' />
-      </a>
-    );
-  });
+const PhotoGallery = ({ user, isOwnPage }: PhotoGalleryProps) => {
+  const images: JSX.Element[] = user.photos.map((item) => (
+    <a href={item} key={item}>
+      <img className={cx('gallery__img')} src={item} alt='foto' />
+    </a>
+  ));
 
   return (
     <div className={cx('gallery')}>

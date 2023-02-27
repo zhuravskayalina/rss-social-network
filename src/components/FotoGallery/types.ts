@@ -1,6 +1,6 @@
 import { User } from '../../types/interfaces';
 
-export interface PhotoGalleryProps {
+export interface FotoGalleryProps {
   user: User;
   isOwnPage: boolean;
 }

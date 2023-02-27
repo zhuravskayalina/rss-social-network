@@ -9,7 +9,7 @@ import Friend from './Friend/Friend';
 
 const cx = classNames.bind(styles);
 
-const FriendsSection = ({ userId }: FriendSectionProps) => {
+const FriendsSection = ({ userId, isOwnPage }: FriendSectionProps) => {
   const [value, setValue] = useState<'name' | 'surname'>('name');
   const [friends, setFriends] = useState<FriendType[]>([]);
 
@@ -32,8 +32,13 @@ const FriendsSection = ({ userId }: FriendSectionProps) => {
     });
   };
 
-  const friendsEl: JSX.Element[] = friends.map((item) => (
-    <Friend deleteFriend={() => deleteFriend(item.id)} friend={item} key={item.id} />
+  const friendsEl: JSX.Element[] = friends.map((friend) => (
+    <Friend
+      deleteFriend={() => deleteFriend(friend.id)}
+      friend={friend}
+      key={friend.id}
+      isOwnPage={isOwnPage}
+    />
   ));
   if (!friends.length) {
     return (

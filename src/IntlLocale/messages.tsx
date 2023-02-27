@@ -85,6 +85,9 @@ export const messages = {
     discover: 'Discover Now',
     noFriend: 'No friends yet.',
     delFriend: 'Remove from friends',
+    linkedIn: 'LinkedIn',
+    twitter: 'Twitter',
+    instagram: 'Instagram',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -171,5 +174,8 @@ export const messages = {
     discover: 'Перейти',
     noFriend: 'У тебя ещё нет друзей.',
     delFriend: 'Удалить из друзей',
+    linkedIn: 'LinkedIn',
+    twitter: 'Twitter',
+    instagram: 'Instagram',
   },
 };
