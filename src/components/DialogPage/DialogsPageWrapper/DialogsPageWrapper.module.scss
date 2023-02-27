@@ -12,5 +12,7 @@
   margin: 24px 11% 100px 14%;
     @include media-mobile {
       grid-template-columns: 20fr 80fr;
+      width: 85%;
+      margin: 12px 8% 20px 8%;
     }
 }
