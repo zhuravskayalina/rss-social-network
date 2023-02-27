@@ -34,7 +34,7 @@ export const navItems = [
   {
     icon: <NewsfeedIcon />,
     description: <FormattedMessage id='newsfeed' />,
-    link: '/newsfeed',
+    link: '/profile/newsfeed',
     key: '5',
   },
   {

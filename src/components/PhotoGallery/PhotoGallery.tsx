@@ -7,17 +7,19 @@ import 'lightgallery/scss/lightgallery.scss';
 import 'lightgallery/scss/lg-zoom.scss';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
-import styles from './fotoGallery.module.scss';
-import { FotoGalleryProps } from './types';
+import styles from './photoGallery.module.scss';
+import { PhotoGalleryProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const FotoGallery = ({ photos }: FotoGalleryProps) => {
-  const images: JSX.Element[] = photos.map((item) => (
-    <a href={item} key={item}>
-      <img className={cx('gallery__img')} src={item} alt='foto' />
-    </a>
-  ));
+const PhotoGallery = ({ photos }: PhotoGalleryProps) => {
+  const images: JSX.Element[] = photos.map((item) => {
+    return (
+      <a href={item} key={item}>
+        <img className={cx('gallery__img')} src={item} alt='foto' />
+      </a>
+    );
+  });
 
   return (
     <div className={cx('gallery')}>
@@ -28,4 +30,4 @@ const FotoGallery = ({ photos }: FotoGalleryProps) => {
   );
 };
 
-export default FotoGallery;
+export default PhotoGallery;

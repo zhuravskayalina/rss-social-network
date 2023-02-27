@@ -19,8 +19,9 @@ import Page404 from './components/Page404/Page404';
 import Loading from './components/Loading/Loading';
 import FriendsSection from './components/FriendsSection/FriendsSection';
 import Authorization from './components/Authorization/Authorization';
-import FotoGallery from './components/FotoGallery/FotoGallery';
+import PhotoGallery from './components/PhotoGallery/PhotoGallery';
 import DialogPageWrapper from './components/DialogPage/DialogsPageWrapper/DialogsPageWrapper';
+import NewsFeed from './components/NewsFeed/NewsFeed';
 
 const cx = classNames.bind(styles);
 
@@ -99,14 +100,24 @@ const App = () => {
         />
         {!isUserLoading ? (
           <Routes>
-            <Route path='' element={<MainPage />} />
+            <Route
+              path=''
+              element={
+                <MainPage
+                  userId={user?.id}
+                  isLoggedIn={isLoggedIn}
+                  openAuthorization={handleOpenAuthorization}
+                />
+              }
+            />
             {user && (
               <>
                 <Route path={`profile/${user.id}`} element={getProfilePage(user)}>
                   <Route path='' element={<Timeline user={user} />} />
                   <Route path='about' element={<About user={user} setUser={setUser} />} />
                   <Route path='friends' element={<FriendsSection userId={user.id} />} />
-                  <Route path='gallery' element={<FotoGallery photos={photos} />} />
+                  <Route path='gallery' element={<PhotoGallery photos={photos} />} />
+                  <Route path='newsfeed' element={<NewsFeed userId={user.id} />} />
                 </Route>
                 <Route path='messages' element={<DialogPageWrapper user={user} />} />
               </>
