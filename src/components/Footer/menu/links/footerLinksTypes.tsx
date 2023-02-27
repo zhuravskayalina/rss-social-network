@@ -1,6 +1,7 @@
 export interface MenuSectionInterface {
   title: JSX.Element;
   link: string;
+  id: number;
 }
 
 export interface MenuSectionProps {
