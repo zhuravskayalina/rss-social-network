@@ -56,6 +56,7 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
       setUsers([...connectedUsers]);
     });
     socket.on('message', (message: ChatMessageInterface) => {
+      console.log(message);
       setMessages((prevMessages) => [...prevMessages, message]);
     });
     webs.current = socket;
