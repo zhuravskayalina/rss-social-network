@@ -48,6 +48,7 @@ const Authorization = ({
   ) : (
     <Modal isActive={isAuthModalActive} setActive={setAuthModalActive} className='questions'>
       <Questionnaire
+        setLoggedIn={setLoggedIn}
         login={login}
         password={password}
         setLogin={setLogin}

@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { FormattedMessage } from 'react-intl';
 import React, { useState } from 'react';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from '../SignIn/sign-in.module.scss';
 import FormInput from '../FormInput/FormInput';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -23,6 +23,7 @@ const Questionnaire = ({
   resetForms,
   setUser,
   setAuthModalActive,
+  setLoggedIn,
 }: QuestionnaireProps) => {
   const name = useInput('', { isEmpty: true });
   const surname = useInput('', { isEmpty: true });
@@ -115,8 +116,10 @@ const Questionnaire = ({
         return user;
       })
       .then((user) => {
+        setLoggedIn(true);
         setAuthModalActive(false);
         navigate(`/profile/${user.id}`);
+        handleCancelRegistration();
       });
     setLogin('');
     setPassword('');
