@@ -10,7 +10,6 @@ const cx = classNames.bind(styles);
 const Friend = ({
   friend: { name, surname, profilePhoto, id },
   deleteFriend,
-  // handleClickOnFriend,
   isOwnPage,
 }: FriendProps) => {
   const intl = useIntl();
@@ -29,7 +28,6 @@ const Friend = ({
           {name} {surname}
         </h3>
       </div>
-
       {isOwnPage && (
         <button
           className={cx('friend__delete')}

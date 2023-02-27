@@ -1,3 +1,6 @@
+import { User } from '../../types/interfaces';
+
 export interface PhotoGalleryProps {
-  photos: string[];
+  user: User;
+  isOwnPage: boolean;
 }

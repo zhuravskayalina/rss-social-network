@@ -37,7 +37,6 @@ const FriendsSection = ({ userId, isOwnPage }: FriendSectionProps) => {
       deleteFriend={() => deleteFriend(friend.id)}
       friend={friend}
       key={friend.id}
-      // handleClickOnFriend={handleClickOnFriend}
       isOwnPage={isOwnPage}
     />
   ));
