@@ -62,8 +62,6 @@ const PhotoGallery = ({ user, setUser, isOwnPage }: PhotoGalleryProps) => {
     NetworkClient.updateUser(user.id, userCopy).then((userData) => {
       setUser(userData);
     });
-
-    // setPhotos((prev) => [...prev, avatarUrl]);
     setAvatarUrl('');
   };
 
