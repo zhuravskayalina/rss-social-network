@@ -28,9 +28,11 @@ const Header = ({
 
   return (
     <div className={cx('header')}>
-      <button className={cx('header__menu-btn')} onClick={clickMenuHandler}>
-        <MenuIcon className={cx('header__menu-icon')} />
-      </button>
+      {isLoggedIn && (
+        <button className={cx('header__menu-btn')} onClick={clickMenuHandler}>
+          <MenuIcon className={cx('header__menu-icon')} />
+        </button>
+      )}
       {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
       {showNav && <Navigation userId={user!.id} />}
       <div className={cx('header__container')}>
