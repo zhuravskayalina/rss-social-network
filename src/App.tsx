@@ -72,7 +72,7 @@ const App = () => {
           setUser(userData);
           setUserLoading(false);
 
-          const returnIsOwnPage = userData.id === id;
+          const returnIsOwnPage = !id || userData.id === id;
           setIsOwnPage(returnIsOwnPage);
           setAnotherUserDetails(!returnIsOwnPage && userDetails?.id !== id, id);
         });
@@ -103,11 +103,10 @@ const App = () => {
     localStorage.clear();
     setLoggedIn(false);
     setUser(undefined);
-    localStorage.removeItem('loggedUserId');
-    localStorage.setItem('isLoggedIn', 'false');
     navigate('/');
   };
 
+  // @ts-ignore
   return (
     <IntlProvider
       messages={messages[currentLocale]}
