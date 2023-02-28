@@ -25,11 +25,11 @@ import NewsFeed from './components/NewsFeed/NewsFeed';
 
 const cx = classNames.bind(styles);
 
-const getProfilePage = (user: User | undefined) => {
+const getProfilePage = (user: User | undefined, isOwnPage: boolean) => {
   if (user)
     return (
       <MainContainer>
-        <ProfileSection user={user} />
+        <ProfileSection user={user} isOwnPage={isOwnPage} />
       </MainContainer>
     );
 };
@@ -100,6 +100,7 @@ const App = () => {
   };
 
   const logOut = () => {
+    localStorage.clear();
     setLoggedIn(false);
     setUser(undefined);
     localStorage.removeItem('loggedUserId');
@@ -138,7 +139,7 @@ const App = () => {
               <>
                 <Route
                   path={`profile/${isOwnPage ? user.id : (userDetails as User).id}`}
-                  element={getProfilePage(isOwnPage ? user : userDetails)}
+                  element={getProfilePage(isOwnPage ? user : userDetails, isOwnPage)}
                 >
                   <Route
                     path=''

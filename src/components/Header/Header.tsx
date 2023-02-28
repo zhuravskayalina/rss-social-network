@@ -35,7 +35,7 @@ const Header = ({
           </button>
         )}
         {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-        {showNav && <Navigation userId={user!.id} />}
+        {user && showNav && <Navigation userId={user?.id} />}
         <Link to={isLoggedIn ? `/profile/${user?.id}` : '/'}>
           <LogoIcon className={cx('header__logo-icon')} />
         </Link>

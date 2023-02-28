@@ -7,10 +7,10 @@ import { ProfileSectionProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const ProfileSection = ({ user }: ProfileSectionProps) => {
+const ProfileSection = ({ user, isOwnPage }: ProfileSectionProps) => {
   return (
     <div className={cx('profile')}>
-      <Cover user={user} />
+      <Cover user={user} isOwnPage={isOwnPage} />
       <ProfileNavigation />
       <MainSection />
     </div>

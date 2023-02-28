@@ -5,6 +5,7 @@
   width: 35px;
   height: 35px;
   border-radius: 50%;
+  transition: .5s;
 
   &__item {
     @include mixins.center-content;
@@ -12,15 +13,18 @@
     height: 100%;
   }
 
-  &:hover {
-    border: 1px solid colors.$half-transparent-white;
-  }
-
   &__icon {
     width: 17px;
+    transition: .5s;
 
     &__inst {
       width: 25px;
+    }
+  }
+
+  &:hover {
+    .link__icon {
+      scale: 1.2;
     }
   }
 
