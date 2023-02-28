@@ -12,7 +12,7 @@ import ProfileSection from './components/ProfileSection/ProfileSection';
 import { getInitialLocale } from './localStorageUtils';
 import MainPage from './components/mainPage/MainPage';
 import Timeline from './components/ProfileSection/MainSection/ContentSection/Timeline/Timeline';
-import { User } from './types/interfaces';
+import { FriendType, User } from './types/interfaces';
 import { NetworkClient } from './NetworkClient/NetworkClient';
 import About from './components/ProfileSection/MainSection/ContentSection/About/About';
 import Page404 from './components/Page404/Page404';
@@ -46,6 +46,7 @@ const App = () => {
   const [isUserLoading, setUserLoading] = useState(true);
   const [userDetails, setUserDetails] = useState<User>();
   const [isOwnPage, setIsOwnPage] = useState(true);
+  const [friends, setFriends] = useState<FriendType[]>([]);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -71,6 +72,7 @@ const App = () => {
         NetworkClient.getUser(userId).then((userData) => {
           setUser(userData);
           setUserLoading(false);
+          setFriends(userData.friends);
 
           const returnIsOwnPage = userData.id === id;
           setIsOwnPage(returnIsOwnPage);
@@ -122,6 +124,8 @@ const App = () => {
           isLoggedIn={isLoggedIn}
           logOut={logOut}
           user={user}
+          friends={friends}
+          setFriends={setFriends}
         />
         {!isUserLoading ? (
           <Routes>
@@ -166,6 +170,8 @@ const App = () => {
                       <FriendsSection
                         userId={isOwnPage ? user.id : ((userDetails as User).id as string)}
                         isOwnPage={isOwnPage}
+                        friends={friends}
+                        setFriends={setFriends}
                       />
                     }
                   />

@@ -19,6 +19,8 @@ const Header = ({
   isLoggedIn,
   logOut,
   user,
+  friends,
+  setFriends,
 }: HeaderProps) => {
   const [showNav, setShowNaw] = useState(false);
 
@@ -50,7 +52,7 @@ const Header = ({
       </div>
       <div className={cx('header__controls')}>
         <SwitcherLanguage currentLocale={currentLocale} handleChange={handleChange} />
-        <Searcher />
+        <Searcher userId={user?.id} friends={friends} setFriends={setFriends} />
         <div className={cx('login-controls')}>
           {isLoggedIn && user && (
             <Link to={`/profile/${user.id}`} className={cx('avatar-btn')}>

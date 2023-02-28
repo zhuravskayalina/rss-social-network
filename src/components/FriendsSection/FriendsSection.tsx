@@ -1,23 +1,15 @@
 import classNames from 'classnames/bind';
 import { FormattedMessage } from 'react-intl';
 import { NetworkClient } from 'src/NetworkClient/NetworkClient';
-import { ChangeEvent, useEffect, useState } from 'react';
-import { FriendType } from 'src/types/interfaces';
+import { ChangeEvent, useState } from 'react';
 import { FriendSectionProps } from './types';
 import styles from './friendss-section.module.scss';
 import Friend from './Friend/Friend';
 
 const cx = classNames.bind(styles);
 
-const FriendsSection = ({ userId, isOwnPage }: FriendSectionProps) => {
+const FriendsSection = ({ userId, isOwnPage, friends, setFriends }: FriendSectionProps) => {
   const [value, setValue] = useState<'name' | 'surname'>('name');
-  const [friends, setFriends] = useState<FriendType[]>([]);
-
-  useEffect(() => {
-    NetworkClient.getFriends(userId).then((userData) => {
-      setFriends(userData);
-    });
-  }, []);
 
   const changeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     setValue(e.target.value as 'name' | 'surname');

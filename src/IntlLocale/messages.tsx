@@ -2,7 +2,7 @@ import { LOCALES } from './locales';
 
 export const messages = {
   [LOCALES.ENGLISH]: {
-    searcher: 'Search here...',
+    searcher: 'Search friends...',
     signIn: 'Sign in',
     timeline: 'Timeline',
     about: 'About',
@@ -98,7 +98,7 @@ export const messages = {
   },
 
   [LOCALES.RUSSIAN]: {
-    searcher: 'Искать...',
+    searcher: 'Искать друзей...',
     signIn: 'Вход',
     timeline: 'Лента',
     about: 'О себе',
