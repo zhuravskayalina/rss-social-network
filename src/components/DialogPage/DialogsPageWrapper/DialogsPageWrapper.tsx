@@ -91,7 +91,6 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
     };
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     keyCodsMap[event.key] && keyCodsMap[event.key]();
-    console.log(event.key);
   };
 
   useEffect(() => {
