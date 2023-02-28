@@ -31,6 +31,11 @@ use can use this loggins and passwords to visit already existing profiles:
 2. **login**: eminem; **password**: eminem;
 3. **login**: notorius; **password**: notorius;
 
+####  ALSO, you can try following hot keys:
+* **Ctrl + Alt + L** - change application language;
+* **Ctrl + Alt + M** - open/close side menu;
+* **Enter** - send message at the dialogue window; 
+
 Please, note that upload images size (unfortunately) should be really small.
 ___
 ### <span style="color: orange">Как запустить приложение: </span>
