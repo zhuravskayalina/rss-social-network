@@ -90,6 +90,8 @@ export const messages = {
     twitter: 'Twitter',
     instagram: 'Instagram',
     'choose photo': 'Choose photo',
+    noChats: 'There are no messages here yet. Start a chat with one of your friends',
+    goToFriendsPage: 'Go to the friends page',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -181,5 +183,7 @@ export const messages = {
     instagram: 'Instagram',
     'choose photo': 'Выберите фото',
     'Password should be more than 6 characters': 'Пароль должен содержать больше 6 символов',
+    noChats: 'Здесь пока нет сообщений. Начни чат с другом',
+    goToFriendsPage: 'Перейти на страницу друзей',
   },
 };
