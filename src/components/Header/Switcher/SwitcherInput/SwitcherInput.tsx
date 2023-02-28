@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { KeyboardEvent, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 import styles from './switcher.module.scss';
 import { LOCALES } from '../../../../IntlLocale/locales';
@@ -9,10 +9,13 @@ const cx = classNames.bind(styles);
 const SwitcherInput = ({ currentLocale, handleChange }: SwitcherInputProps) => {
   const isRussian = currentLocale === LOCALES.RUSSIAN;
 
-  // useEffect(() =>
-  //   document.addEventListener('keydown', () => {
-  //   }),
-  // );
+  useEffect(() =>
+    document.addEventListener('keydown', (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.code === 'KeyL' && event.altKey) {
+        handleChange();
+      }
+    }),
+  );
 
   return (
     <label htmlFor='language-switcher' className={cx('header__switch-language')}>
