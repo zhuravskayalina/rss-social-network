@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, ChangeEvent } from 'react';
+import { useState, useEffect, useRef, ChangeEvent, KeyboardEvent } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { io, Socket } from 'socket.io-client';
@@ -13,6 +13,10 @@ interface ChatMessageInterface {
   text: string;
   time: string;
   isOwnMessage: boolean;
+}
+
+interface HotKeys {
+  [key: string]: () => void;
 }
 
 const cx = classNames.bind(styles);
@@ -37,7 +41,7 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
   const [value, setValue] = useState('');
   const [users, setUsers] = useState<Array<User>>([]);
   const [chat, setChat] = useState(user.chat[0]);
-  const [messages, setMessages] = useState<Array<ChatMessageInterface>>(chat.history);
+  const [messages, setMessages] = useState<Array<ChatMessageInterface>>(user.chat[0].history);
 
   const handleClickChat = (choiceChat: Chat) => {
     setChat(choiceChat);
@@ -46,9 +50,7 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
 
   const handleMessageInput = (ev: ChangeEvent<HTMLInputElement>) => {
     const { value: inputValue } = ev.target;
-    if (inputValue) {
-      setValue(inputValue);
-    }
+    setValue(inputValue);
   };
 
   const handleSendClick = () => {
@@ -83,6 +85,14 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
     }
   };
 
+  const handleKeyDown = (event: KeyboardEvent) => {
+    const keyCodsMap: HotKeys = {
+      Enter: handleSendClick,
+    };
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    keyCodsMap[event.key] && keyCodsMap[event.key]();
+  };
+
   useEffect(() => {
     const socket = io('http://localhost:6969');
     socket.auth = { userId: user.id };
@@ -109,6 +119,7 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
         handleMessageInput={handleMessageInput}
         handleClickChat={handleClickChat}
         userId={user.id}
+        handleKeyDown={handleKeyDown}
       />
     </div>
   );

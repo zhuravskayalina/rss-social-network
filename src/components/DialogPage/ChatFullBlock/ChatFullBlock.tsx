@@ -15,6 +15,7 @@ const ChatFullBlock = ({
   handleMessageInput,
   handleClickChat,
   userId,
+  handleKeyDown,
 }: ChatFullBlockProps) => {
   return (
     <div className={cx('dialog__chat-block')}>
@@ -29,6 +30,7 @@ const ChatFullBlock = ({
         value={value}
         handleSendClick={handleSendClick}
         handleMessageInput={handleMessageInput}
+        handleKeyDown={handleKeyDown}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { ReactComponent as MenuIcon } from '../../assets/icons/menu.svg';
@@ -25,6 +25,14 @@ const Header = ({
   const clickMenuHandler = () => {
     setShowNaw(!showNav);
   };
+
+  useEffect(() =>
+    document.addEventListener('keydown', (event) => {
+      if (event.shiftKey && event.altKey && event.code === 'KeyM') {
+        clickMenuHandler();
+      }
+    }),
+  );
 
   return (
     <div className={cx('header')}>
