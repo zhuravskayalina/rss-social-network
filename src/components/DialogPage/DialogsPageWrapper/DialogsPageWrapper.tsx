@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef, ChangeEvent } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 import { io, Socket } from 'socket.io-client';
 import classNames from 'classnames/bind';
 import styles from './DialogsPageWrapper.module.scss';
@@ -16,6 +18,21 @@ interface ChatMessageInterface {
 const cx = classNames.bind(styles);
 
 const DialogPageWrapper = ({ user }: DialogPageProps) => {
+  const url = `/profile/${user.id}/friends`;
+  if (!user.chat[0]) {
+    return (
+      <div className={cx('dialog', 'dialog__empty')}>
+        <p className={cx('dialog__empty-message')}>
+          <FormattedMessage id='noChats' />
+        </p>
+        <Link to={url}>
+          <button className={cx('dialog__page-goToFriendsBtn')} type='button'>
+            <FormattedMessage id='goToFriendsPage' />
+          </button>
+        </Link>
+      </div>
+    );
+  }
   const webs = useRef<Socket | null>(null);
   const [value, setValue] = useState('');
   const [users, setUsers] = useState<Array<User>>([]);
@@ -82,7 +99,7 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
   }, []);
 
   return (
-    <div className={cx('dialog__page')}>
+    <div className={cx('dialog', 'dialog__page')}>
       <ChatsList user={user} handleClickChat={handleClickChat} userId={user.id} />
       <ChatFullBlock
         value={value}

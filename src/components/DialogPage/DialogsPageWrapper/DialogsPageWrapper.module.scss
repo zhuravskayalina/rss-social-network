@@ -2,17 +2,59 @@
 @use '../../../stylesheets/variables/numbers';
 @use '../../../stylesheets/mixins/mixins';
 
-.dialog__page {
-  display: grid;
-  grid-template-columns: 1fr 2.5fr;
+.dialog {
   width: 75%;
   background-color: colors.$white;
   border-radius: numbers.$border-radius;
   margin: 50px auto;
-  overflow: hidden;
-    @media screen and (max-width: 650px){
+
+  &__page {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    overflow: hidden;
+    @media screen and (max-width: 650px) {
       grid-template-columns: 1fr 4fr;
       width: 85%;
       margin: 12px 8% 20px 8%;
     }
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__empty.dialog{
+    padding: 30px
+  }
+
+  &__empty-message {
+    color: colors.$light-black;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+  }
+
+  &__page-goToFriendsBtn {
+    width: 300px;
+    padding: 16px 20px;
+    border: 1px solid colors.$color-primary-blue;
+    border-radius: numbers.$border-radius-buttons;
+    color: colors.$color-primary-blue;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    background-color: colors.$white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: .2s;
+    @include mixins.center-content;
+    @include mixins.link-style-reset;
+    &:hover {
+      cursor: pointer;
+      color: colors.$white;
+      background-color: colors.$color-primary-blue;
+    }
+  }
 }
