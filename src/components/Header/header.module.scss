@@ -2,15 +2,30 @@
 @use '../../stylesheets/mixins/mixins';
 
 .header {
-  height: 65px;
-  @include mixins.center-content;
   background-color: colors.$color-header-background;
   color: colors.$white;
   position: relative;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+
+  &__logo-block {
+    @include mixins.center-content;
+    gap: 20px;
+  }
+
+  &__controls {
+    @include mixins.center-content;
+    gap: 20px;
+
+    @media screen and (max-width: 530px) {
+      flex-direction: column;
+      gap: 7px;
+    }
+  }
 
   &__menu-btn {
-    position: absolute;
     top: 17px;
     left: 12px;
     background-color: transparent;
@@ -25,15 +40,13 @@
     }
   }
 
-  &__container {
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
   &__logo-icon {
     width: 110px;
+  }
+
+  @media screen and (max-width: 760px) {
+    flex-direction: column;
+    gap: 10px;
   }
 }
 
@@ -70,4 +83,8 @@
   object-fit: cover;
   top: 0;
   left: 0;
+}
+
+.login-controls {
+  display: flex;
 }

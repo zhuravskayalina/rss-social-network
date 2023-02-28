@@ -28,31 +28,35 @@ const Header = ({
 
   return (
     <div className={cx('header')}>
-      {isLoggedIn && (
-        <button className={cx('header__menu-btn')} onClick={clickMenuHandler}>
-          <MenuIcon className={cx('header__menu-icon')} />
-        </button>
-      )}
-      {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-      {showNav && <Navigation userId={user!.id} />}
-      <div className={cx('header__container')}>
+      <div className={cx('header__logo-block')}>
+        {isLoggedIn && (
+          <button className={cx('header__menu-btn')} onClick={clickMenuHandler}>
+            <MenuIcon className={cx('header__menu-icon')} />
+          </button>
+        )}
+        {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
+        {showNav && <Navigation userId={user!.id} />}
         <Link to={isLoggedIn ? `/profile/${user?.id}` : '/'}>
           <LogoIcon className={cx('header__logo-icon')} />
         </Link>
+      </div>
+      <div className={cx('header__controls')}>
         <SwitcherLanguage currentLocale={currentLocale} handleChange={handleChange} />
         <Searcher />
-        {isLoggedIn && user && (
-          <Link to={`/profile/${user.id}`} className={cx('avatar-btn')}>
-            <div className={cx('avatar-box')}>
-              <img src={user.profilePhoto || ''} className={cx('avatar')} alt='avatar' />
-            </div>
-          </Link>
-        )}
-        <LoginButtonHeader
-          openAuthorization={openAuthorization}
-          isLoggedIn={isLoggedIn}
-          logOut={logOut}
-        />
+        <div className={cx('login-controls')}>
+          {isLoggedIn && user && (
+            <Link to={`/profile/${user.id}`} className={cx('avatar-btn')}>
+              <div className={cx('avatar-box')}>
+                <img src={user.profilePhoto || ''} className={cx('avatar')} alt='avatar' />
+              </div>
+            </Link>
+          )}
+          <LoginButtonHeader
+            openAuthorization={openAuthorization}
+            isLoggedIn={isLoggedIn}
+            logOut={logOut}
+          />
+        </div>
       </div>
     </div>
   );

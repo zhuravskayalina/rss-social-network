@@ -1,9 +1,11 @@
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import styles from './Footer.module.scss';
 import logoIcon from '../../assets/icons/logoBlack.svg';
 import { importantLinks, communityLinks, developersLinks } from './menu/links/footerLinks';
 import MenuBlock from './menu/menuBlock/menuBlock';
+import { ReactComponent as RssLogo } from '../../assets/images/rss-logo.svg';
 
 const cx = classNames.bind(styles);
 
@@ -45,6 +47,9 @@ const Footer = () => {
         />
       </div>
       <div className={cx('footer__copyright')}>
+        <Link to='https://rs.school/js/' className={cx('rss-logo')}>
+          <RssLogo />
+        </Link>
         <p> Copyright © 2023 </p>
       </div>
     </div>

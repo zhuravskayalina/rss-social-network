@@ -6,12 +6,6 @@
   &__input-wrapper {
     position: relative;
     width: fit-content;
-    margin-right: 60px;
-
-    @include mixins.media-mobile {
-      min-width: 200px;
-      margin: 5%;
-    }
   }
 
   &__input {
