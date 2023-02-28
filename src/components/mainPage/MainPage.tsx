@@ -11,9 +11,17 @@ const MainPage = ({ userId, isLoggedIn, openAuthorization }: DiscoverButtonProps
     <div className={cx('main')}>
       <div className={cx('main__content')}>
         <h1 className={cx('main__content-title')}>OWL Community</h1>
-        <p className={cx('main__content-text')}>
-          <FormattedMessage id='mainMsg1' />
-        </p>
+        <div className={cx('main__content-text')}>
+          <p>
+            <FormattedMessage id='mainDescription1' />
+          </p>
+          <p>
+            <FormattedMessage id='mainDescription2' />
+          </p>
+          <p>
+            <FormattedMessage id='mainDescription3' />
+          </p>
+        </div>
         <p className={cx('main__content-count')}>10,95,219</p>
         <p>
           <FormattedMessage id='mainMsg2' />
@@ -24,7 +32,7 @@ const MainPage = ({ userId, isLoggedIn, openAuthorization }: DiscoverButtonProps
           openAuthorization={openAuthorization}
         />
       </div>
-      <div className={cx('main__img')}> </div>
+      <div className={cx('main__img')} />
     </div>
   );
 };

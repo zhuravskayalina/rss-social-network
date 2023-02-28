@@ -6,8 +6,9 @@
 }
 
 .discoverButton {
+  position: relative;
   margin: 30px 0;
-  width: 195px;
+  width: 220px;
   height: 50px;
   padding: 4px;
   display: flex;
@@ -17,10 +18,46 @@
   background: transparent;
   color: #ffffff;
   cursor: pointer;
+  transition: .5s;
+
+  &__arrow {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    background-color: colors.$color-switcher-language;
+    border-radius: 50%;
+    z-index: 1;
+    transition: 1s;
+  }
+
+  &__text {
+    align-self: center;
+    padding-left: 40px;
+    font-size: 1.1rem;
+    z-index: 3;
+    transition: .5s;
+  }
+
+  &__arrow-icon {
+    transition: .5s;
+    position: absolute;
+    top: 15px;
+    left: 9px;
+  }
 
   &:hover {
-    transform: scale(1.03);
-    border: 1px solid colors.$color-switcher-language;
+    .discoverButton__arrow {
+      width: 211px;
+      border-radius: 25px;
+      justify-content: flex-end;
+    }
+
+    .discoverButton__text {
+      padding-left: 54px;
+    }
   }
 
   &:active {
@@ -29,20 +66,5 @@
 
   @include mixins.media-desktop-middle {
     margin: 30px auto;
-  }
-
-  &__text {
-    align-self: center;
-    padding-left: 20px;
-    font-size: 1.1rem;
-  }
-
-  &__arrow {
-    text-align: center;
-    @include mixins.center-content;
-    width: 40px;
-    height: 40px;
-    background-color: colors.$color-switcher-language;
-    border-radius: 50%;
   }
 }

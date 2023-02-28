@@ -11,11 +11,11 @@ const DiscoverButton = ({ userId, isLoggedIn, openAuthorization }: DiscoverButto
   return isLoggedIn ? (
     <Link to={`/profile/${userId}`}>
       <button className={cx('discoverButton')}>
-        <div className={cx('discoverButton__text')}>
+        <p className={cx('discoverButton__text')}>
           <FormattedMessage id='discover' />
-        </div>
+        </p>
         <div className={cx('discoverButton__arrow')}>
-          <Arrow />
+          <Arrow className={cx('discoverButton__arrow-icon')} />
         </div>
       </button>
     </Link>
@@ -23,7 +23,7 @@ const DiscoverButton = ({ userId, isLoggedIn, openAuthorization }: DiscoverButto
     <button className={cx('discoverButton')} onClick={openAuthorization}>
       <div className={cx('discoverButton__text')}>Discover Now</div>
       <div className={cx('discoverButton__arrow')}>
-        <Arrow />
+        <Arrow className={cx('discoverButton__arrow-icon')} />
       </div>
     </button>
   );

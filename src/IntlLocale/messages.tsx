@@ -80,8 +80,6 @@ export const messages = {
     back: 'Back',
     '404msg1': 'OOOPS! THIS PAGE DOES NOT EXIST...',
     '404msg2': 'GO TO HOME PAGE',
-    mainMsg1:
-      'Having real social contacts can sometimes be difficult FUN, everything becomes much simpler!',
     mainMsg2: 'Connected People',
     discover: 'Discover Now',
     noFriend: 'No friends yet.',
@@ -94,6 +92,9 @@ export const messages = {
     goToFriendsPage: 'Go to the friends page',
     addToFriends: 'Add to friends',
     sendMessage: 'Send message',
+    mainDescription1: 'Social media for life.',
+    mainDescription2: 'Over a billion people already on Owl.',
+    mainDescription3: 'Be one of them.',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -174,8 +175,6 @@ export const messages = {
     back: 'Назад',
     '404msg1': 'ОЙ! ТАКОЙ СТРАНИЦЫ ЗДЕСЬ НЕТ...',
     '404msg2': 'ВЕРНУТЬСЯ НА ГЛАВНУЮ',
-    mainMsg1:
-      'Иногда поддерживать общение становится непросто. С социальной сетью OWL все станет гораздо проще!',
     mainMsg2: 'Подключенных пользователей',
     discover: 'Перейти',
     noFriend: 'У тебя ещё нет друзей.',
@@ -189,5 +188,8 @@ export const messages = {
     goToFriendsPage: 'Перейти на страницу друзей',
     addToFriends: 'Добавить в друзья',
     sendMessage: 'отправить сообщение',
+    mainDescription1: 'Находи новых друзей и общайся.',
+    mainDescription2: 'Более миллиона людей уже на Owl.',
+    mainDescription3: 'Будь вместе с нами!',
   },
 };

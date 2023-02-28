@@ -1,5 +1,5 @@
-@import '../../stylesheets/variables/colors.scss';
-@import '../../stylesheets/mixins/mixins.scss';
+@use '../../stylesheets/variables/colors.scss';
+@use '../../stylesheets/mixins/mixins.scss';
 
 .main {
   display: flex;
@@ -8,10 +8,10 @@
   background: url(../../assets/images/main_background.png);
   background-size: cover;
   background-position: center;
-  background-color: $main-blue;
-  color: $color-pure-white;
+  background-color: colors.$main-blue;
+  color: colors.$color-pure-white;
 
-  @include media-desktop-middle {
+  @include mixins.media-desktop-middle {
     flex-direction: column-reverse;
     justify-content: start;
     height: fit-content;
@@ -23,29 +23,31 @@
     align-self: center;
     text-align: start;
 
-    @include media-desktop-middle {
-      margin-top: 0px;
+    @include mixins.media-desktop-middle {
+      margin-top: 0;
       width: 500px;
       text-align: center;
     }
 
-    @include media-mobile {
+    @include mixins.media-mobile {
       width: 340px;
     }
 
     &-title {
       font-size: 2.5rem;
+      font-weight: 700;
 
-      @include media-mobile {
+      @include mixins.media-mobile {
         font-size: 1.8rem;
       }
     }
 
     &-count {
       font-size: 2.5rem;
+      font-weight: 700;
       margin-bottom: 10px;
 
-      @include media-mobile {
+      @include mixins.media-mobile {
         font-size: 1.8rem;
       }
     }
@@ -57,20 +59,19 @@
 
     a {
       text-decoration: none;
-      color: $color-pure-white;
+      color: colors.$color-pure-white;
     }
 
   }
 
   &__img {
-    background: url(../../assets/images/main_img.png);
-    background-position: center;
+    background: url(../../assets/images/main_img.png) center;
     background-size: cover;
     align-self: center;
     width: 680px;
     height: 584px;
 
-    @include media-desktop-middle {
+    @include mixins.media-desktop-middle {
       margin-bottom: 30px;
       width: 80vw;
       height: 70vw;
