@@ -11,7 +11,7 @@ const SwitcherInput = ({ currentLocale, handleChange }: SwitcherInputProps) => {
 
   useEffect(() =>
     document.addEventListener('keydown', (event) => {
-      if ((event.ctrlKey || event.metaKey) && event.altKey && event.code === 'KeyL') {
+      if (event.shiftKey && event.altKey && event.code === 'KeyL') {
         handleChange();
       }
     }),
