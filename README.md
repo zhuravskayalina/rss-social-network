@@ -1,9 +1,9 @@
-## OWL - social network application
+## <span style="color: #2D5BE3">OWL - social network application</span>
 ___
 
 in the app, we try to recreate the features of the social network: authorization and registration of the user, the ability to add friends, chat with friends, the ability to change information about yourself, download new photos, write posts, read friends news feed, etc.
 
-### How to run application:
+### <span style="color: orange">How to run application:</span>
 
 For the application to work, you need to install and run the server. Follow these steps to install the server:
 
@@ -25,7 +25,7 @@ For the application to work, you need to install and run the server. Follow thes
 2. Clear your LocalStorage
 3. Now you are able to use our app!
 
-## ATTENTION!
+## <span style="color:red">ATTENTION! :)</span>
 use can use this loggins and passwords to visit already existing profiles:
 1. **login**: meganfox; **password**: meganfox;
 2. **login**: eminem; **password**: eminem;
@@ -33,7 +33,7 @@ use can use this loggins and passwords to visit already existing profiles:
 
 Please, note that upload images size (unfortunately) should be really small.
 ___
-### Как запустить приложение:
+### <span style="color: orange">Как запустить приложение: </span>
 
 Для запуска приложения вам необходимо локально запустить сервер. Следуйте инструкции ниже:
 
@@ -55,7 +55,7 @@ ___
 2. Очистите ваш LocalStorage
 3. Теперь вы можете пользоваться нашим приложением!
 
-## ВНИМАНИЕ!
+## <span style="color:red">ВНИМАНИЕ! :)</span>
 вы можете использовать эти логины и пароли для входа в уже существующие профили:
 1. **логин**: meganfox; **пароль**: meganfox;
 2. **логин**: eminem; **пароль**: eminem;
