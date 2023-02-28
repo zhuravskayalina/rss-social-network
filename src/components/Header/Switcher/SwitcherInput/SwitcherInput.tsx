@@ -1,4 +1,4 @@
-import { KeyboardEvent, useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './switcher.module.scss';
 import { LOCALES } from '../../../../IntlLocale/locales';
