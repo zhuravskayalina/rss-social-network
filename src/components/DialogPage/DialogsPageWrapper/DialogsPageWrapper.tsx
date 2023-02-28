@@ -21,7 +21,7 @@ interface HotKeys {
 
 const cx = classNames.bind(styles);
 
-const DialogPageWrapper = ({ user }: DialogPageProps) => {
+const DialogPageWrapper = ({ user, emptyChat }: DialogPageProps) => {
   const url = `/profile/${user.id}/friends`;
   if (!user.chat[0]) {
     return (
@@ -110,7 +110,12 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
 
   return (
     <div className={cx('dialog', 'dialog__page')}>
-      <ChatsList user={user} handleClickChat={handleClickChat} userId={user.id} />
+      <ChatsList
+        user={user}
+        handleClickChat={handleClickChat}
+        userId={user.id}
+        emptyChat={emptyChat}
+      />
       <ChatFullBlock
         value={value}
         dialog={chat}

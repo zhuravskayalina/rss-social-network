@@ -12,7 +12,7 @@ import ProfileSection from './components/ProfileSection/ProfileSection';
 import { getInitialLocale } from './localStorageUtils';
 import MainPage from './components/mainPage/MainPage';
 import Timeline from './components/ProfileSection/MainSection/ContentSection/Timeline/Timeline';
-import { User } from './types/interfaces';
+import { Chat, User } from './types/interfaces';
 import { NetworkClient } from './NetworkClient/NetworkClient';
 import About from './components/ProfileSection/MainSection/ContentSection/About/About';
 import Page404 from './components/Page404/Page404';
@@ -25,11 +25,21 @@ import NewsFeed from './components/NewsFeed/NewsFeed';
 
 const cx = classNames.bind(styles);
 
-const getProfilePage = (user: User | undefined, isOwnPage: boolean) => {
+const getProfilePage = (
+  user: User | undefined,
+  loggedUser: User,
+  isOwnPage: boolean,
+  handleClickMessage: (fakeChat: Chat) => void,
+) => {
   if (user)
     return (
       <MainContainer>
-        <ProfileSection user={user} isOwnPage={isOwnPage} />
+        <ProfileSection
+          user={user}
+          loggedUser={loggedUser}
+          isOwnPage={isOwnPage}
+          handleClickMessage={handleClickMessage}
+        />
       </MainContainer>
     );
 };
@@ -46,6 +56,7 @@ const App = () => {
   const [isUserLoading, setUserLoading] = useState(true);
   const [userDetails, setUserDetails] = useState<User>();
   const [isOwnPage, setIsOwnPage] = useState(true);
+  const [emptyChat, setFakeChat] = useState({});
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -99,6 +110,21 @@ const App = () => {
     setAuthModalActive((prev) => !prev);
   };
 
+  const handleClickMessage = (isAlreadyHaveChat: boolean, userFriend: User) => {
+    if (!isAlreadyHaveChat) {
+      const fakeChat: Chat = {
+        senderId: userFriend.id,
+        senderInfo: {
+          name: userFriend.name,
+          surname: userFriend.surname,
+          profilePhoto: userFriend.profilePhoto as string,
+        },
+        history: [],
+      };
+      setFakeChat(fakeChat);
+    }
+  };
+
   const logOut = () => {
     localStorage.clear();
     setLoggedIn(false);
@@ -138,7 +164,12 @@ const App = () => {
               <>
                 <Route
                   path={`profile/${isOwnPage ? user.id : (userDetails as User).id}`}
-                  element={getProfilePage(isOwnPage ? user : userDetails, isOwnPage)}
+                  element={getProfilePage(
+                    isOwnPage ? user : userDetails,
+                    user,
+                    isOwnPage,
+                    handleClickMessage,
+                  )}
                 >
                   <Route
                     path=''
@@ -183,7 +214,10 @@ const App = () => {
                     element={<NewsFeed userId={user.id} isOwnPage={isOwnPage} />}
                   />
                 </Route>
-                <Route path={`messages/${user.id}`} element={<DialogPageWrapper user={user} />} />
+                <Route
+                  path={`messages/${user.id}`}
+                  element={<DialogPageWrapper user={user} emptyChat={emptyChat} />}
+                />
               </>
             )}
             <Route path='*' element={<Page404 />} />

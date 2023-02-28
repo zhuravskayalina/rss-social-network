@@ -7,11 +7,26 @@ import { CoverProps } from './types';
 import noAvatarImg from '../../../assets/images/user-avatar.png';
 import { ReactComponent as AddFriendIcon } from '../../../assets/icons/add-friend.svg';
 import { ReactComponent as SendMessageIcon } from '../../../assets/icons/send-message.svg';
+import { Chat } from '../../../types/interfaces';
 
 const cx = classNames.bind(styles);
 
-const Cover = ({ user: { name, surname, location, profilePhoto, id }, isOwnPage }: CoverProps) => {
+const Cover = ({ user, loggedUser: { chat }, isOwnPage, handleClickMessage }: CoverProps) => {
   const intl = useIntl();
+  // const fakeChat: Chat = {
+  //   senderId: id,
+  //   senderInfo: {
+  //     name,
+  //     surname,
+  //     profilePhoto: profilePhoto ?? 'https://surfeng-school.ru/assets/images/feedback/unnamed.jpg',
+  //   },
+  //   history: [],
+  // };
+  const loggedUserId = localStorage.getItem('loggedUserId');
+  const isAlreadyHaveChat = (friendId: string, loggedUserChats: Chat[]) => {
+    //ToDo найти индекс оф есть такой собеседник => булеан
+    return false;
+  };
 
   return (
     <div className={cx('cover')}>
@@ -19,14 +34,18 @@ const Cover = ({ user: { name, surname, location, profilePhoto, id }, isOwnPage 
         <div className={cx('cover__info-block')}>
           <div className={cx('cover__image')}>
             <div className={cx('cover__img-box')}>
-              <img className={cx('cover__img')} src={profilePhoto || noAvatarImg} alt='profile' />
+              <img
+                className={cx('cover__img')}
+                src={user.profilePhoto || noAvatarImg}
+                alt='profile'
+              />
             </div>
           </div>
           <div className={cx('cover-info')}>
             <p className={cx('cover-info__name')}>
-              {name} {surname}
+              {user.name} {user.surname}
             </p>
-            <p className={cx('cover-info__location')}>{location}</p>
+            <p className={cx('cover-info__location')}>{user.location}</p>
             <SocialMediaList />
           </div>
           {!isOwnPage && (
@@ -39,11 +58,18 @@ const Cover = ({ user: { name, surname, location, profilePhoto, id }, isOwnPage 
                 <AddFriendIcon />
               </Link>
               <Link
-                to={`/messages/${id}`}
-                className={cx('cover-controls__link')}
+                to={`/messages/${loggedUserId}`}
                 title={intl.formatMessage({ id: 'sendMessage' })}
               >
-                <SendMessageIcon />
+                <button
+                  type='button'
+                  className={cx('cover-controls__link')}
+                  onClick={() => {
+                    handleClickMessage(isAlreadyHaveChat(user.id, chat), user);
+                  }}
+                >
+                  <SendMessageIcon />
+                </button>
               </Link>
             </div>
           )}
