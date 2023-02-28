@@ -10,7 +10,7 @@ import { ReactComponent as SendMessageIcon } from '../../../assets/icons/send-me
 
 const cx = classNames.bind(styles);
 
-const Cover = ({ user: { name, surname, location, profilePhoto }, isOwnPage }: CoverProps) => {
+const Cover = ({ user: { name, surname, location, profilePhoto, id }, isOwnPage }: CoverProps) => {
   const intl = useIntl();
 
   return (
@@ -39,7 +39,7 @@ const Cover = ({ user: { name, surname, location, profilePhoto }, isOwnPage }: C
                 <AddFriendIcon />
               </Link>
               <Link
-                to='#'
+                to={`/messages/${id}`}
                 className={cx('cover-controls__link')}
                 title={intl.formatMessage({ id: 'sendMessage' })}
               >
