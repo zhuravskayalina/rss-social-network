@@ -1,17 +1,17 @@
 @use '../../../stylesheets/variables/colors';
 @use '../../../stylesheets/variables/numbers';
-@import '../../../stylesheets/mixins/mixins';
+@use '../../../stylesheets/mixins/mixins';
 
 .dialog__page {
   display: grid;
-  grid-template-columns: 38fr 62fr;
+  grid-template-columns: 1fr 2.5fr;
   width: 75%;
   background-color: colors.$white;
   border-radius: numbers.$border-radius;
   margin: 50px auto;
   overflow: hidden;
-    @include media-mobile {
-      grid-template-columns: 20fr 80fr;
+    @media screen and (max-width: 650px){
+      grid-template-columns: 1fr 4fr;
       width: 85%;
       margin: 12px 8% 20px 8%;
     }
