@@ -10,11 +10,13 @@
     margin-left: 0;
     margin-bottom: 11px;
     margin-top: 11px;
+    gap: 5px;
   }
 
   &__friends-text {
     display: flex;
     flex-direction: row;
+    gap: 5px;
   }
 
   &__message.friends-messages {
@@ -22,7 +24,7 @@
   }
 
   &__message-text {
-    border-radius: 0px 20px 20px 20px;
+    border-radius: 0 20px 20px 20px;
     padding: 20px;
     background: colors.$main-background;
     font-weight: 400;
@@ -36,7 +38,7 @@
   }
 
   &__message-text.friends-messages {
-    border-radius: 20px 0px 20px 20px;
+    border-radius: 20px 0 20px 20px;
   }
 
   &__chat-avatar {

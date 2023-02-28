@@ -43,6 +43,10 @@
   &__icon {
     border: none;
     background-color: colors.$white;
+    
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__icon:hover.emoji {

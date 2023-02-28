@@ -6,6 +6,7 @@
   border-bottom: 1px solid colors.$border-light-gray;
   overflow: scroll;
   max-height: 650px;
+  padding: 0 20px;
 }
 
 .dialog__chat::-webkit-scrollbar {

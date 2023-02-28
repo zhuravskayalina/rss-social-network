@@ -28,6 +28,7 @@
   &__friend.chat {
     border-left: 1px solid colors.$border-light-gray;
     padding: 16px;
+    border-radius: 0;
   }
 
   &__friend-list.active {
@@ -117,6 +118,6 @@ a {
   text-decoration: none;
 }
 
-.dialog__friend:first-child {
+.dialog__friend:first-child:not(.dialog__friend.chat) {
   border-radius: numbers.$border-radius 0 0 0;
 }
