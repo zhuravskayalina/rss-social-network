@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, KeyboardEvent } from 'react';
 import { Chat, ChatHistory } from '../../../types/interfaces';
 
 export interface ChatFullBlockProps {
@@ -9,4 +9,5 @@ export interface ChatFullBlockProps {
   handleMessageInput: (event: ChangeEvent<HTMLInputElement>) => void;
   handleClickChat: (choiceChat: Chat) => void;
   userId: string;
+  handleKeyDown: (event: KeyboardEvent) => void;
 }

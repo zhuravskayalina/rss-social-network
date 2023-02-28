@@ -7,7 +7,12 @@ import { ReactComponent as MessageIcon } from '../../../assets/icons/messageIcon
 
 const cx = classNames.bind(styles);
 
-const MessageTextArea = ({ value, handleSendClick, handleMessageInput }: MessageTextAreaProps) => {
+const MessageTextArea = ({
+  value,
+  handleSendClick,
+  handleMessageInput,
+  handleKeyDown,
+}: MessageTextAreaProps) => {
   const intl = useIntl();
   return (
     <div className={cx('dialog__write')}>
@@ -19,6 +24,7 @@ const MessageTextArea = ({ value, handleSendClick, handleMessageInput }: Message
         placeholder={intl.formatMessage({ id: 'messageInput' })}
         className={cx('dialog__write-input')}
         onChange={handleMessageInput}
+        onKeyDown={handleKeyDown}
       />
       <div className={cx('dialog__buttons')}>
         <button type='button' className={cx('dialog__icon', 'emoji')}>
