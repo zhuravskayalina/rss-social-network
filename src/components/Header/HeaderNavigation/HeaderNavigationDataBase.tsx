@@ -38,8 +38,8 @@ export const navItems = [
   {
     icon: <NewsfeedIcon />,
     description: <FormattedMessage id='newsfeed' />,
-    link: '/newsfeed',
-    sublink: '',
+    link: '/profile',
+    sublink: '/newsfeed',
     key: '5',
   },
   {

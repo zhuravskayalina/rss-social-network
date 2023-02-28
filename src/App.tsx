@@ -178,6 +178,10 @@ const App = () => {
                       />
                     }
                   />
+                  <Route
+                    path='newsfeed'
+                    element={<NewsFeed userId={user.id} isOwnPage={isOwnPage} />}
+                  />
                 </Route>
                 <Route path={`messages/${user.id}`} element={<DialogPageWrapper user={user} />} />
               </>
