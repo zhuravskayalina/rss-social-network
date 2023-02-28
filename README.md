@@ -14,17 +14,39 @@ For the application to work, you need to install and run the server. Follow thes
 2. You should see the message in the console:
 
       `Server listen on port 6969`
+3. Clone our repository to your computer.
 
-  1. At OWL project directory install dependencies:
+  1. At root project directory install dependencies:
 
         `npm install`
   1. Run server:
-
-        `npm run dev`
+2. 
+        `npm start`
 2. Clear your LocalStorage
 3. Now you are able to use our app!
-  
 
+___
+### Как запустить приложение:
+
+Для запуска приложения вам необходимо локально запустить сервер. Следуйте инструкции ниже:
+
+1. Клонируйте API репозиторий [Server repository](https://github.com/Bam6ycha/simple-api) и следуйте инструкции в его описании (для продакшена);
+
+   `https://github.com/Bam6ycha/simple-api.git`
+
+2. Когда сервер запустится, вы увидите в консоли следующее сообщение:
+
+   `Server listen on port 6969`
+3. Клонируйте проект из нашего репозитория на свой компьютер.
+
+1. В корневой папке проекта установите все зависимости:
+
+   `npm install`
+1. Запустите приложение:
+2.
+     `npm start`
+2. Очистите ваш LocalStorage
+3. Теперь вы можете пользоваться нашим приложением!
 ___
 **Developers:**
 
