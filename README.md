@@ -25,6 +25,13 @@ For the application to work, you need to install and run the server. Follow thes
 2. Clear your LocalStorage
 3. Now you are able to use our app!
 
+## ATTENTION!
+use can use this loggins and passwords to visit already existing profiles:
+1. **login**: meganfox; **password**: meganfox;
+2. **login**: eminem; **password**: eminem;
+3. **login**: notorius; **password**: notorius;
+
+Please, note that upload images size (unfortunately) should be really small.
 ___
 ### Как запустить приложение:
 
@@ -47,6 +54,14 @@ ___
      `npm start`
 2. Очистите ваш LocalStorage
 3. Теперь вы можете пользоваться нашим приложением!
+
+## ВНИМАНИЕ!
+вы можете использовать эти логины и пароли для входа в уже существующие профили:
+1. **логин**: meganfox; **пароль**: meganfox;
+2. **логин**: eminem; **пароль**: eminem;
+3. **логин**: notorius; **пароль**: notorius;
+
+К сожалению, из-за особенностей нашего сервера размер загружаемых фотографий должен быть очень маленьким :(
 ___
 **Developers:**
 
