@@ -20,9 +20,15 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 140%;
-      @include media-mobile {
-        flex-direction: column;
-      }
+
+    @media screen and (max-width: 950px) {
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: 650px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__friend.chat {
@@ -46,6 +52,12 @@
     width: 70px;
     height: 70px;
     margin-right: 12px;
+
+    @media screen and (max-width: 950px) {
+      width: 50px;
+      height: 50px;
+      margin-right: 0;
+    }
   }
 
   &__img-box {
@@ -63,23 +75,21 @@
   &__img.chat {
     width: 50px;
     height: 50px;
-      @include media-tablet {
-        width: 40px;
-        height: 40px;
-      }
+
+    @include media-tablet {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   &__img.list {
     width: 70px;
     height: 70px;
-      @include media-tablet {
-        width: 60px;
-        height: 60px;
-      }
-      @include media-mobile {
-        width: 55px;
-        height: 55px;
-      }
+
+    @media screen and (max-width: 950px) {
+      width: 50px;
+      height: 50px;
+    }
   }
 
   &__friend-name {
@@ -91,29 +101,34 @@
 
   &__friend-name.list {
     font-size: 18px;
-      @include media-tablet {
-        font-size: 16px;
-      }
-      @include media-mobile {
-        font-size: 14px;
-      }
+
+    @media screen and (max-width: 650px) {
+      margin-top: 5px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    @include media-mobile {
+      font-size: 14px;
+    }
   }
 
   &__friend-name-chat {
     font-size: 24px;
-      @include media-tablet {
-        font-size: 20px;
-      }
-      @include media-mobile {
-        font-size: 18px;
-      }
+    @include media-tablet {
+      font-size: 20px;
+    }
+    @include media-mobile {
+      font-size: 18px;
+    }
   }
 }
 
 .active {
-    color: colors.$white;
-    background-color: colors.$main-blue;
+  color: colors.$white;
+  background-color: colors.$main-blue;
 }
+
 a {
   text-decoration: none;
 }

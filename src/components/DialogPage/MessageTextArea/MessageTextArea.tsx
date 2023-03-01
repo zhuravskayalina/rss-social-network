@@ -2,7 +2,6 @@ import { useIntl } from 'react-intl';
 import classNames from 'classnames/bind';
 import styles from './MessageTextArea.module.scss';
 import { MessageTextAreaProps } from './MessageTextAreaProps';
-import { ReactComponent as EmojiIcon } from '../../../assets/icons/emojiIcon.svg';
 import { ReactComponent as MessageIcon } from '../../../assets/icons/messageIcon.svg';
 
 const cx = classNames.bind(styles);
@@ -27,10 +26,6 @@ const MessageTextArea = ({
         onKeyDown={handleKeyDown}
       />
       <div className={cx('dialog__buttons')}>
-        <button type='button' className={cx('dialog__icon', 'emoji')}>
-          <EmojiIcon />
-        </button>
-
         <button type='button' className={cx('dialog__icon', 'message')} onClick={handleSendClick}>
           <MessageIcon />
         </button>
