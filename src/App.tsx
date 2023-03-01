@@ -26,6 +26,16 @@ import AllUsersPage from './components/allUsersPage/AllUsersPage';
 
 const cx = classNames.bind(styles);
 
+const initialChat: Chat = {
+  senderId: '',
+  senderInfo: {
+    name: '',
+    surname: '',
+    profilePhoto: '',
+  },
+  history: [],
+};
+
 const getProfilePage = (
   user: User | undefined,
   loggedUser: User,
@@ -57,6 +67,7 @@ const App = () => {
   const [isUserLoading, setUserLoading] = useState(true);
   const [userDetails, setUserDetails] = useState<User>();
   const [isOwnPage, setIsOwnPage] = useState(true);
+  const [chat, setChat] = useState(initialChat);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -221,7 +232,10 @@ const App = () => {
                     element={<NewsFeed userId={user.id} isOwnPage={isOwnPage} />}
                   />
                 </Route>
-                <Route path={`messages/${user.id}`} element={<DialogPageWrapper user={user} />} />
+                <Route
+                  path={`messages/${user.id}`}
+                  element={<DialogPageWrapper user={user} chat={chat} setChat={setChat} />}
+                />
                 <Route path={`users/${user.id}`} element={<AllUsersPage />} />
               </>
             )}

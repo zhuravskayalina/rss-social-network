@@ -21,7 +21,7 @@ interface HotKeys {
 
 const cx = classNames.bind(styles);
 
-const DialogPageWrapper = ({ user }: DialogPageProps) => {
+const DialogPageWrapper = ({ user, chat, setChat }: DialogPageProps) => {
   const url = `/profile/${user.id}/friends`;
   if (!user.chat[0]) {
     return (
@@ -40,7 +40,7 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
   const webs = useRef<Socket | null>(null);
   const [value, setValue] = useState('');
   const [users, setUsers] = useState<Array<User>>([]);
-  const [chat, setChat] = useState(user.chat[0]);
+  // const [chat, setChat] = useState(user.chat[0]);
   const [messages, setMessages] = useState<Array<ChatMessageInterface>>(user.chat[0].history);
 
   const handleClickChat = (choiceChat: Chat) => {
