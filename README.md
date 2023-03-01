@@ -47,6 +47,7 @@ Please, note that upload images size (unfortunately) should be really small.
 * We use an API written specifically for our application, you can view it [here](https://github.com/Bam6ycha/simple-api);
 * The application implements online chat, which is implemented based on web socket technology (socket.io library). This technology makes it possible to constantly maintain a connection with the server - users can communicate online. Messages are immediately displayed to both sender and receiver without the page being overwritten;
 * In addition, a user can send a message to any other user, even one who is not friends. To do this, you need to go to the page of any interested user and click on the message icon;
+* User can add someone to friends or delete; 
 * New user login and registration implemented;
 * Possibility of changing user information;
 * The application has the ability to switch 2 languages using the mouse or hot keys;
@@ -107,6 +108,7 @@ ___
 * Мы используем API, написанный специально для нашего приложения, посмотреть его можно [здесь](https://github.com/Bam6ycha/simple-api);
 * В приложении реализован онлайн-чат, который реализован на основе технологии веб-сокетов (библиотека socket.io). Данная технология дает возможность постоянно поддерживать соединение с сервером - пользователи могут общаться в онлайн-режиме. Сообщения немедленно отображаются и у отправителя и у получателя без перезагрузки страницы;
 * Кроме того, пользователь может направить сообщение любому другому пользователю, даже тому, кто не добавлен в друзья. Для этого необходимо перейти на страничку любого интересующего юзера и нажать на иконку сообщения;
+* Пользователь может добавлять других пользователей сети в друзья, а так же удалять их.
 * Реализована авторизация и регистрация нового пользователя;
 * Возможность изменения информации пользователя;
 * В приложении есть возможность переключения 2 языков с помощью мыши или hot keys;
