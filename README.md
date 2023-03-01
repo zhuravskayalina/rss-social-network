@@ -57,7 +57,7 @@ Please, note that upload images size (unfortunately) should be really small.
 * We have Photo gallery implemented with [lightgallery](https://www.npmjs.com/package/lightgallery) library;
 * Animations using key frames were implemented;
 * The application is made in the same style;
-* You can use hot keys to change the language of the application and to send messages;
+* You can use hot keys to change the language of the application, open side menu and to send messages;
 * We keep some not secret information at Local storage;
 * The application works on phone/tablet/PC.
 
@@ -118,7 +118,7 @@ ___
 * Реализована фото-галерея;
 * Реализованы анимации, для создания которых используются ключевые кадры;
 * Приложение выполнено в едином стиле;
-* Реализованы hot keys для смены языка приложения и для отправки сообщений;
+* Реализованы hot keys для смены языка приложения, открытия меню отправки сообщений;
 * Реализованы сохранение и загрузка данных с использованием Local storage;
 * Приложение работает на телефоне/планшете/PC.
 ___
