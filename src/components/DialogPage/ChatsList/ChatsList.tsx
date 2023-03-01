@@ -14,7 +14,6 @@ const ChatsList = ({ user: { chat }, handleClickChat, userId }: ChatsListProps) 
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
   });
-
   return (
     <div className='dialog__chats-wrapper' ref={chatRef}>
       {chat.map((dialog: Chat) => (

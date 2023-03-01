@@ -12,7 +12,7 @@ import ProfileSection from './components/ProfileSection/ProfileSection';
 import { getInitialLocale } from './localStorageUtils';
 import MainPage from './components/mainPage/MainPage';
 import Timeline from './components/ProfileSection/MainSection/ContentSection/Timeline/Timeline';
-import { User } from './types/interfaces';
+import { Chat, User } from './types/interfaces';
 import { NetworkClient } from './NetworkClient/NetworkClient';
 import About from './components/ProfileSection/MainSection/ContentSection/About/About';
 import Page404 from './components/Page404/Page404';
@@ -25,11 +25,21 @@ import NewsFeed from './components/NewsFeed/NewsFeed';
 
 const cx = classNames.bind(styles);
 
-const getProfilePage = (user: User | undefined, isOwnPage: boolean) => {
+const getProfilePage = (
+  user: User | undefined,
+  loggedUser: User,
+  isOwnPage: boolean,
+  handleClickMessage: (isHaveChat: boolean, friend: User) => void,
+) => {
   if (user)
     return (
       <MainContainer>
-        <ProfileSection user={user} isOwnPage={isOwnPage} />
+        <ProfileSection
+          user={user}
+          loggedUser={loggedUser}
+          isOwnPage={isOwnPage}
+          handleClickMessage={handleClickMessage}
+        />
       </MainContainer>
     );
 };
@@ -99,6 +109,28 @@ const App = () => {
     setAuthModalActive((prev) => !prev);
   };
 
+  const handleClickMessage = (isHaveChat: boolean, friend: User) => {
+    if (!isHaveChat) {
+      const emptyChat: Chat = {
+        senderId: friend.id,
+        senderInfo: {
+          name: friend.name,
+          surname: friend.surname,
+          profilePhoto: friend.profilePhoto as string,
+        },
+        history: [],
+      };
+
+      if (user) {
+        const userCopy = { ...user };
+        if (userCopy.chat) {
+          userCopy.chat.push(emptyChat);
+          setUser(userCopy);
+        }
+      }
+    }
+  };
+
   const logOut = () => {
     localStorage.clear();
     setLoggedIn(false);
@@ -138,7 +170,12 @@ const App = () => {
               <>
                 <Route
                   path={`profile/${isOwnPage ? user.id : (userDetails as User).id}`}
-                  element={getProfilePage(isOwnPage ? user : userDetails, isOwnPage)}
+                  element={getProfilePage(
+                    isOwnPage ? user : userDetails,
+                    user,
+                    isOwnPage,
+                    handleClickMessage,
+                  )}
                 >
                   <Route
                     path=''
