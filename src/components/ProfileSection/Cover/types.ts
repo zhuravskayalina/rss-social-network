@@ -1,4 +1,4 @@
-import { Chat, User } from '../../../types/interfaces';
+import { User } from '../../../types/interfaces';
 
 export interface CoverProps {
   user: User;

@@ -29,7 +29,7 @@ const getProfilePage = (
   user: User | undefined,
   loggedUser: User,
   isOwnPage: boolean,
-  handleClickMessage: (fakeChat: Chat) => void,
+  handleClickMessage: (isHaveChat: boolean, friend: User) => void,
 ) => {
   if (user)
     return (
@@ -56,7 +56,6 @@ const App = () => {
   const [isUserLoading, setUserLoading] = useState(true);
   const [userDetails, setUserDetails] = useState<User>();
   const [isOwnPage, setIsOwnPage] = useState(true);
-  const [emptyChat, setFakeChat] = useState({});
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -110,18 +109,25 @@ const App = () => {
     setAuthModalActive((prev) => !prev);
   };
 
-  const handleClickMessage = (isAlreadyHaveChat: boolean, userFriend: User) => {
-    if (!isAlreadyHaveChat) {
-      const fakeChat: Chat = {
-        senderId: userFriend.id,
+  const handleClickMessage = (isHaveChat: boolean, friend: User) => {
+    if (!isHaveChat) {
+      const emptyChat: Chat = {
+        senderId: friend.id,
         senderInfo: {
-          name: userFriend.name,
-          surname: userFriend.surname,
-          profilePhoto: userFriend.profilePhoto as string,
+          name: friend.name,
+          surname: friend.surname,
+          profilePhoto: friend.profilePhoto as string,
         },
         history: [],
       };
-      setFakeChat(fakeChat);
+
+      if (user) {
+        const userCopy = { ...user };
+        if (userCopy.chat) {
+          userCopy.chat.push(emptyChat);
+          setUser(userCopy);
+        }
+      }
     }
   };
 
@@ -214,10 +220,7 @@ const App = () => {
                     element={<NewsFeed userId={user.id} isOwnPage={isOwnPage} />}
                   />
                 </Route>
-                <Route
-                  path={`messages/${user.id}`}
-                  element={<DialogPageWrapper user={user} emptyChat={emptyChat} />}
-                />
+                <Route path={`messages/${user.id}`} element={<DialogPageWrapper user={user} />} />
               </>
             )}
             <Route path='*' element={<Page404 />} />

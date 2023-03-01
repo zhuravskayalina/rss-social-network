@@ -13,19 +13,13 @@ const cx = classNames.bind(styles);
 
 const Cover = ({ user, loggedUser: { chat }, isOwnPage, handleClickMessage }: CoverProps) => {
   const intl = useIntl();
-  // const fakeChat: Chat = {
-  //   senderId: id,
-  //   senderInfo: {
-  //     name,
-  //     surname,
-  //     profilePhoto: profilePhoto ?? 'https://surfeng-school.ru/assets/images/feedback/unnamed.jpg',
-  //   },
-  //   history: [],
-  // };
+
   const loggedUserId = localStorage.getItem('loggedUserId');
   const isAlreadyHaveChat = (friendId: string, loggedUserChats: Chat[]) => {
-    //ToDo найти индекс оф есть такой собеседник => булеан
-    return false;
+    const matches = loggedUserChats.find((item) => {
+      return item.senderId === friendId;
+    });
+    return !!matches;
   };
 
   return (
