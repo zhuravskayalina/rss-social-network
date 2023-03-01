@@ -54,7 +54,7 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
   };
 
   const handleSendClick = () => {
-    if (webs.current) {
+    if (!!value && webs.current) {
       const message = {
         text: value,
         userId: user.id,
