@@ -95,6 +95,11 @@
     border-radius: 50%;
     @include mixins.center-content;
     transition: .5s;
+    border: none;
+
+    &:focus-visible {
+      outline: none;
+    }
 
     svg {
       transition: .5s;
@@ -106,6 +111,7 @@
     }
 
     &:hover {
+      cursor: pointer;
       background-color: colors.$color-primary-blue;
 
       svg {
