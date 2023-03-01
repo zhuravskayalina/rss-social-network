@@ -16,15 +16,11 @@ For the application to work, you need to install and run the server. Follow thes
       `Server listen on port 6969`
 3. Clone our [repository](https://github.com/zhuravskayalina/rss-social-network) to your computer, make sure you take the DEVELOP branch.
 
-   `git fetch origin`
-
-   `git checkout -b develop origin/develop`
-
   1. At root project directory install dependencies:
 
         `npm install`
   1. Run server:
-2. 
+
         `npm start`
 2. Clear your LocalStorage
 3. Now you are able to use our app!
@@ -75,16 +71,11 @@ ___
    `Server listen on port 6969`
 3. Клонируйте наш [проект](https://github.com/zhuravskayalina/rss-social-network) из нашего репозитория на свой компьютер, убедитесь что вы стянули ветку DEVELOP.
 
-`git fetch origin`
-
-`git checkout -b develop origin/develop`
-
-
 1. В корневой папке проекта установите все зависимости:
 
    `npm install`
 1. Запустите приложение:
-2.
+
      `npm start`
 2. Очистите ваш LocalStorage
 3. Теперь вы можете пользоваться нашим приложением!
