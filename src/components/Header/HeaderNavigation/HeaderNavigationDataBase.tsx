@@ -4,7 +4,7 @@ import { ReactComponent as FriendsIcon } from '../../../assets/icons/headerMenuI
 import { ReactComponent as ChatIcon } from '../../../assets/icons/headerMenuIcons/chatIcon.svg';
 import { ReactComponent as GalleryIcon } from '../../../assets/icons/headerMenuIcons/galleryIcon.svg';
 import { ReactComponent as NewsfeedIcon } from '../../../assets/icons/headerMenuIcons/newsfeedIcon.svg';
-import { ReactComponent as SettingsIcon } from '../../../assets/icons/headerMenuIcons/settingsIcon.svg';
+import { ReactComponent as UsersIcon } from '../../../assets/icons/headerMenuIcons/usersIcon.svg';
 
 export const navItems = [
   {
@@ -15,7 +15,7 @@ export const navItems = [
     key: '1',
   },
   {
-    icon: <FriendsIcon />,
+    icon: <UsersIcon />,
     description: <FormattedMessage id='friends' />,
     link: '/profile',
     sublink: '/friends',
@@ -43,9 +43,9 @@ export const navItems = [
     key: '5',
   },
   {
-    icon: <SettingsIcon />,
-    description: <FormattedMessage id='settings' />,
-    link: '/settings',
+    icon: <FriendsIcon />,
+    description: <FormattedMessage id='users' />,
+    link: '/users',
     sublink: '',
     key: '6',
   },

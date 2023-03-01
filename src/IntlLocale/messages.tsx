@@ -95,6 +95,7 @@ export const messages = {
     mainDescription1: 'Social media for life.',
     mainDescription2: 'Over a billion people already on Owl.',
     mainDescription3: 'Be one of them.',
+    users: 'Users',
   },
 
   [LOCALES.RUSSIAN]: {
@@ -191,5 +192,6 @@ export const messages = {
     mainDescription1: 'Находи новых друзей и общайся.',
     mainDescription2: 'Более миллиона людей уже на Owl.',
     mainDescription3: 'Будь вместе с нами!',
+    users: 'Пользователи',
   },
 };
