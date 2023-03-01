@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import { HttpClient } from '../HttpClient/HttpClient';
-import { PostItem, User } from '../types/interfaces';
+import { NewFriend, PostItem, User } from '../types/interfaces';
 
 enum Path {
   users = '/users',
@@ -149,6 +149,18 @@ export class NetworkClientMethods {
       const response = await HttpClient.delete(
         `${this.baseUrl}${Path.friends}/${userId}/${friendId}`,
       );
+
+      if (!response.ok) {
+        throw new Error(`Got an error: ${response.status}`);
+      }
+    } catch (error) {
+      console.error(`Something went wrong: ${error}`);
+    }
+  };
+
+  public addFriend = async (userId: string, body: NewFriend) => {
+    try {
+      const response = await HttpClient.post(`${this.baseUrl}${Path.friends}/${userId}`, body);
 
       if (!response.ok) {
         throw new Error(`Got an error: ${response.status}`);
