@@ -14,7 +14,7 @@ For the application to work, you need to install and run the server. Follow thes
 2. You should see the message in the console:
 
       `Server listen on port 6969`
-3. Clone our repository to your computer.
+3. Clone our [repository](https://github.com/zhuravskayalina/rss-social-network) to your computer.
 
   1. At root project directory install dependencies:
 
@@ -49,7 +49,7 @@ ___
 2. Когда сервер запустится, вы увидите в консоли следующее сообщение:
 
    `Server listen on port 6969`
-3. Клонируйте проект из нашего репозитория на свой компьютер.
+3. Клонируйте наш [проект](https://github.com/zhuravskayalina/rss-social-network) из нашего репозитория на свой компьютер.
 
 1. В корневой папке проекта установите все зависимости:
 
