@@ -38,9 +38,28 @@ use can use this loggins and passwords to visit already existing profiles:
 ####  ALSO, you can try following hot keys:
 * **Ctrl + Alt + L** - change application language;
 * **Ctrl + Alt + M** - open/close side menu;
-* **Enter** - send message at the dialogue window; 
+* **Enter** - send message at the dialogue window;
 
 Please, note that upload images size (unfortunately) should be really small.
+
+### <span style="color: orange">**About OWL Application:**</span>
+* The app is written using Typescript & React;
+* We use an API written specifically for our application, you can view it [here](https://github.com/Bam6ycha/simple-api);
+* The application implements online chat, which is implemented based on web socket technology (socket.io library). This technology makes it possible to constantly maintain a connection with the server - users can communicate online. Messages are immediately displayed to both sender and receiver without the page being overwritten;
+* In addition, a user can send a message to any other user, even one who is not friends. To do this, you need to go to the page of any interested user and click on the message icon;
+* New user login and registration implemented;
+* Possibility of changing user information;
+* The application has the ability to switch 2 languages using the mouse or hot keys;
+* Implemented routing (moving through the application without reloading pages);
+* Application supports file upload option;
+* We use modal dialogues for some cases;
+* We have Photo gallery implemented with [lightgallery](https://www.npmjs.com/package/lightgallery) library;
+* Animations using key frames were implemented;
+* The application is made in the same style;
+* You can use hot keys to change the language of the application and to send messages;
+* We keep some not secret information at Local storage;
+* The application works on phone/tablet/PC.
+
 ___
 ### <span style="color: orange">Как запустить приложение: </span>
 
@@ -75,7 +94,31 @@ ___
 2. **логин**: eminem; **пароль**: eminem;
 3. **логин**: notorius; **пароль**: notorius;
 
+Так же, вы можете использовать следующие **HOT KEYS**:
+
+* Shift + Alt + L = смена языка приложения;
+* Shift + Alt + M = открытие/закрытие бокового меню;
+* Enter - отправка сообщения в чате;
+
 К сожалению, из-за особенностей нашего сервера размер загружаемых фотографий должен быть очень маленьким :(
+
+### <span style="color: orange">**О приложении OWL:**</span>
+* Приложение написано на Typescript & React;
+* Мы используем API, написанный специально для нашего приложения, посмотреть его можно [здесь](https://github.com/Bam6ycha/simple-api);
+* В приложении реализован онлайн-чат, который реализован на основе технологии веб-сокетов (библиотека socket.io). Данная технология дает возможность постоянно поддерживать соединение с сервером - пользователи могут общаться в онлайн-режиме. Сообщения немедленно отображаются и у отправителя и у получателя без перезагрузки страницы;
+* Кроме того, пользователь может направить сообщение любому другому пользователю, даже тому, кто не добавлен в друзья. Для этого необходимо перейти на страничку любого интересующего юзера и нажать на иконку сообщения;
+* Реализована авторизация и регистрация нового пользователя;
+* Возможность изменения информации пользователя;
+* В приложении есть возможность переключения 2 языков с помощью мыши или hot keys;
+* Реализован routing (перемещение по приложению без перезагрузки страниц);
+* Реализована возможность загрузки файлов;
+* В приложении используются модальные диалоги;
+* Реализована фото-галерея;
+* Реализованы анимации, для создания которых используются ключевые кадры;
+* Приложение выполнено в едином стиле;
+* Реализованы hot keys для смены языка приложения и для отправки сообщений;
+* Реализованы сохранение и загрузка данных с использованием Local storage;
+* Приложение работает на телефоне/планшете/PC.
 ___
 **Developers:**
 
