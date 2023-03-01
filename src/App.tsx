@@ -22,6 +22,7 @@ import Authorization from './components/Authorization/Authorization';
 import PhotoGallery from './components/PhotoGallery/PhotoGallery';
 import DialogPageWrapper from './components/DialogPage/DialogsPageWrapper/DialogsPageWrapper';
 import NewsFeed from './components/NewsFeed/NewsFeed';
+import AllUsersPage from './components/allUsersPage/AllUsersPage';
 
 const cx = classNames.bind(styles);
 
@@ -221,6 +222,7 @@ const App = () => {
                   />
                 </Route>
                 <Route path={`messages/${user.id}`} element={<DialogPageWrapper user={user} />} />
+                <Route path={`users/${user.id}`} element={<AllUsersPage />} />
               </>
             )}
             <Route path='*' element={<Page404 />} />
