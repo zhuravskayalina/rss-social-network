@@ -110,7 +110,7 @@
       }
     }
 
-    &:hover {
+    &:hover:not([disabled]) {
       cursor: pointer;
       background-color: colors.$color-primary-blue;
 
@@ -119,6 +119,17 @@
 
         path {
           stroke: colors.$white;
+        }
+      }
+    }
+
+    &[disabled] {
+      pointer-events: none;
+      background-color: colors.$half-transparent-gray;
+
+      svg {
+        path {
+          stroke: colors.$gray-text;
         }
       }
     }

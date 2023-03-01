@@ -63,3 +63,7 @@ export interface FriendType {
   surname: string;
   profilePhoto: string;
 }
+
+export interface NewFriend {
+  id: string;
+}
