@@ -4,6 +4,8 @@
 
 .all-users {
   @include mixins.center-content;
+  align-items: flex-start;
+  flex: 1 1 auto;
 
   &__container {
     width: 80%;
