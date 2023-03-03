@@ -1,7 +1,7 @@
 ## <span style="color: #2D5BE3">OWL - social network application</span>
 ___
 
-in the app, we try to recreate the features of the social network: authorization and registration of the user, the ability to add friends, chat with friends, the ability to change information about yourself, download new photos, write posts, read friends news feed, etc.
+Owl is social network application where we recreated the potential of a real social network such as: authorization and registration of the user, the ability to add or delete friends, online chat with friends, the ability to change information about yourself, upload new photos to your gallery, write posts, read friends newsfeed, etc.
 
 ### <span style="color: orange">How to run application:</span>
 
