@@ -59,8 +59,8 @@ const PhotoGallery = ({ user, setUser, isOwnPage }: PhotoGalleryProps) => {
     const userCopy = { ...user };
     userCopy.photos.push(avatarUrl);
 
-    NetworkClient.updateUser(user.id, userCopy).then((userData) => {
-      setUser(userData);
+    NetworkClient.updateUser(user.id, userCopy).then(() => {
+      setUser(userCopy);
     });
     setAvatarUrl('');
   };

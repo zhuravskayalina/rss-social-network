@@ -20,8 +20,8 @@ const About = ({ user, setUser, isOwnPage }: AboutProps) => {
       userClone.info[field] = content;
     }
 
-    NetworkClient.updateUser(user.id, userClone).then((userData) => {
-      setUser(userData);
+    NetworkClient.updateUser(user.id, userClone).then(() => {
+      setUser(userClone);
     });
   };
 
