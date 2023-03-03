@@ -3,9 +3,13 @@ import styles from './loading.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Loading = () => {
+interface LoadingProps {
+  isOnFullScreen: boolean;
+}
+
+const Loading = ({ isOnFullScreen }: LoadingProps) => {
   return (
-    <div className={cx('loader-container')}>
+    <div className={cx('loader-container', { 'loader-container_small': !isOnFullScreen })}>
       <div className={cx('loader')}>
         <div className={cx('spinner', 'spinner__yellow')} />
         <div className={cx('spinner', 'spinner__orange')} />

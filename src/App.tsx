@@ -227,7 +227,7 @@ const App = () => {
             <Route path='*' element={<Page404 />} />
           </Routes>
         ) : (
-          <Loading />
+          <Loading isOnFullScreen />
         )}
         <Authorization
           isAuthModalActive={isAuthModalActive}

@@ -6,16 +6,19 @@ import { FriendType } from 'src/types/interfaces';
 import { FriendSectionProps } from './types';
 import styles from './friendss-section.module.scss';
 import Friend from './Friend/Friend';
+import Loading from '../Loading/Loading';
 
 const cx = classNames.bind(styles);
 
 const FriendsSection = ({ userId, isOwnPage }: FriendSectionProps) => {
   const [value, setValue] = useState<'name' | 'surname'>('name');
   const [friends, setFriends] = useState<FriendType[]>([]);
+  const [isLoadingFriends, setLoadingFriends] = useState(true);
 
   useEffect(() => {
     NetworkClient.getFriends(userId).then((userData) => {
       setFriends(userData);
+      setLoadingFriends(false);
     });
   }, []);
 
@@ -40,14 +43,14 @@ const FriendsSection = ({ userId, isOwnPage }: FriendSectionProps) => {
       isOwnPage={isOwnPage}
     />
   ));
-  if (!friends.length) {
-    return (
-      <h2 className={cx('friends-heading')}>
-        <FormattedMessage id='noFriend' />
-      </h2>
-    );
-  }
-  return (
+  // if (!friends.length) {
+  //   return (
+  //     <h2 className={cx('friends-heading')}>
+  //       <FormattedMessage id='noFriend' />
+  //     </h2>
+  //   );
+  // }
+  return !isLoadingFriends ? (
     <div className={cx('main')}>
       <div className={cx('main__friends')}>
         <div className={cx('main__friends-filter')}>
@@ -68,6 +71,8 @@ const FriendsSection = ({ userId, isOwnPage }: FriendSectionProps) => {
         <div className={cx('main__friends-wrapper')}>{friendsEl}</div>
       </div>
     </div>
+  ) : (
+    <Loading isOnFullScreen={false} />
   );
 };
 

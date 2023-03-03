@@ -15,6 +15,10 @@ $repetition: infinite;
   bottom: 0;
   background-color: colors.$main-background;
   @include mixins.center-content;
+
+  &_small {
+    position: static;
+  }
 }
 
 .loader {
