@@ -139,7 +139,6 @@ const App = () => {
     navigate('/');
   };
 
-  // @ts-ignore
   return (
     <IntlProvider
       messages={messages[currentLocale]}

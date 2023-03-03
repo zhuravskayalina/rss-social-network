@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 export const importantLinks = [
   {
     title: <FormattedMessage id='aboutAs' />,
-    link: '/profile/1',
+    link: '#!',
     id: 1,
   },
   {
@@ -21,7 +21,7 @@ export const importantLinks = [
 export const communityLinks = [
   {
     title: <FormattedMessage id='newsfeed' />,
-    link: '/newsfeed',
+    link: '#!',
     id: 4,
   },
   {
@@ -31,7 +31,7 @@ export const communityLinks = [
   },
   {
     title: <FormattedMessage id='friends' />,
-    link: '/profile/friends',
+    link: '#!',
     id: 6,
   },
   {

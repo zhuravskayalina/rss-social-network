@@ -3,10 +3,27 @@
 @use './stylesheets/variables/colors';
 @import 'assets/fonts/HelveticaNeue/stylesheet.css';
 
+#root {
+  height: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
 .app {
   background-color: colors.$main-background;
-  height: 100%;
+  min-height: 100%;
   font-family: "HelveticaNeueCyr", sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .blue {

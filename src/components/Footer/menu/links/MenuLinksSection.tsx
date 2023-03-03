@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import styles from '../../Footer.module.scss';
 import { MenuSectionInterface, MenuSectionProps } from './footerLinksTypes';
 
@@ -9,9 +10,9 @@ const MenuLinksSection = ({ links, blockClass, itemClass }: MenuSectionProps) =>
     <ul className={cx(`${blockClass}`)}>
       {links.map((sectionUnit: MenuSectionInterface) => (
         <li key={`footer-${sectionUnit.id}`}>
-          <a href={`${sectionUnit.link}`} className={cx(`${itemClass}`)}>
+          <Link to={`${sectionUnit.link}`} className={cx(`${itemClass}`)}>
             {sectionUnit.title}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>

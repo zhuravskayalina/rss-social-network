@@ -88,7 +88,7 @@ export const messages = {
     twitter: 'Twitter',
     instagram: 'Instagram',
     'choose photo': 'Choose photo',
-    noChats: 'There are no messages here yet. Start a chat with one of your friends',
+    noChats: 'There are no messages yet. Start a chat with one of your friends',
     goToFriendsPage: 'Go to the friends page',
     addToFriends: 'Add to friends',
     sendMessage: 'Send message',

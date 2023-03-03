@@ -7,6 +7,7 @@
   background-color: colors.$white;
   border-radius: numbers.$border-radius;
   margin: 50px auto;
+  flex: 1 1 auto;
 
   &__page {
     display: grid;
