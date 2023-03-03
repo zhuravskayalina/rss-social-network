@@ -9,7 +9,6 @@
     justify-content: space-between;
     align-items: center;
     height: 70px;
-    border-left: 1px solid colors.$border-light-gray;
     padding-right: 10px;
 
     @include mixins.media-mobile {
@@ -18,9 +17,8 @@
 
   &__write-input {
     width: 85%;
-    font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 140%;
     border: none;
     height: 100%;
@@ -48,25 +46,18 @@
     border: none;
     background-color: colors.$white;
 
+    svg {
+      transition: .3s;
+    }
+
     &:hover {
       cursor: pointer;
     }
   }
 
-  &__icon:hover.emoji {
-    svg {
-      fill: colors.$yellow-emoji;
-      opacity: 0.5;
-    }
-
-    svg path {
-      stroke: colors.$black;
-    }
-  }
-
   &__icon:hover.message {
     svg {
-      fill: colors.$main-blue;
+      transform: scale(1.1);
     }
 
     svg path {

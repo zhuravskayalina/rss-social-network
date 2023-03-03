@@ -11,6 +11,22 @@
     margin-bottom: 11px;
     margin-top: 11px;
     gap: 5px;
+
+    @media screen and (max-width: 1000px) {
+      max-width:70%;
+    }
+
+    @media screen and (max-width: 600px) {
+      max-width:85%;
+    }
+
+    @media screen and (max-width: 600px) {
+      max-width: 95%;
+    }
+
+    @media screen and (max-width: 600px) {
+      max-width: 100%;
+    }
   }
 
   &__friends-text {
@@ -30,7 +46,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 140%;
-    color: colors.$light-black;
+    color: colors.$super-light-black;
       @include media-mobile {
         padding: 10px;
         font-size: 14px;

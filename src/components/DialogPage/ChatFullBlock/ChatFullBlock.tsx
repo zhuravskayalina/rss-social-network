@@ -1,31 +1,24 @@
 import classNames from 'classnames/bind';
 import styles from './ChatFullBlock.module.scss';
 import { ChatFullBlockProps } from './ChatFullBlockTypes';
-import FriendFromDialogList from '../FriendFromDialogsList/FriendFromDialogsList';
 import Chat from '../Chat/Chat';
 import MessageTextArea from '../MessageTextArea/MessageTextArea';
+import UserInfo from '../UserInfoBlock/UserInfoBlock';
 
 const cx = classNames.bind(styles);
 
 const ChatFullBlock = ({
   value,
-  dialog,
+  chat,
   messages,
   handleSendClick,
   handleMessageInput,
-  handleClickChat,
-  userId,
   handleKeyDown,
 }: ChatFullBlockProps) => {
   return (
     <div className={cx('dialog__chat-block')}>
-      <FriendFromDialogList
-        myChat={dialog}
-        styleClass='chat'
-        handleClickChat={handleClickChat}
-        userId={userId}
-      />
-      <Chat dialog={dialog} messages={messages} />
+      <UserInfo sender={chat.senderInfo} senderId={chat.senderId} key={chat.senderId} />
+      <Chat dialog={chat} messages={messages} />
       <MessageTextArea
         value={value}
         handleSendClick={handleSendClick}

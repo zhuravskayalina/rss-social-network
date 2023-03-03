@@ -25,11 +25,9 @@ const MessageTextArea = ({
         onChange={handleMessageInput}
         onKeyDown={handleKeyDown}
       />
-      <div className={cx('dialog__buttons')}>
-        <button type='button' className={cx('dialog__icon', 'message')} onClick={handleSendClick}>
-          <MessageIcon />
-        </button>
-      </div>
+      <button type='button' className={cx('dialog__icon', 'message')} onClick={handleSendClick}>
+        <MessageIcon />
+      </button>
     </div>
   );
 };

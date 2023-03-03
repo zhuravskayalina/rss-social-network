@@ -113,12 +113,10 @@ const DialogPageWrapper = ({ user }: DialogPageProps) => {
       <ChatsList user={user} handleClickChat={handleClickChat} userId={user.id} />
       <ChatFullBlock
         value={value}
-        dialog={chat}
+        chat={chat}
         messages={messages}
         handleSendClick={handleSendClick}
         handleMessageInput={handleMessageInput}
-        handleClickChat={handleClickChat}
-        userId={user.id}
         handleKeyDown={handleKeyDown}
       />
     </div>

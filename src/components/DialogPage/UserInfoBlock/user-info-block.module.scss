@@ -1,0 +1,75 @@
+@use "./src/stylesheets/mixins/mixins";
+@use "../../../stylesheets/variables/numbers";
+@use './src/stylesheets/variables/colors';
+
+.user-info-link {
+  @include mixins.link-style-reset;
+  color: black;
+  display: block;
+  transition: .3s;
+
+  &:hover {
+    background-color: colors.$super-transparent-bright-blue;
+
+    .arrow {
+      transform: translateX(10px);
+    }
+  }
+}
+
+.arrow {
+  margin-right: 20px;
+  transition: .5s;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-bottom: 1px solid colors.$border-light-gray;
+
+  @media screen and (max-width: 600px) {
+    justify-content: space-between;
+    gap: 5px;
+  }
+
+  &__name {
+    font-size: 16px;
+
+    @media screen and (max-width: 600px) {
+      text-align: center;
+    }
+  }
+}
+
+.image {
+  &__container {
+    width: 55px;
+    height: 55px;
+
+    @media screen and (max-width: 600px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__box {
+    position: relative;
+  }
+
+  &__img {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    background-color: colors.$white;
+    border-radius: 50%;
+
+    @media screen and (max-width: 600px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+}

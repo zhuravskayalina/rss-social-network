@@ -2,7 +2,6 @@
 @use '../../../stylesheets/mixins/mixins';
 
 .dialog__chat {
-  border-left: 1px solid colors.$border-light-gray;
   border-bottom: 1px solid colors.$border-light-gray;
   overflow: scroll;
   height: 50vh;

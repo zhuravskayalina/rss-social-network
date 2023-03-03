@@ -1,8 +1,7 @@
 import { Chat } from '../../../types/interfaces';
 
 export interface FriendFromDialogListProps {
-  myChat: Chat;
-  styleClass: string;
+  chat: Chat;
   handleClickChat: (choiceChat: Chat) => void;
   userId: string;
 }

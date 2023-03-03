@@ -5,18 +5,20 @@
 .dialog {
   width: 75%;
   background-color: colors.$white;
+  border: 2px solid colors.$transparent-bright-blue;
   border-radius: numbers.$border-radius;
   margin: 50px auto;
   flex: 1 1 auto;
+  overflow: hidden;
 
   &__page {
     display: grid;
     grid-template-columns: 1fr 2.5fr;
     overflow: hidden;
-    @media screen and (max-width: 650px) {
+
+    @media screen and (max-width: 900px) {
       grid-template-columns: 1fr 4fr;
-      width: 85%;
-      margin: 12px 8% 20px 8%;
+      width: 95%;
     }
   }
 

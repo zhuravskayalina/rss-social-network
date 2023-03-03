@@ -6,20 +6,16 @@
 
   &__friend {
     display: flex;
-    flex-direction: row;
     align-items: center;
+    gap: 15px;
     text-decoration: none;
-    font-style: normal;
-    color: colors.$color-friend-name;
+    color: colors.$black;
     background-color: colors.$white;
     border-bottom: 1px solid colors.$border-light-gray;
-  }
-
-  &__friend.list {
     padding: 27px 20px;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 140%;
+    font-size: 15px;
+    font-weight: 400;
+    transition: .3s;
 
     @media screen and (max-width: 950px) {
       flex-direction: column;
@@ -29,34 +25,19 @@
       flex-direction: column;
       align-items: center;
     }
+
+    &:hover {
+      background-color: colors.$super-light-gray;
+    }
   }
 
-  &__friend.chat {
-    border-left: 1px solid colors.$border-light-gray;
-    padding: 16px;
-    border-radius: 0;
-  }
-
-  &__friend-list.active {
-    background: colors.$main-blue;
-    color: colors.$main-background;
-  }
-
-  &__image.chat {
+  &__image {
     width: 50px;
     height: 50px;
-    margin-right: 16px;
-  }
-
-  &__image.list {
-    width: 70px;
-    height: 70px;
-    margin-right: 12px;
 
     @media screen and (max-width: 950px) {
-      width: 50px;
-      height: 50px;
-      margin-right: 0;
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -70,69 +51,23 @@
     background-color: colors.$white;
     border-radius: 50%;
     border: none;
-  }
-
-  &__img.chat {
     width: 50px;
     height: 50px;
 
-    @include media-tablet {
+    @media screen and (max-width: 950px) {
       width: 40px;
       height: 40px;
     }
   }
 
-  &__img.list {
-    width: 70px;
-    height: 70px;
-
-    @media screen and (max-width: 950px) {
-      width: 50px;
-      height: 50px;
-    }
-  }
-
   &__friend-name {
-    font-style: normal;
-    font-weight: 500;
-    line-height: 140%;
-    color: colors.$black;
-  }
-
-  &__friend-name.list {
-    font-size: 18px;
+    text-align: center;
 
     @media screen and (max-width: 650px) {
-      margin-top: 5px;
-      font-size: 16px;
-      text-align: center;
+
     }
 
     @include media-mobile {
-      font-size: 14px;
     }
   }
-
-  &__friend-name-chat {
-    font-size: 24px;
-    @include media-tablet {
-      font-size: 20px;
-    }
-    @include media-mobile {
-      font-size: 18px;
-    }
-  }
-}
-
-.active {
-  color: colors.$white;
-  background-color: colors.$main-blue;
-}
-
-a {
-  text-decoration: none;
-}
-
-.dialog__friend:first-child:not(.dialog__friend.chat) {
-  border-radius: numbers.$border-radius 0 0 0;
 }
