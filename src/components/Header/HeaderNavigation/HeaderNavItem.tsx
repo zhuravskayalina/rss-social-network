@@ -26,7 +26,7 @@ const NavItem = ({
   };
 
   return (
-    <div
+    <button
       className={cx('nav__icon')}
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
@@ -40,7 +40,7 @@ const NavItem = ({
           <div className={cx('nav__cloud-wrapper')}>{description}</div>
         </div>
       )}
-    </div>
+    </button>
   );
 };
 
