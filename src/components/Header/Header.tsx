@@ -26,6 +26,10 @@ const Header = ({
     setShowNaw(!showNav);
   };
 
+  const clickNavMenuButtonHandler = () => {
+    setShowNaw(!showNav);
+  };
+
   useEffect(() =>
     document.addEventListener('keydown', (event) => {
       if (event.shiftKey && event.altKey && event.code === 'KeyM') {
@@ -43,7 +47,9 @@ const Header = ({
           </button>
         )}
         {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-        {user && showNav && <Navigation userId={user?.id} />}
+        {user && showNav && (
+          <Navigation userId={user?.id} clickNavMenuButtonHandler={clickNavMenuButtonHandler} />
+        )}
         <Link to={isLoggedIn ? `/profile/${user?.id}` : '/'}>
           <LogoIcon className={cx('header__logo-icon')} />
         </Link>

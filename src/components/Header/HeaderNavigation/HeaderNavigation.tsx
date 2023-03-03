@@ -6,15 +6,21 @@ import { navItems } from './HeaderNavigationDataBase';
 
 const cx = classNames.bind(styles);
 
-const Navigation = ({ userId }: UserNavProps) => {
+const Navigation = ({ userId, clickNavMenuButtonHandler }: UserNavProps) => {
   return (
-    <div className={cx('nav')}>
-      {navItems.map((item: NavItemInterface) => (
-        <li key={item.key} className={cx('nav__item')}>
-          <NavItem item={item} userId={userId} />
-        </li>
-      ))}
-    </div>
+    <nav className={cx('nav')}>
+      <ul>
+        {navItems.map((item: NavItemInterface) => (
+          <li key={item.key} className={cx('nav__item')}>
+            <NavItem
+              item={item}
+              userId={userId}
+              clickNavMenuButtonHandler={clickNavMenuButtonHandler}
+            />
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 
