@@ -16,50 +16,54 @@
   animation: showNav 1s forwards;
   transition: 1.5s;
 
-    &__item {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
+  @media screen and (max-width: 760px) {
+    top: 0;
+  }
 
-    &__icon {
-      position: relative;
-      display: flex;
-      cursor: pointer;
+  &__item {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 
-      svg {
-        width: 30px;
-      }
-    }
+  &__icon {
+    position: relative;
+    display: flex;
+    cursor: pointer;
 
-    &__icon-link:hover {
-      svg path {
-        stroke: colors.$main-blue;
-      }
+    svg {
+      width: 30px;
     }
+  }
 
-    &__toolTip {
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 140%;
-      position: absolute;
-      left: 27px;
-      top: -3px;
-      width: fit-content;
-      padding: 4px 20px;
-      margin-left: calc(100%);
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      color: colors.$white;
-      background-color: colors.$main-blue;
-      border-radius: numbers.$border-radius;
-      white-space: pre-line;
-      pointer-events: none;
-      box-shadow: 0 5px 10px 0 rgba(45, 91, 227, 0.5);
-      animation: showNav 1s forwards;
+  &__icon-link:hover {
+    svg path {
+      stroke: colors.$main-blue;
     }
+  }
+
+  &__toolTip {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    position: absolute;
+    left: 27px;
+    top: -3px;
+    width: fit-content;
+    padding: 4px 20px;
+    margin-left: calc(100%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: colors.$white;
+    background-color: colors.$main-blue;
+    border-radius: numbers.$border-radius;
+    white-space: pre-line;
+    pointer-events: none;
+    box-shadow: 0 5px 10px 0 rgba(45, 91, 227, 0.5);
+    animation: showNav 1s forwards;
+  }
 
   &__cloud-wrapper {
     position: relative;
@@ -75,18 +79,18 @@
   }
 }
 
-@keyframes showNav{
+@keyframes showNav {
   0% {
     opacity: 0;
-    transform:translateX(-100%);
+    transform: translateX(-100%);
   }
   50% {
     opacity: 0.8;
-    transform:translateX(0);
+    transform: translateX(0);
     transition: opacity 350ms, transform 350ms;
   }
   100% {
     opacity: 1;
-    transform:translateX(0);
+    transform: translateX(0);
   }
 }
