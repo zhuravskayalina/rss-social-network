@@ -14,17 +14,15 @@ const Friend = ({
 }: FriendProps) => {
   const intl = useIntl();
   return (
-    <div className={cx('friend')}>
-      <Link to={`/profile/${id}`}>
-        <div
-          className={cx('friend__photo')}
-          style={{
-            background: `url(${profilePhoto}) 50%/ cover border-box padding-box`,
-          }}
-        />
-      </Link>
+    <Link to={`/profile/${id}`} className={cx('friend')}>
+      <div
+        className={cx('friend__photo')}
+        style={{
+          background: `url(${profilePhoto}) 50%/ cover border-box padding-box`,
+        }}
+      />
       <div className={cx('friend__info')}>
-        <h3>
+        <h3 className={cx('friend__name')}>
           {name} {surname}
         </h3>
       </div>
@@ -37,7 +35,7 @@ const Friend = ({
           <DeleteIcon className={cx('friend__delete-icon')} />
         </button>
       )}
-    </div>
+    </Link>
   );
 };
 
