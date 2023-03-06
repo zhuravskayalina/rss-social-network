@@ -190,7 +190,7 @@ export const messages = {
     addToFriends: 'Добавить в друзья',
     sendMessage: 'отправить сообщение',
     mainDescription1: 'Находи новых друзей и общайся.',
-    mainDescription2: 'Более миллиона людей уже на Owl.',
+    mainDescription2: 'Более миллиарда людей уже на Owl.',
     mainDescription3: 'Будь вместе с нами!',
     users: 'Пользователи',
   },
