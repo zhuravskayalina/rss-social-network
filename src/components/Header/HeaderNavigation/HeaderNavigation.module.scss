@@ -71,7 +71,7 @@
       white-space: pre-line;
       pointer-events: none;
       box-shadow: 0 5px 10px 0 rgba(45, 91, 227, 0.5);
-      animation: showNav 1s forwards;
+      animation: showTool 1s forwards;
     }
 
   &__cloud-wrapper {
@@ -90,24 +90,34 @@
 
 @keyframes showNav {
   0% {
-    opacity: 0;
     transform: translateX(-100%);
   }
   50% {
-    opacity: 0.8;
     transform: translateX(0);
-    transition: opacity 350ms, transform 350ms;
+    transition: transform 350ms;
   }
   100% {
-    opacity: 1;
     transform: translateX(0);
   }
 }
 
 @keyframes hideNav {
   0% {
-    opacity: 1;
     transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0);
+    transition: transform 350ms;
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes showTool {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
   }
   50% {
     opacity: 0.8;
@@ -115,7 +125,7 @@
     transition: opacity 350ms, transform 350ms;
   }
   100% {
-    opacity: 0;
-    transform: translateX(-100%);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
