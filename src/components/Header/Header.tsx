@@ -49,7 +49,7 @@ const Header = ({
         )}
 
         {user && (
-          <Transition in={showNav} timeout={1000}>
+          <Transition in={showNav} timeout={200}>
             {(state) => (
               <Navigation
                 userId={user?.id}

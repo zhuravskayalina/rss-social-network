@@ -17,7 +17,7 @@ const NavItem = ({
   const mouseEnterHandler = () => {
     toolTipTimeout.current = setTimeout(() => {
       setShowToolTip(true);
-    }, 1600);
+    }, 1000);
   };
 
   const mouseLeaveHandler = () => {

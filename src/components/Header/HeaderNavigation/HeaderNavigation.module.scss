@@ -12,7 +12,7 @@
   left: 0;
   background-color: colors.$white;
   z-index: z-index.$tool-tip;
-  transition: 1.5s;
+  transition: 1s;
 
   @media screen and (max-width: 760px) {
     top: 0;
