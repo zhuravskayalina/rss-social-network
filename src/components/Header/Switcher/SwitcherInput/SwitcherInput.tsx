@@ -25,7 +25,7 @@ const SwitcherInput = ({ currentLocale, handleChange }: SwitcherInputProps) => {
         id='language-switcher'
         className={cx('header__switch-language-input')}
         onChange={handleChange}
-        defaultChecked={isRussian}
+        checked={isRussian}
       />
       <span className={cx('header__switch-language-circle')} />
     </label>
