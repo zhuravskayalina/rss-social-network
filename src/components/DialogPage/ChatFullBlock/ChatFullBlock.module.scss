@@ -1,0 +1,9 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/mixins/mixins';
+
+.dialog__chat-block {
+  display: flex;
+  flex-direction: column;
+  background: colors.$white;
+  border-left: 1px solid colors.$border-light-gray;
+}

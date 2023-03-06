@@ -1,0 +1,137 @@
+@use "./src/stylesheets/mixins/mixins";
+@use "../../../stylesheets/variables/numbers";
+@use './src/stylesheets/variables/colors';
+
+.cover {
+  width: 100%;
+  border-radius: numbers.$border-radius;
+  height: 340px;
+  background-image: url('../../../assets/images/wallpaper.png');
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+  &__gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 35px 50px;
+    border-radius: numbers.$border-radius;
+
+    @media (max-width: 600px) {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__info-block {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    width: 125px;
+    height: 125px;
+  }
+
+  &__img-box {
+    position: relative;
+  }
+
+  &__img {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    background-color: colors.$white;
+    border-radius: 50%;
+    border: 3px solid white;
+  }
+}
+
+.cover-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media (max-width: 600px) {
+    align-items: center;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 140%;
+    text-transform: capitalize;
+  }
+
+  &__location {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 200%;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+  }
+}
+
+.cover-controls {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  margin-left: auto;
+
+  &__link {
+    width: 40px;
+    height: 40px;
+    background-color: colors.$white;
+    border-radius: 50%;
+    @include mixins.center-content;
+    transition: .5s;
+    border: none;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    svg {
+      transition: .5s;
+      width: 20px;
+
+      path {
+        stroke: colors.$color-primary-blue;
+      }
+    }
+
+    &:hover:not([disabled]) {
+      cursor: pointer;
+      background-color: colors.$color-primary-blue;
+
+      svg {
+        scale: 1.1;
+
+        path {
+          stroke: colors.$white;
+        }
+      }
+    }
+
+    &[disabled] {
+      pointer-events: none;
+      background-color: colors.$half-transparent-gray;
+
+      svg {
+        path {
+          stroke: colors.$gray-text;
+        }
+      }
+    }
+  }
+}

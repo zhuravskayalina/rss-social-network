@@ -1,0 +1,90 @@
+@use '../../../stylesheets/variables/colors';
+@import '../../../stylesheets/mixins/mixins';
+
+.dialog {
+  &__message {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 45%;
+    margin-left: 0;
+    margin-bottom: 11px;
+    margin-top: 11px;
+    gap: 5px;
+
+    @media screen and (max-width: 1000px) {
+      max-width:70%;
+    }
+
+    @media screen and (max-width: 600px) {
+      max-width:85%;
+    }
+
+    @media screen and (max-width: 600px) {
+      max-width: 95%;
+    }
+
+    @media screen and (max-width: 600px) {
+      max-width: 100%;
+    }
+  }
+
+  &__friends-text {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  &__message.logged-user-message {
+    margin-left: auto;
+  }
+
+  &__message-text {
+    border-radius: 0 20px 20px 20px;
+    padding: 20px;
+    background: colors.$main-background;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: colors.$super-light-black;
+      @include media-mobile {
+        padding: 10px;
+        font-size: 14px;
+      }
+  }
+
+  &__message-text.friends-messages {
+    border-radius: 20px 0 20px 20px;
+  }
+
+  &__chat-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__chat-avatar-box {
+    position: relative;
+    width: 40px;
+  }
+
+  &__chat-avatar-img {
+    position: absolute;
+    object-fit: cover;
+    background-color: colors.$white;
+    border-radius: 50%;
+    border: 3px solid white;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+  }
+
+  &__message-time {
+    color: colors.$gray-placeholder-and-time;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    margin-left: auto;
+  }
+}
+

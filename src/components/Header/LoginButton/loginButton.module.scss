@@ -1,0 +1,32 @@
+@use '../../../stylesheets/mixins/mixins';
+@use '../../../stylesheets/variables/colors';
+@use './src/stylesheets/variables/numbers';
+
+.button {
+  @include mixins.link-style-reset;
+  @include mixins.center-content;
+  height: 35px;
+  text-transform: uppercase;
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+
+    .icon {
+      path {
+        stroke: colors.$color-switcher-language;
+      }
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.icon {
+  path {
+    transition: .3s;
+  }
+}

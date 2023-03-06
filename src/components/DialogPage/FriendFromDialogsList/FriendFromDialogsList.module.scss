@@ -1,0 +1,73 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/variables/numbers';
+@import '../../../stylesheets/mixins/mixins';
+
+.dialog {
+
+  &__friend {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: colors.$black;
+    background-color: colors.$white;
+    border-bottom: 1px solid colors.$border-light-gray;
+    padding: 27px 20px;
+    font-size: 15px;
+    font-weight: 400;
+    transition: .3s;
+
+    @media screen and (max-width: 950px) {
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: 650px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &:hover {
+      background-color: colors.$super-light-gray;
+    }
+  }
+
+  &__image {
+    width: 50px;
+    height: 50px;
+
+    @media screen and (max-width: 950px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__img-box {
+    position: relative;
+  }
+
+  &__img {
+    position: absolute;
+    object-fit: cover;
+    background-color: colors.$white;
+    border-radius: 50%;
+    border: none;
+    width: 50px;
+    height: 50px;
+
+    @media screen and (max-width: 950px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__friend-name {
+    text-align: center;
+
+    @media screen and (max-width: 650px) {
+
+    }
+
+    @include media-mobile {
+    }
+  }
+}

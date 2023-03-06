@@ -1,0 +1,38 @@
+@use "./assets/fonts/icon-font/icons-font.css";
+@use './stylesheets/base/reset';
+@use './stylesheets/variables/colors';
+@import 'assets/fonts/HelveticaNeue/stylesheet.css';
+
+#root {
+  height: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+.app {
+  background-color: colors.$main-background;
+  min-height: 100%;
+  font-family: "HelveticaNeueCyr", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.blue {
+  color: cornflowerblue;
+  font-size: 30px;
+}
+
+.rose {
+  color: rosybrown;
+  font-size: 30px;
+
+}

@@ -1,0 +1,33 @@
+.friends-heading {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.main {
+  display: flex;
+
+  &__friends {
+    width: 100%;
+
+    &-filter {
+      display: flex;
+      width: fit-content;
+      background: white;
+      border-radius: 8px;
+
+      .filter {
+        align-items: center;
+        margin: 0 auto;
+        padding: 11px;
+      }
+
+      select {
+        display: inline-block;
+        border: none;
+        background: white;
+        margin-left: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+@use './src/stylesheets/variables/colors';
+@use './src/stylesheets/mixins/mixins';
+
+$width: 120px;
+$height: $width;
+$border: 26px;
+$duration: 1s;
+$repetition: infinite;
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: colors.$main-background;
+  @include mixins.center-content;
+
+  &_small {
+    position: static;
+  }
+}
+
+.loader {
+  display: block;
+  width: $width;
+  height: $height;
+  transform-origin: calc($width / 2) calc($width / 2);
+  animation: spin $duration $repetition linear;
+
+  .spinner {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-width: 0 0 $border $border;
+    border-style: solid;
+    border-color: transparent;
+
+    &__yellow {
+      border-left-color: #ffff99;
+    }
+
+    &__orange {
+      border-left-color: #ffcc66;
+      transform: rotate(-45deg);
+    }
+
+    &__red {
+      border-left-color: #ff9966;
+      transform: rotate(-90deg);
+    }
+
+    &__pink {
+      border-left-color: #ff6699;
+      transform: rotate(-135deg);
+    }
+
+    &__violet {
+      border-left-color: #cc66cc;
+      transform: rotate(-180deg);
+    }
+
+    &__mauve {
+      border-left-color: #cc99cc;
+      transform: rotate(-225deg);
+    }
+
+    &__light-yellow {
+      border-left-color: #fffad5;
+      transform: rotate(-270deg);
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}

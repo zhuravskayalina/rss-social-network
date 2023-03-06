@@ -1,0 +1,35 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/mixins/mixins';
+
+.header {
+
+  &__input-wrapper {
+    position: relative;
+    width: fit-content;
+    display: none;
+  }
+
+  &__input {
+    display: flex;
+    background: colors.$color-header-background;
+    border: colors.$color-input-border;
+    box-shadow: colors.$color-input-shadow;
+    border-radius: 30px;
+    color: colors.$color-pure-white;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 10px 20px;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__input-search-icon {
+    position: absolute;
+    top: 7px;
+    right: 12px;
+    font-size: 22px;
+    color: colors.$color-input-search-icon;
+  }
+}

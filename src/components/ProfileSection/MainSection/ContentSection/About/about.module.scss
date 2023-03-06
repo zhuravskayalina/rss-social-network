@@ -1,0 +1,10 @@
+@use './src/stylesheets/variables/colors';
+@use './src/stylesheets/variables/numbers';
+@use './src/stylesheets/mixins/mixins';
+
+.about {
+  background-color: colors.$main-background;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

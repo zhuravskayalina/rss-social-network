@@ -1,0 +1,71 @@
+@use '../../stylesheets/mixins/mixins.scss';
+@use '../../stylesheets/variables/colors.scss';
+@use '../../stylesheets/variables/numbers';
+
+.gallery {
+
+  &__img {
+    display: inline-block;
+    margin: 3px;
+    width: 165px;
+    height: 165px;
+    object-fit: cover;
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+
+    @include mixins.media-desktop-middle {
+      width: 150px;
+      height: 150px;
+    }
+
+    @include mixins.media-tablet {
+      width: 120px;
+      height: 120px;
+    }
+
+    @include mixins.media-mobile {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  &__img:hover {
+    transform: scale(1.05);
+  }
+}
+
+.upload-box {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-bottom: 30px;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.save-btn {
+  background-color: colors.$color-primary-blue;
+  border: 1px solid colors.$color-primary-blue;
+  color: colors.$white;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: numbers.$border-radius;
+  height: auto;
+  padding: 0 21px;
+  font-size: 16px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: colors.$white;
+    border-color: colors.$white;
+    color: colors.$color-primary-blue;
+  }
+
+  @media screen and (max-width: 600px) {
+   padding: 13px;
+    width: fit-content;
+  }
+}

@@ -1,0 +1,105 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/variables/numbers';
+@use '../../../stylesheets/mixins/mixins';
+
+.auth {
+  &__heading {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 120%;
+    color: colors.$white;
+    padding: 24px;
+    background-color: colors.$color-primary-blue;
+    border-top-left-radius: numbers.$border-radius;
+    border-top-right-radius: numbers.$border-radius;
+    @include mixins.center-content;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__form {
+    width: 100%;
+    padding: 40px 40px 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__signup-btn {
+    @include mixins.link-style-reset;
+    color: colors.$color-primary-blue;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+.input {
+  border: 1px solid colors.$half-transparent-gray;
+  padding: 16px;
+  border-radius: numbers.$border-radius;
+  width: 100%;
+  font-size: 16px;
+  color: #71728C;
+
+  &_error {
+    border-color: colors.$error;
+
+    &:focus-visible {
+      border-color: colors.$half-transparent-gray;
+    }
+  }
+
+  &:focus-visible {
+    outline: 1px solid colors.$color-primary-blue;
+  }
+}
+
+.link {
+  width: 100%;
+
+  &__disabled {
+    pointer-events: none;
+  }
+}
+
+.questions {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cancel-btn {
+  @include mixins.center-content;
+  @include mixins.link-style-reset;
+  width: 82%;
+  border: 1px solid colors.$color-primary-blue;
+  border-radius: numbers.$border-radius-buttons;
+  color: colors.$color-primary-blue;
+  font-weight: 500;
+  padding: 16px 20px;
+  font-size: 18px;
+  background-color: colors.$white;
+  margin-bottom: 12px;
+  transition: .2s;
+
+  &:hover {
+    cursor: pointer;
+    color: colors.$white;
+    background-color: colors.$color-primary-blue;
+  }
+}
+
+.questions {
+  .cancel-btn {
+    width: 88%;
+  }
+}

@@ -1,0 +1,26 @@
+.newsfeed {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__posts-filter {
+    display: flex;
+    width: 250px;
+    height: 48px;
+    background: white;
+    border-radius: 8px;
+
+    .filter {
+      align-items: center;
+      margin: 0 auto;
+      padding: 12px;
+    }
+
+    select {
+      display: inline-block;
+      border: none;
+      background: white;
+      margin-left: 1rem;
+    }
+  }
+}

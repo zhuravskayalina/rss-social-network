@@ -1,0 +1,34 @@
+@import '../../stylesheets/mixins/mixins.scss';
+@import '../../stylesheets/variables/colors.scss';
+
+.gallery {
+
+  &__img {
+    display: inline-block;
+    margin: 3px;
+    width: 165px;
+    height: 165px;
+    object-fit: cover;
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+
+    @include media-desktop-middle {
+      width: 150px;
+      height: 150px;
+    }
+
+    @include media-tablet {
+      width: 120px;
+      height: 120px;
+    }
+
+    @include media-mobile {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  &__img:hover {
+    transform: scale(1.05);
+  }
+}

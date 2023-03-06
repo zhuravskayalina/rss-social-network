@@ -1,0 +1,63 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/variables/numbers';
+@use '../../../stylesheets/mixins/mixins';
+
+.dialog {
+  width: 75%;
+  background-color: colors.$white;
+  border: 2px solid colors.$transparent-bright-blue;
+  border-radius: numbers.$border-radius;
+  margin: 50px auto;
+  flex: 1 1 auto;
+  overflow: hidden;
+
+  &__page {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    overflow: hidden;
+
+    @media screen and (max-width: 900px) {
+      grid-template-columns: 1fr 4fr;
+      width: 95%;
+    }
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__empty.dialog{
+    padding: 30px
+  }
+
+  &__empty-message {
+    color: colors.$light-black;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+  }
+
+  &__page-goToFriendsBtn {
+    width: 300px;
+    padding: 16px 20px;
+    border: 1px solid colors.$color-primary-blue;
+    border-radius: numbers.$border-radius-buttons;
+    color: colors.$color-primary-blue;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    background-color: colors.$white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: .2s;
+    @include mixins.center-content;
+    @include mixins.link-style-reset;
+    &:hover {
+      cursor: pointer;
+      color: colors.$white;
+      background-color: colors.$color-primary-blue;
+    }
+  }
+}

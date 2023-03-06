@@ -1,0 +1,46 @@
+@use './src/stylesheets/variables/colors';
+
+.like {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+
+  &__btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-right: 5px;
+
+    &_liked {
+    }
+  }
+
+  &__icon {
+    &:hover {
+      cursor: pointer;
+      fill: colors.$like;
+
+      path {
+        fill: colors.$like;
+        stroke: colors.$like;
+      }
+    }
+
+    &_liked {
+      fill: colors.$like;
+
+      path {
+        fill: colors.$like;
+        stroke: colors.$like;
+      }
+    }
+  }
+
+  &__counter {
+    color: colors.$main-gray;
+  }
+}

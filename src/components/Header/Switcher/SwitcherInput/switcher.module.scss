@@ -1,0 +1,48 @@
+@import '../../../../stylesheets/variables/colors';
+
+.header {
+
+  &__switch-language {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 23px;
+    margin: 0 6px;
+  }
+
+  &__switch-language-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &__switch-language-circle {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-switcher-language;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 17px;
+  }
+
+  &__switch-language-circle:before {
+    position: absolute;
+    content: "";
+    height: 21px;
+    width: 21px;
+    left: 1px;
+    top: 1px;
+    background-color: $color-pure-white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+
+  &__switch-language-input:checked +  &__switch-language-circle:before {
+    transform: translateX(21px);
+  }
+}
+

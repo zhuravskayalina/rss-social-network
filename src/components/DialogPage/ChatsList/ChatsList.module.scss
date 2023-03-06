@@ -1,0 +1,11 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/mixins/mixins';
+@use '../../../stylesheets/variables/numbers';
+
+.dialog__chats-wrapper{
+  overflow: scroll;
+}
+
+.dialog__chats-wrapper:first-child {
+  border-radius: numbers.$border-radius;
+}

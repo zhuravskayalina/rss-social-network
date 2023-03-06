@@ -1,0 +1,55 @@
+@use '../../../../stylesheets/variables/colors';
+@use '../../../../stylesheets/mixins/mixins';
+
+$border-radius: 6px;
+
+.nav-item {
+  flex-grow: 1;
+  text-align: center;
+
+  &:first-child {
+    .nav-item__link {
+      border-bottom-left-radius: $border-radius;
+    }
+  }
+
+  &:last-child {
+    .nav-item__link {
+      border-bottom-right-radius: $border-radius;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 20px 0;
+    @include mixins.link-style-reset;
+    color: colors.$main-gray;
+    text-transform: capitalize;
+    border-bottom: 4px solid transparent;
+
+    &_active {
+      color: colors.$black;
+      border-bottom: 4px solid colors.$main-blue;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    &:first-child {
+      .nav-item__link {
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    &:nth-child(3) {
+      .nav-item__link {
+        border-bottom-left-radius: $border-radius;
+      }
+    }
+  }
+}
+

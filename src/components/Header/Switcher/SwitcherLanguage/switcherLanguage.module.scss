@@ -1,0 +1,14 @@
+@use '../../../../stylesheets/variables/colors';
+
+.switcher__text-language {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 15px;
+  color: colors.$color-pure-white;
+  user-select: none;
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+}

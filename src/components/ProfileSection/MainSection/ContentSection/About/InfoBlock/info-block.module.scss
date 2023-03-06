@@ -1,0 +1,20 @@
+@use './src/stylesheets/variables/colors';
+@use './src/stylesheets/variables/numbers';
+
+.info-block {
+  background-color: colors.$white;
+  border-radius: numbers.$border-radius;
+  padding: 35px;
+
+  &__heading {
+    font-weight: 700;
+    font-size: 20px;
+    color: colors.$black;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+  }
+
+  &__list {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,33 @@
+@use './src/stylesheets/variables/numbers';
+@use './src/stylesheets/variables/colors';
+
+.textarea {
+  font-family: "HelveticaNeueCyr", sans-serif;
+  padding: 10px;
+  border: none;
+  border-radius: numbers.$border-radius;
+  height: 180px;
+  resize: none;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.add-btn {
+  margin-top: 20px;
+  padding: 8px 26px;
+  border-radius: numbers.$border-radius;
+  background-color: colors.$white;
+  width: fit-content;
+  margin-left: auto;
+  border: 1px solid transparent;
+  transition: .5s;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 17px 0 colors.$gray-btn-shadow;
+  }
+}
+
+

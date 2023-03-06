@@ -1,0 +1,67 @@
+@use './src/stylesheets/variables/colors';
+
+.friend {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  margin: 20px 0;
+  color: colors.$black;
+  text-decoration: none;
+  transition: .5s;
+
+  &:hover {
+    cursor: pointer;
+
+    .friend__photo {
+      transform: scale(1.1);
+    }
+  }
+
+  &__photo {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+    border-radius: 50%;
+    transition: .5s;
+  }
+
+  &__name {
+    text-decoration: none;
+  }
+
+  &__info {
+    width: 50%;
+    margin: 0 15px;
+
+    p {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+
+  &__delete {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 14px;
+    right: 10px;
+
+    &:hover {
+      cursor: pointer;
+
+      .post__delete-icon {
+        path {
+          fill: colors.$main-gray;
+        }
+      }
+    }
+
+    &-delete-icon {
+      width: 15px;
+    }
+  }
+}
