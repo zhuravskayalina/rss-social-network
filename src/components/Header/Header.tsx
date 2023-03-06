@@ -47,14 +47,6 @@ const Header = ({
             <MenuIcon className={cx('header__menu-icon')} />
           </button>
         )}
-        {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-        {/* {user && showNav && ( */}
-        {/*   <Navigation */}
-        {/*     userId={user?.id} */}
-        {/*     clickNavMenuButtonHandler={clickNavMenuButtonHandler} */}
-        {/*     animationClass={hideAnimation ? 'nav_animation-left' : 'nav_animation-right'} */}
-        {/*   /> */}
-        {/* )} */}
 
         {user && (
           <Transition in={showNav} timeout={1000}>
