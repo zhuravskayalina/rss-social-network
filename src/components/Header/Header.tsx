@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { Transition } from 'react-transition-group';
 import { ReactComponent as MenuIcon } from '../../assets/icons/menu.svg';
 import { ReactComponent as LogoIcon } from '../../assets/icons/headerFullLogo.svg';
 import LoginButtonHeader from './LoginButton/LoginButton';
@@ -20,10 +21,18 @@ const Header = ({
   logOut,
   user,
 }: HeaderProps) => {
+  const nodeRef = useRef(null);
+  const [notFirsRender, setNotFirsRender] = useState(false);
   const [showNav, setShowNaw] = useState(false);
 
   const clickMenuHandler = () => {
     setShowNaw(!showNav);
+    setNotFirsRender(true);
+  };
+
+  const clickNavMenuButtonHandler = () => {
+    setShowNaw(!showNav);
+    setNotFirsRender(true);
   };
 
   useEffect(() =>
@@ -42,8 +51,18 @@ const Header = ({
             <MenuIcon className={cx('header__menu-icon')} />
           </button>
         )}
-        {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-        {user && showNav && <Navigation userId={user?.id} />}
+
+        {user && notFirsRender && (
+          <Transition in={showNav} timeout={500} nodeRef={nodeRef}>
+            {(state) => (
+              <Navigation
+                userId={user?.id}
+                clickNavMenuButtonHandler={clickNavMenuButtonHandler}
+                animationClass={`nav_animation-${state}`}
+              />
+            )}
+          </Transition>
+        )}
         <Link to={isLoggedIn ? `/profile/${user?.id}` : '/'}>
           <LogoIcon className={cx('header__logo-icon')} />
         </Link>

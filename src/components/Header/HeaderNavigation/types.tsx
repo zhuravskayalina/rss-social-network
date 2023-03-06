@@ -11,8 +11,11 @@ export interface NavItemInterface {
 export interface NavProps {
   item: NavItemInterface;
   userId: string;
+  clickNavMenuButtonHandler: () => void;
 }
 
 export interface UserNavProps {
   userId: string;
+  clickNavMenuButtonHandler: () => void;
+  animationClass: string;
 }

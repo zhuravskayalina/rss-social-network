@@ -7,17 +7,23 @@
   position: absolute;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 50px;
-  padding: 40px 20px;
+  padding: 15px 0px;
   top: 70px;
   left: 0;
   background-color: colors.$white;
   z-index: z-index.$tool-tip;
-  animation: showNav 1s forwards;
-  transition: 1.5s;
+  transition: 1s;
 
   @media screen and (max-width: 760px) {
     top: 0;
+  }
+
+  &_animation-entered {
+    animation: showNav 1s forwards;
+  }
+
+  &_animation-exited {
+    animation: hideNav 1s forwards;
   }
 
   &__item {
@@ -30,40 +36,43 @@
     position: relative;
     display: flex;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 25px 23px;
 
     svg {
       width: 30px;
     }
   }
 
-  &__icon-link:hover {
+  &__item:hover {
     svg path {
       stroke: colors.$main-blue;
     }
   }
 
-  &__toolTip {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 140%;
-    position: absolute;
-    left: 27px;
-    top: -3px;
-    width: fit-content;
-    padding: 4px 20px;
-    margin-left: calc(100%);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    color: colors.$white;
-    background-color: colors.$main-blue;
-    border-radius: numbers.$border-radius;
-    white-space: pre-line;
-    pointer-events: none;
-    box-shadow: 0 5px 10px 0 rgba(45, 91, 227, 0.5);
-    animation: showNav 1s forwards;
-  }
+    &__toolTip {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 140%;
+      position: absolute;
+      left: 27px;
+      top: 25px;
+      width: fit-content;
+      padding: 4px 20px;
+      margin-left: calc(100%);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: colors.$white;
+      background-color: colors.$main-blue;
+      border-radius: numbers.$border-radius;
+      white-space: pre-line;
+      pointer-events: none;
+      box-shadow: 0 5px 10px 0 rgba(45, 91, 227, 0.5);
+      animation: showTool 1s forwards;
+    }
 
   &__cloud-wrapper {
     position: relative;
@@ -80,6 +89,32 @@
 }
 
 @keyframes showNav {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+    transition: transform 350ms;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hideNav {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0);
+    transition: transform 350ms;
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes showTool {
   0% {
     opacity: 0;
     transform: translateX(-100%);

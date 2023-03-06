@@ -6,14 +6,18 @@ import { NavProps } from './types';
 
 const cx = classNames.bind(styles);
 
-const NavItem = ({ item: { icon, description, link, sublink }, userId }: NavProps) => {
+const NavItem = ({
+  item: { icon, description, link, sublink },
+  userId,
+  clickNavMenuButtonHandler,
+}: NavProps) => {
   const [showToolTip, setShowToolTip] = useState(false);
   const toolTipTimeout = useRef<NodeJS.Timeout>();
 
   const mouseEnterHandler = () => {
     toolTipTimeout.current = setTimeout(() => {
       setShowToolTip(true);
-    }, 750);
+    }, 1000);
   };
 
   const mouseLeaveHandler = () => {
@@ -22,20 +26,21 @@ const NavItem = ({ item: { icon, description, link, sublink }, userId }: NavProp
   };
 
   return (
-    <div
-      className={cx('nav__icon')}
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
-    >
-      <Link to={`${link}/${userId}${sublink}`} className={cx('nav__icon-link')}>
+    <Link to={`${link}/${userId}${sublink}`} className={cx('nav__icon-link')}>
+      <button
+        className={cx('nav__icon')}
+        onMouseEnter={mouseEnterHandler}
+        onMouseLeave={mouseLeaveHandler}
+        onClick={() => clickNavMenuButtonHandler()}
+      >
         {icon}
-      </Link>
-      {showToolTip && (
-        <div className={cx('nav__toolTip')}>
-          <div className={cx('nav__cloud-wrapper')}>{description}</div>
-        </div>
-      )}
-    </div>
+        {showToolTip && (
+          <div className={cx('nav__toolTip')}>
+            <div className={cx('nav__cloud-wrapper')}>{description}</div>
+          </div>
+        )}
+      </button>
+    </Link>
   );
 };
 
