@@ -17,4 +17,5 @@ export interface NavProps {
 export interface UserNavProps {
   userId: string;
   clickNavMenuButtonHandler: () => void;
+  animationClass: string;
 }

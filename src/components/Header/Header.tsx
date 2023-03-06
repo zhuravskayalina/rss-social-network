@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import { Transition } from 'react-transition-group';
 import { ReactComponent as MenuIcon } from '../../assets/icons/menu.svg';
 import { ReactComponent as LogoIcon } from '../../assets/icons/headerFullLogo.svg';
 import LoginButtonHeader from './LoginButton/LoginButton';
@@ -47,8 +48,24 @@ const Header = ({
           </button>
         )}
         {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-        {user && showNav && (
-          <Navigation userId={user?.id} clickNavMenuButtonHandler={clickNavMenuButtonHandler} />
+        {/* {user && showNav && ( */}
+        {/*   <Navigation */}
+        {/*     userId={user?.id} */}
+        {/*     clickNavMenuButtonHandler={clickNavMenuButtonHandler} */}
+        {/*     animationClass={hideAnimation ? 'nav_animation-left' : 'nav_animation-right'} */}
+        {/*   /> */}
+        {/* )} */}
+
+        {user && (
+          <Transition in={showNav} timeout={1000}>
+            {(state) => (
+              <Navigation
+                userId={user?.id}
+                clickNavMenuButtonHandler={clickNavMenuButtonHandler}
+                animationClass={`nav_animation-${state}`}
+              />
+            )}
+          </Transition>
         )}
         <Link to={isLoggedIn ? `/profile/${user?.id}` : '/'}>
           <LogoIcon className={cx('header__logo-icon')} />

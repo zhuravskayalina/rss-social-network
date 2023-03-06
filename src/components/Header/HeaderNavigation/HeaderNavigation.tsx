@@ -6,9 +6,9 @@ import { navItems } from './HeaderNavigationDataBase';
 
 const cx = classNames.bind(styles);
 
-const Navigation = ({ userId, clickNavMenuButtonHandler }: UserNavProps) => {
+const Navigation = ({ userId, clickNavMenuButtonHandler, animationClass }: UserNavProps) => {
   return (
-    <nav className={cx('nav')}>
+    <nav className={cx('nav', `${animationClass}`)}>
       <ul>
         {navItems.map((item: NavItemInterface) => (
           <li key={item.key} className={cx('nav__item')}>
