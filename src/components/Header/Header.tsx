@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { Transition } from 'react-transition-group';
@@ -21,14 +21,18 @@ const Header = ({
   logOut,
   user,
 }: HeaderProps) => {
+  const nodeRef = useRef(null);
+  const [notFirsRender, setNotFirsRender] = useState(false);
   const [showNav, setShowNaw] = useState(false);
 
   const clickMenuHandler = () => {
     setShowNaw(!showNav);
+    setNotFirsRender(true);
   };
 
   const clickNavMenuButtonHandler = () => {
     setShowNaw(!showNav);
+    setNotFirsRender(true);
   };
 
   useEffect(() =>
@@ -48,8 +52,8 @@ const Header = ({
           </button>
         )}
 
-        {user && (
-          <Transition in={showNav} timeout={500}>
+        {user && notFirsRender && (
+          <Transition in={showNav} timeout={500} nodeRef={nodeRef}>
             {(state) => (
               <Navigation
                 userId={user?.id}
