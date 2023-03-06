@@ -7,16 +7,12 @@ import styles from './DialogsPageWrapper.module.scss';
 import ChatsList from '../ChatsList/ChatsList';
 import ChatFullBlock from '../ChatFullBlock/ChatFullBlock';
 import { DialogPageProps } from './DialogsPageWrapperProps';
-import { Chat, User } from '../../../types/interfaces';
+import { Chat, HotKeys, User } from '../../../types/interfaces';
 
 interface ChatMessageInterface {
   text: string;
   time: string;
   isOwnMessage: boolean;
-}
-
-interface HotKeys {
-  [key: string]: () => void;
 }
 
 const cx = classNames.bind(styles);

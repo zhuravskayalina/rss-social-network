@@ -19,6 +19,10 @@
       }
     }
   }
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .icon {

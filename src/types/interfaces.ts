@@ -67,3 +67,7 @@ export interface FriendType {
 export interface NewFriend {
   id: string;
 }
+
+export interface HotKeys {
+  [key: string]: () => void;
+}

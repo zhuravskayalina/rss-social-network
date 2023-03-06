@@ -1,9 +1,8 @@
 import classNames from 'classnames/bind';
 import { MessageProps } from './MessageTypes';
 import styles from './Message.module.scss';
-import noAvatarImg from '../../../assets/images/user-avatar.png';
 
-const activeClass = 'friends-messages';
+const activeClass = 'logged-user-message';
 
 const cx = classNames.bind(styles);
 
@@ -16,7 +15,7 @@ const Message = ({ message: { text, time, isOwnMessage }, senderAvatar }: Messag
             <div className={cx('dialog__chat-avatar-box')}>
               <img
                 className={cx('dialog__chat-avatar-img')}
-                src={`${senderAvatar}` || noAvatarImg}
+                src={senderAvatar}
                 alt='My friend`s avatar'
               />
             </div>

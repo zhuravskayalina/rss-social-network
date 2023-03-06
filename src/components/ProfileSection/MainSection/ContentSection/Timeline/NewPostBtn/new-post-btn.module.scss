@@ -12,6 +12,10 @@
   font-size: 16px;
   @include mixins.center-content;
 
+  &:focus-visible {
+    outline: none;
+  }
+
   &__icon {
     color: colors.$main-blue;
     font-size: 26px;
