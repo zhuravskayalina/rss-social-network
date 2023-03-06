@@ -26,21 +26,21 @@ const NavItem = ({
   };
 
   return (
-    <button
-      className={cx('nav__icon')}
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
-      onClick={() => clickNavMenuButtonHandler()}
-    >
-      <Link to={`${link}/${userId}${sublink}`} className={cx('nav__icon-link')}>
+    <Link to={`${link}/${userId}${sublink}`} className={cx('nav__icon-link')}>
+      <button
+        className={cx('nav__icon')}
+        onMouseEnter={mouseEnterHandler}
+        onMouseLeave={mouseLeaveHandler}
+        onClick={() => clickNavMenuButtonHandler()}
+      >
         {icon}
-      </Link>
-      {showToolTip && (
-        <div className={cx('nav__toolTip')}>
-          <div className={cx('nav__cloud-wrapper')}>{description}</div>
-        </div>
-      )}
-    </button>
+        {showToolTip && (
+          <div className={cx('nav__toolTip')}>
+            <div className={cx('nav__cloud-wrapper')}>{description}</div>
+          </div>
+        )}
+      </button>
+    </Link>
   );
 };
 
