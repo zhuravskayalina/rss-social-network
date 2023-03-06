@@ -35,6 +35,9 @@ use can use this loggins and passwords to visit already existing profiles:
 * **Ctrl + Alt + L** - change application language;
 * **Ctrl + Alt + M** - open/close side menu;
 * **Enter** - send message at the dialogue window;
+* **Enter + Shift** - add new post when you are at the new post modal window;
+* **Esc** - close modal window;
+* **Esc** - close photo gallery;
 
 Please, note that upload images size (unfortunately) should be really small.
 
@@ -88,9 +91,12 @@ ___
 
 Так же, вы можете использовать следующие **HOT KEYS**:
 
-* Shift + Alt + L = смена языка приложения;
-* Shift + Alt + M = открытие/закрытие бокового меню;
-* Enter - отправка сообщения в чате;
+* **Shift + Alt + L** - смена языка приложения;
+* **Shift + Alt + M** - открытие/закрытие бокового меню;
+* **Enter** - отправка сообщения в чате;
+* **Enter + Shift** - добавить новый пост;
+* **Esc** - свернуть модальное окно;
+* **Esc** - закрыть фото галлерею;
 
 К сожалению, из-за особенностей нашего сервера размер загружаемых фотографий должен быть очень маленьким :(
 
