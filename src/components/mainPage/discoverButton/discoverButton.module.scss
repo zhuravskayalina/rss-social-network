@@ -54,6 +54,10 @@
       width: 211px;
       border-radius: 25px;
       justify-content: flex-end;
+
+      &:hover {
+        animation: none;
+      }
     }
 
     .discoverButton__text {
@@ -69,7 +73,6 @@
     margin: 30px auto;
   }
 }
-
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
