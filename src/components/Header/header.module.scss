@@ -1,0 +1,90 @@
+@use '../../stylesheets/variables/colors';
+@use '../../stylesheets/mixins/mixins';
+
+.header {
+  background-color: colors.$color-header-background;
+  color: colors.$white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+
+  &__logo-block {
+    @include mixins.center-content;
+    gap: 20px;
+  }
+
+  &__controls {
+    @include mixins.center-content;
+    gap: 20px;
+
+    @media screen and (max-width: 530px) {
+      flex-direction: column;
+      gap: 7px;
+    }
+  }
+
+  &__menu-btn {
+    top: 17px;
+    left: 12px;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__logo-icon {
+    width: 110px;
+  }
+
+  @media screen and (max-width: 760px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.avatar-btn {
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  position: relative;
+  margin-right: 10px;
+  @include mixins.center-content;
+  border: 2px solid colors.$white;
+  transition: .3s;
+
+  &:hover {
+    cursor: pointer;
+    border-color: colors.$color-switcher-language;
+  }
+}
+
+.avatar-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+
+.login-controls {
+  display: flex;
+}

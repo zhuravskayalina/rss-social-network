@@ -1,0 +1,67 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/mixins/mixins';
+
+.dialog {
+
+  &__write {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding-right: 10px;
+
+    @include mixins.media-mobile {
+    }
+  }
+
+  &__write-input {
+    width: 85%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    border: none;
+    height: 100%;
+    padding-left: 10px;
+
+    @include mixins.media-mobile {
+      font-size: 14px;
+    }
+  }
+
+  &__write-input::placeholder {
+    color: colors.$gray-placeholder-and-time;
+  }
+
+  &__write-input:focus {
+    outline: none;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__icon {
+    border: none;
+    background-color: colors.$white;
+
+    svg {
+      transition: .3s;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__icon:hover.message {
+    svg {
+      transform: scale(1.1);
+    }
+
+    svg path {
+      stroke: colors.$messages-icon-hover;
+    }
+  }
+}

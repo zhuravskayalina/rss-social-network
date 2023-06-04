@@ -1,0 +1,115 @@
+@use '../../stylesheets/variables/colors';
+@use '../../stylesheets/mixins/mixins';
+
+.footer {
+  padding: 120px 110px 0 200px;
+  background: colors.$color-pure-white;
+
+  @include mixins.media-tablet-for-footer {
+    padding: 60px 55px 0 100px;
+  }
+
+  @include mixins.media-mobile {
+    padding: 30px 22px 0 50px;
+  }
+
+  &__menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 2.5%;
+    justify-items: start;
+    align-items: start;
+    margin-bottom: 60px;
+    @include mixins.media-tablet-for-footer {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 30px;
+    }
+
+    @include mixins.media-mobile {
+      grid-template-columns: repeat(1, 1fr);
+      margin-bottom: 15px;
+    }
+  }
+
+  &__logo-icon {
+    width: 60%;
+    display: inline-block;
+    margin-bottom: 20px;
+
+    @include mixins.media-tablet-for-footer {
+      width: 30%;
+    }
+
+    @include mixins.media-mobile {
+      width: 15%;
+    }
+  }
+
+  &__blocks-names {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 36px;
+    color: colors.$color-pure-black;
+    margin: 0;
+    @include mixins.media-tablet-for-footer {
+      font-size: 18px;
+    }
+
+    @include mixins.media-mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__text, &__links {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: colors.$color-footer-content;
+    text-decoration: none;
+    @include mixins.media-tablet-for-footer {
+      font-size: 14px;
+    }
+  }
+
+  &__links:hover {
+    color: colors.$color-primary-blue;
+    cursor: pointer;
+    text-decoration: underline solid colors.$color-primary-blue;
+  }
+
+  &__text {
+    text-align: left;
+  }
+
+  &__block-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__decor-line {
+    padding: 10px 0;
+  }
+
+  &__copyright {
+    gap: 15px;
+    padding: 15px 0;
+    border-top: 1px solid colors.$color-border;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: colors.$color-footer-content;
+
+    @include mixins.media-tablet-for-footer {
+      font-size: 14px;
+    }
+  }
+}
+
+.rss-logo {
+  display: block;
+  width: 70px;
+}

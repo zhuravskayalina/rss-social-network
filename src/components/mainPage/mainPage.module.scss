@@ -1,0 +1,79 @@
+@use '../../stylesheets/variables/colors.scss';
+@use '../../stylesheets/mixins/mixins.scss';
+
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  height: 700px;
+  background: url(../../assets/images/main_background.png);
+  background-size: cover;
+  background-position: center;
+  background-color: colors.$main-blue;
+  color: colors.$color-pure-white;
+
+  @include mixins.media-desktop-middle {
+    flex-direction: column-reverse;
+    justify-content: start;
+    height: fit-content;
+  }
+
+  &__content {
+    margin-top: 150px;
+    align-self: center;
+    text-align: start;
+
+    @include mixins.media-desktop-middle {
+      margin-top: 0;
+      width: 500px;
+      text-align: center;
+    }
+
+    @include mixins.media-mobile {
+      width: 340px;
+    }
+
+    &-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+
+      @include mixins.media-mobile {
+        font-size: 1.8rem;
+      }
+    }
+
+    &-count {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+
+      @include mixins.media-mobile {
+        font-size: 1.8rem;
+      }
+    }
+
+    &-text {
+      line-height: 1.75rem;
+      margin: 15px 0 40px 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: colors.$color-pure-white;
+    }
+
+  }
+
+  &__img {
+    background: url(../../assets/images/main_img.png) center;
+    background-size: cover;
+    align-self: center;
+    width: 680px;
+    height: 584px;
+
+    @include mixins.media-desktop-middle {
+      margin-bottom: 30px;
+      width: 80vw;
+      height: 70vw;
+    }
+  }
+}

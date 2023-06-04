@@ -1,0 +1,13 @@
+@use '../../../stylesheets/variables/colors';
+@use '../../../stylesheets/mixins/mixins';
+
+.dialog__chat {
+  border-bottom: 1px solid colors.$border-light-gray;
+  overflow: scroll;
+  height: 50vh;
+  padding: 0 20px;
+}
+
+.dialog__chat::-webkit-scrollbar {
+  width: 0;
+}

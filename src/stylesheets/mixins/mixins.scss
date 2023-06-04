@@ -1,0 +1,33 @@
+@mixin center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin link-style-reset {
+  text-decoration: none;
+}
+
+@mixin media-desktop-middle {
+  @media (max-width: 1100px) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (min-width: 770.1px) {@content;}
+}
+
+@mixin media-tablet {
+  @media (max-width: 770px) {
+    @content;
+  }
+}
+
+@mixin media-mobile {
+  @media (max-width: 500px) {@content;}
+}
+
+@mixin media-tablet-for-footer {
+  @media (max-width: 960px) {@content;}
+}

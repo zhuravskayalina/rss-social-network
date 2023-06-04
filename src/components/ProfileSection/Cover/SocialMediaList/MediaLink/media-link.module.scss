@@ -1,0 +1,42 @@
+@use "./src/stylesheets/mixins/mixins";
+@use "./src/stylesheets/variables/colors";
+
+.link {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: .5s;
+
+  &__item {
+    @include mixins.center-content;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__icon {
+    width: 17px;
+    transition: .5s;
+
+    &__inst {
+      width: 25px;
+    }
+  }
+
+  &:hover {
+    .link__icon {
+      scale: 1.2;
+    }
+  }
+
+  &_instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  }
+
+  &_twitter {
+    background: #1E9CED;
+  }
+
+  &_linkedin {
+    background: #0B66C0;
+  }
+}

@@ -1,0 +1,21 @@
+@use './src/stylesheets/variables/colors';
+@use './src/stylesheets/mixins/mixins';
+
+.edit-btn,
+.save-btn {
+  border: none;
+  background-color: transparent;
+  @include mixins.center-content;
+  padding: 0;
+  width: 20px;
+  margin-left: 10px;
+
+  &:hover {
+    cursor: pointer;
+
+    .edit-icon path,
+    .save-icon path {
+      stroke: colors.$black;
+    }
+  }
+}
